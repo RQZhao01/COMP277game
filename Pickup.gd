@@ -9,3 +9,5 @@ func _on_body_entered(body):
 			queue_free()  # Remove the item from the scene, making it disappear
 		else:
 			print("max reached")
+			
+			print("lmao")
