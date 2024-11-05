@@ -70,7 +70,7 @@ func _physics_process(delta: float) -> void:
 func add_medkit(): #add metkit count
 	if medkit_count < MAX_MEDKITS:
 		medkit_count +=1
-		print("get 1 medkit")
+		print("get 1 medkit!!!!!!")
 	else:
 		pass
 	
