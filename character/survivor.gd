@@ -59,9 +59,9 @@ func _physics_process(delta: float) -> void:
 	velocity = vector.rotated(self.rotation +PI/2)
 	
 	if velocity != Vector2(0,0):
-		$AnimatedSprite2D.play("move")
+		$AnimatedSprite2D.play("rifle_move")
 	else:
-		$AnimatedSprite2D.play("idle")
+		$AnimatedSprite2D.play("rifle_idle")
 		
 	
 	move_and_slide()
@@ -85,7 +85,7 @@ func use_medkit(): #decrease medkit count
 func _ready() -> void:
 	#previous_position = (get_global_mouse_position())-self.global_position
 	previous_position = Vector2(0,-1)
-	$AnimatedSprite2D.play("idle") # Replace with function body.+
+	$AnimatedSprite2D.play("rifle_idle") # Replace with function body.+
 	#hide the cursor
 	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN 
 	
