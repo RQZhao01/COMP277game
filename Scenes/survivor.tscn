@@ -1,9 +1,8 @@
-[gd_scene load_steps=75 format=3 uid="uid://c7ygnibm5wyfu"]
+[gd_scene load_steps=74 format=3 uid="uid://c7ygnibm5wyfu"]
 
 [ext_resource type="Script" path="res://Scripts/survivor.gd" id="1_tamox"]
 [ext_resource type="Texture2D" uid="uid://bpir0oihg5kin" path="res://Assets/Top_Down_Survivor/handgun/idle/survivor-idle_handgun_0.png" id="2_dj171"]
 [ext_resource type="Texture2D" uid="uid://bp3dv24oo55ub" path="res://Assets/Top_Down_Survivor/handgun/move/survivor-move_handgun_0.png" id="2_piri3"]
-[ext_resource type="PackedScene" uid="uid://bokfx7g6bjox8" path="res://Scenes/GunShootSound.tscn" id="2_s8qm7"]
 [ext_resource type="Texture2D" uid="uid://bc3agmigrpvup" path="res://Assets/Top_Down_Survivor/rifle/idle/survivor-idle_rifle_0.png" id="2_spb2s"]
 [ext_resource type="Texture2D" uid="uid://b762q264gjfpk" path="res://Assets/Top_Down_Survivor/rifle/move/survivor-move_rifle_0.png" id="3_apyh1"]
 [ext_resource type="Texture2D" uid="uid://bysxt4e5gnqs0" path="res://Assets/Top_Down_Survivor/handgun/move/survivor-move_handgun_18.png" id="3_v3s3b"]
@@ -328,8 +327,6 @@ radius = 8.12535
 rotation = -1.5708
 scale = Vector2(0.4, 0.4)
 script = ExtResource("1_tamox")
-
-[node name="GunShootSound" parent="." instance=ExtResource("2_s8qm7")]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_w1j3v")

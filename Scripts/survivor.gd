@@ -16,6 +16,8 @@ var medkit_count: int = 0
 
 const MAX_MEDKITS: int = 3
 
+var delay : int = 0
+
 @export var move_speed : float = 250
 
 #func _input(event: InputEvent) -> void:
@@ -92,12 +94,16 @@ func _ready() -> void:
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-		if Input.is_action_just_pressed("shoot"):
-			$MuzzleFlash/AnimatedSprite2D.visible = true
-			$MuzzleFlash/AnimatedSprite2D.play()
-			$GunShootSound.play()
-		elif Input.is_action_just_released("shoot"):
-			$MuzzleFlash/AnimatedSprite2D.stop()
-			$GunShootSound.stop()
-			$MuzzleFlash/AnimatedSprite2D.visible = false
+	delay +=1
+	if Input.is_action_pressed("shoot") and delay > 10:
+		$MuzzleFlash/AnimatedSprite2D.visible = true
+		$MuzzleFlash/AnimatedSprite2D.play()
+		var scene = load("res://Scenes/GunShootSound.tscn")
+		var sound = scene.instantiate()
+		add_child(sound)
+		delay = 0
+			
+	elif Input.is_action_just_released("shoot"):
+		$MuzzleFlash/AnimatedSprite2D.stop()
+		$MuzzleFlash/AnimatedSprite2D.visible = false
 	

@@ -1,3 +1,8 @@
-[gd_scene format=3 uid="uid://bokfx7g6bjox8"]
+[gd_scene load_steps=3 format=3 uid="uid://bokfx7g6bjox8"]
+
+[ext_resource type="AudioStream" uid="uid://moak80ar04t7" path="res://Assets/Snake's Authentic Gun Sounds/Isolated/5.56/MP3/556 Single Isolated MP3.mp3" id="1_wbisr"]
+[ext_resource type="Script" path="res://Scripts/gun_shoot_sound.gd" id="2_o6jal"]
 
 [node name="GunShootSound" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_wbisr")
+script = ExtResource("2_o6jal")
