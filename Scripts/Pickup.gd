@@ -6,7 +6,7 @@ func _on_body_entered(body):
 		#pick up 
 			#print("Survivor collided with the pickup!")
 			body.add_medkit()
-			queue_free()  # Remove the item from the scene, making it disappear
+			queue_free()  # Remove the picked thign
 		else:
 			print("max reached")
 			
