@@ -88,8 +88,16 @@ func _ready() -> void:
 	$AnimatedSprite2D.play("rifle_idle") # Replace with function body.+
 	#hide the cursor
 	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN 
+	$MuzzleFlash/AnimatedSprite2D.visible = false
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	pass
+		if Input.is_action_just_pressed("shoot"):
+			$MuzzleFlash/AnimatedSprite2D.visible = true
+			$MuzzleFlash/AnimatedSprite2D.play()
+			$GunShootSound.play()
+		elif Input.is_action_just_released("shoot"):
+			$MuzzleFlash/AnimatedSprite2D.stop()
+			$GunShootSound.stop()
+			$MuzzleFlash/AnimatedSprite2D.visible = false
 	
