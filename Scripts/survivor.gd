@@ -11,6 +11,9 @@ var delay: int = 0
 
 var player_speed
 
+var shooting = false
+var reloading = false
+
 @export var mouse_sensitivity = -0.005
 @export var walk_speed: float = 250
 @export var run_speed: float = 500
@@ -24,43 +27,58 @@ func update_player_direction():
 		self.rotation = angle
 		
 	
-func move_player():
-	if Input.is_action_pressed("ui_ctrl"):
-		player_speed = slow_walk_speed
-		$AnimatedSprite2D.play("rifle_slow_walk")
-	elif Input.is_action_pressed("ui_shift"):
-		player_speed = run_speed
-		$AnimatedSprite2D.play("rifle_run")
+func update_player_movement():
+	if reloading:
+		player_speed = 50
 	else:
-		player_speed = walk_speed
-		$AnimatedSprite2D.play("rifle_walk")
+		if Input.is_action_pressed("ui_ctrl"):
+			player_speed = slow_walk_speed
+			$AnimatedSprite2D.play("rifle_slow_walk")
+		elif Input.is_action_pressed("ui_shift"):
+			player_speed = run_speed
+			$AnimatedSprite2D.play("rifle_run")
+		else:
+			player_speed = walk_speed
+			$AnimatedSprite2D.play("rifle_walk")
+			
+		if velocity == Vector2(0,0) && !reloading:
+			$AnimatedSprite2D.play("rifle_idle")
+			
 		
 	var input_direction = Vector2(
 		Input.get_action_strength("move_right")-Input.get_action_strength("move_left"),
 		Input.get_action_strength("move_down")-Input.get_action_strength("move_up")
-		)
-		
+	)
 	var vector = player_speed * input_direction
 	velocity = vector.rotated(self.rotation +PI/2)
 	
-	if velocity != Vector2(0,0):
-		$AnimatedSprite2D.play("rifle_move")
-	else:
-		$AnimatedSprite2D.play("rifle_idle")
+	
 	move_and_slide()
 	
 func update_player_shooting():
-	delay +=1
-	if Input.is_action_pressed("shoot") and delay > 5:
-		shoot()
-		delay = 0
-	elif Input.is_action_just_released("shoot"):
-		stop_shooting()
+	if !reloading:
+		delay +=1
+		if Input.is_action_pressed("shoot") and delay > 5:
+			shoot()
+			delay = 0
+		elif Input.is_action_just_released("shoot"):
+			stop_shooting()
+		
+	
+func reload():
+	reloading = true
+	$AnimatedSprite2D.animation = "rifle_reload"
+	
+func update_reloading():
+	if Input.is_action_just_pressed("reload") && !reloading:
+		reload()
+		print("reload activated")
 		
 	
 func _physics_process(delta: float) -> void:
 	update_player_direction()
-	move_player()
+	update_reloading()
+	update_player_movement()
 	update_player_shooting()
 	
 func add_medkit():
@@ -96,3 +114,7 @@ func stop_shooting():
 	
 func _process(_delta: float) -> void:
 	pass
+	
+func _on_animated_sprite_2d_animation_finished() -> void:
+	reloading = false
+	print("animation finsihed")
