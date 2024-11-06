@@ -21,7 +21,6 @@ var reloading = false
 
 func update_player_direction():
 	mouse_position = (get_local_mouse_position())
-	
 	if InputEventMouseMotion:
 		var angle = (previous_position.y - mouse_position.y) * mouse_sensitivity
 		self.rotation = angle
@@ -51,8 +50,6 @@ func update_player_movement():
 	)
 	var vector = player_speed * input_direction
 	velocity = vector.rotated(self.rotation +PI/2)
-	
-	
 	move_and_slide()
 	
 func update_player_shooting():
