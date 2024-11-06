@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://tc642q1bb554"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8pncj"]
+size = Vector2(6, 571)
+
+[node name="BulletCollisionArea2d" type="Area2D"]
+rotation = 1.5708
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -285.5)
+shape = SubResource("RectangleShape2D_8pncj")
