@@ -18,3 +18,5 @@ position = Vector2(0, 4.76837e-07)
 scale = Vector2(1, 30)
 mesh = SubResource("TubeTrailMesh_uchu6")
 texture = ExtResource("2_dfpuv")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

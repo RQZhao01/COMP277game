@@ -9,8 +9,18 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 
+
+
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	self.position = position + direction_shot * speed * delta
 	
+	
 	pass
+
+
+func _on_area_entered(area: Area2D) -> void:
+	if area.is_in_group('Walls'):
+		queue_free()
+	pass # Replace with function body.
