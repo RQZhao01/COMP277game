@@ -124,17 +124,20 @@ func rifle_shoot():
 	if self.player_speed > 250:
 		
 		projectile.direction_shot = facing_direction.rotated(1.5*random_number)
+		projectile.rotate(1.5*random_number)
 		get_parent().add_child(projectile)
 	
 	elif self.player_speed < 250:
 		
-		projectile.direction_shot = facing_direction.rotated(0.25*random_number)
+		projectile.direction_shot = facing_direction.rotated(0.15*random_number)
+		projectile.rotate(0.15*random_number)
 		get_parent().add_child(projectile)
 	
 	else:
 		print(random_number)
-		projectile.direction_shot = facing_direction.rotated(0.5*random_number)
+		projectile.direction_shot = facing_direction.rotated(0.2*random_number)
 		print(facing_direction)
+		projectile.rotate(0.2*random_number)
 		get_parent().add_child(projectile)
 		
 
