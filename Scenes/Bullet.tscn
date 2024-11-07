@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://d0yuslnprmsqs"]
+
+[ext_resource type="Script" path="res://Scripts/bullet.gd" id="1_p35qg"]
+[ext_resource type="Texture2D" uid="uid://cj0phefb4d23j" path="res://Assets/yellow.png" id="2_dfpuv"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8gf8c"]
+
+[sub_resource type="TubeTrailMesh" id="TubeTrailMesh_uchu6"]
+
+[node name="Bullet" type="Area2D"]
+script = ExtResource("1_p35qg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_8gf8c")
+
+[node name="Sprite2D" type="MeshInstance2D" parent="."]
+position = Vector2(0, 4.76837e-07)
+scale = Vector2(1, 30)
+mesh = SubResource("TubeTrailMesh_uchu6")
+texture = ExtResource("2_dfpuv")

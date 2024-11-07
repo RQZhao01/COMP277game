@@ -72,11 +72,7 @@ func update_reloading():
 		print("reload activated")
 		
 	
-func _physics_process(delta: float) -> void:
-	update_player_direction()
-	update_reloading()
-	update_player_movement()
-	update_player_shooting()
+
 	
 func add_medkit():
 	if medkit_count < MAX_MEDKITS:
@@ -104,6 +100,11 @@ func shoot():
 	var scene = load("res://Scenes/GunShootSound.tscn")
 	var sound = scene.instantiate()
 	add_child(sound)
+	rifle_shoot()
+
+func _on_animated_sprite_2d_animation_finished() -> void:
+	reloading = false
+	print("animation finsihed")
 	
 func stop_shooting():
 	$MuzzleFlash/AnimatedSprite2D.stop()
@@ -112,6 +113,34 @@ func stop_shooting():
 func _process(_delta: float) -> void:
 	pass
 	
-func _on_animated_sprite_2d_animation_finished() -> void:
-	reloading = false
-	print("animation finsihed")
+func rifle_shoot():
+	var facing_direction = Vector2.UP.rotated(rotation + PI/2)
+	var bullet = preload("res://Scenes/Bullet.tscn")
+	var projectile = bullet.instantiate()
+	var random_number = randf_range(-PI/10, PI/10)
+	projectile.position = self.position + Vector2(20,-70).rotated(rotation + PI/2)
+	projectile.rotation = rotation + PI/2
+	print(facing_direction)
+	if self.player_speed > 250:
+		
+		projectile.direction_shot = facing_direction.rotated(1.5*random_number)
+		get_parent().add_child(projectile)
+	
+	elif self.player_speed < 250:
+		
+		projectile.direction_shot = facing_direction.rotated(0.25*random_number)
+		get_parent().add_child(projectile)
+	
+	else:
+		print(random_number)
+		projectile.direction_shot = facing_direction.rotated(0.5*random_number)
+		print(facing_direction)
+		get_parent().add_child(projectile)
+		
+
+func _physics_process(delta: float) -> void:
+	update_player_direction()
+	update_reloading()
+	update_player_movement()
+	update_player_shooting()
+	
