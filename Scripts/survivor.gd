@@ -67,23 +67,18 @@ func update_player_shooting():
 	
 	
 func reload():
-	if ammo_count >= MAX_MAG and mag_count < MAX_MAG:
+	if mag_count < MAX_MAG and ammo_count > 0:
 		reloading = true
 		$AnimatedSprite2D.animation = "rifle_reload"
-		
 		# calculate the ammo for reload
 		var needed_ammo = MAX_MAG - mag_count
-		if ammo_count >= needed_ammo:
-			ammo_count -= needed_ammo
-			mag_count = MAX_MAG
-		else:
-			mag_count += ammo_count
-			ammo_count = 0
-			
+		var ammo_to_reload = min(needed_ammo, ammo_count)
+		ammo_count -= ammo_to_reload
+		mag_count += ammo_to_reload
 		print("Reloaded. Mag: ", mag_count, " Remaining ammo: ", ammo_count)
-		
 	elif ammo_count < MAX_MAG:
 		print("Not enough ammo to reload!")
+
 		
 func update_reloading():
 	if Input.is_action_just_pressed("reload") && !reloading:
@@ -125,7 +120,7 @@ func _ready() -> void:
 func shoot():
 	if mag_count > 0:
 		mag_count -= 1
-		print("Shots left in mag:", mag_count, "Total ammo remaining:", ammo_count)
+		print("Shots left in mag:", mag_count, " Total ammo remaining:", ammo_count)
 		$MuzzleFlash/AnimatedSprite2D.visible = true
 		$MuzzleFlash/AnimatedSprite2D.play()
 		
