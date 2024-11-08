@@ -7,6 +7,8 @@ var previous_position
 var x
 var medkit_count: int = 0
 const MAX_MEDKITS: int = 3
+var ammo_count: int = 0
+const MAX_AMMO: int = 120
 var delay: int = 0
 
 var player_speed
@@ -87,6 +89,17 @@ func use_medkit():
 		print("1 medkit used")
 	else:
 		print("no medkit left")
+		
+		
+# Function to add ammo
+func add_ammo():
+	if ammo_count < MAX_AMMO:
+		ammo_count += 30
+		ammo_count = min(ammo_count, MAX_AMMO)  # Ensure ammo doesn't exceed MAX_AMMO
+		print("Picked up 30 ammo, current ammo count:", ammo_count)
+	else:
+		pass
+		
 	
 func _ready() -> void:
 	previous_position = Vector2(0,-1)
@@ -95,12 +108,18 @@ func _ready() -> void:
 	$MuzzleFlash/AnimatedSprite2D.visible = false
 	
 func shoot():
-	$MuzzleFlash/AnimatedSprite2D.visible = true
-	$MuzzleFlash/AnimatedSprite2D.play()
-	var scene = load("res://Scenes/GunShootSound.tscn")
-	var sound = scene.instantiate()
-	add_child(sound)
-	rifle_shoot()
+	if ammo_count > 0:
+		ammo_count -= 1
+		print("ammo remain: ", ammo_count)
+		$MuzzleFlash/AnimatedSprite2D.visible = true
+		$MuzzleFlash/AnimatedSprite2D.play()
+		var scene = load("res://Scenes/GunShootSound.tscn")
+		var sound = scene.instantiate()
+		add_child(sound)
+		rifle_shoot()
+		
+	else:
+		print("out of ammo")
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	reloading = false
