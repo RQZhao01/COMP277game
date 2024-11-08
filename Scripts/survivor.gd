@@ -9,6 +9,8 @@ var medkit_count: int = 0
 const MAX_MEDKITS: int = 3
 var ammo_count: int = 0
 const MAX_AMMO: int = 120
+var mag_count: int = 0
+const MAX_MAG: int = 30
 var delay: int = 0
 
 var player_speed
@@ -62,18 +64,32 @@ func update_player_shooting():
 			delay = 0
 		elif Input.is_action_just_released("shoot"):
 			stop_shooting()
-		
+	
 	
 func reload():
-	reloading = true
-	$AnimatedSprite2D.animation = "rifle_reload"
-	
+	if ammo_count >= MAX_MAG and mag_count < MAX_MAG:
+		reloading = true
+		$AnimatedSprite2D.animation = "rifle_reload"
+		
+		# calculate the ammo for reload
+		var needed_ammo = MAX_MAG - mag_count
+		if ammo_count >= needed_ammo:
+			ammo_count -= needed_ammo
+			mag_count = MAX_MAG
+		else:
+			mag_count += ammo_count
+			ammo_count = 0
+			
+		print("Reloaded. Mag: ", mag_count, " Remaining ammo: ", ammo_count)
+		
+	elif ammo_count < MAX_MAG:
+		print("Not enough ammo to reload!")
+		
 func update_reloading():
 	if Input.is_action_just_pressed("reload") && !reloading:
 		reload()
 		print("reload activated")
 		
-	
 
 	
 func add_medkit():
@@ -90,17 +106,16 @@ func use_medkit():
 	else:
 		print("no medkit left")
 		
-		
-# Function to add ammo
+	
 func add_ammo():
 	if ammo_count < MAX_AMMO:
 		ammo_count += 30
-		ammo_count = min(ammo_count, MAX_AMMO)  # Ensure ammo doesn't exceed MAX_AMMO
+		ammo_count = min(ammo_count, MAX_AMMO)
 		print("Picked up 30 ammo, current ammo count:", ammo_count)
 	else:
 		pass
-		
-	
+
+
 func _ready() -> void:
 	previous_position = Vector2(0,-1)
 	$AnimatedSprite2D.play("rifle_idle")
@@ -108,19 +123,19 @@ func _ready() -> void:
 	$MuzzleFlash/AnimatedSprite2D.visible = false
 	
 func shoot():
-	if ammo_count > 0:
-		ammo_count -= 1
-		print("ammo remain: ", ammo_count)
+	if mag_count > 0:
+		mag_count -= 1
+		print("Shots left in mag:", mag_count, "Total ammo remaining:", ammo_count)
 		$MuzzleFlash/AnimatedSprite2D.visible = true
 		$MuzzleFlash/AnimatedSprite2D.play()
+		
 		var scene = load("res://Scenes/GunShootSound.tscn")
 		var sound = scene.instantiate()
 		add_child(sound)
 		rifle_shoot()
-		
 	else:
 		$MuzzleFlash/AnimatedSprite2D.visible = false
-		print("out of ammo")
+		print("Out of ammo in mag, need to reload")
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	reloading = false
