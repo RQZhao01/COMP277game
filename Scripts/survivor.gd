@@ -119,6 +119,7 @@ func shoot():
 		rifle_shoot()
 		
 	else:
+		$MuzzleFlash/AnimatedSprite2D.visible = false
 		print("out of ammo")
 
 func _on_animated_sprite_2d_animation_finished() -> void:
