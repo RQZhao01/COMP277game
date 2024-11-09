@@ -70,6 +70,7 @@ func reload():
 	if mag_count < MAX_MAG and ammo_count > 0:
 		reloading = true
 		$AnimatedSprite2D.animation = "rifle_reload"
+		$MuzzleFlash/AnimatedSprite2D.visible = false
 		# calculate the ammo for reload
 		var needed_ammo = MAX_MAG - mag_count
 		var ammo_to_reload = min(needed_ammo, ammo_count)
@@ -112,7 +113,7 @@ func add_ammo():
 
 
 func _ready() -> void:
-	previous_position = Vector2(0,-1)
+	previous_position = Vector2(0,-1) 
 	$AnimatedSprite2D.play("rifle_idle")
 	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN 
 	$MuzzleFlash/AnimatedSprite2D.visible = false
