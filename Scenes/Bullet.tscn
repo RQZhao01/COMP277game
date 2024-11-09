@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://d0yuslnprmsqs"]
+[gd_scene load_steps=6 format=3 uid="uid://d0yuslnprmsqs"]
 
 [ext_resource type="Script" path="res://Scripts/bullet.gd" id="1_p35qg"]
 [ext_resource type="Texture2D" uid="uid://cj0phefb4d23j" path="res://Assets/yellow.png" id="2_dfpuv"]
@@ -7,10 +7,14 @@
 
 [sub_resource type="TubeTrailMesh" id="TubeTrailMesh_uchu6"]
 
-[node name="Bullet" type="Area2D"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x26nn"]
+
+[node name="Bullet" type="CharacterBody2D"]
+process_physics_priority = 1
 script = ExtResource("1_p35qg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 1
 shape = SubResource("CapsuleShape2D_8gf8c")
 
 [node name="Sprite2D" type="MeshInstance2D" parent="."]
@@ -19,4 +23,9 @@ scale = Vector2(1, 30)
 mesh = SubResource("TubeTrailMesh_uchu6")
 texture = ExtResource("2_dfpuv")
 
-[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CapsuleShape2D_x26nn")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

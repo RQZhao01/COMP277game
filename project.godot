@@ -62,6 +62,10 @@ reload={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="first layer"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
