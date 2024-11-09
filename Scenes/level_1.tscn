@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=4 uid="uid://chdswq1eygxst"]
+[gd_scene load_steps=9 format=4 uid="uid://chdswq1eygxst"]
 
 [ext_resource type="Texture2D" uid="uid://bo4j2fdjupc6b" path="res://Assets/Tilemap/space-blks-1.034.png" id="1_54u4b"]
 [ext_resource type="Script" path="res://Scripts/walls.gd" id="2_br6pn"]
 [ext_resource type="PackedScene" uid="uid://c7ygnibm5wyfu" path="res://Scenes/survivor.tscn" id="2_u0nfx"]
 [ext_resource type="PackedScene" uid="uid://ctyparo8gfa03" path="res://Scenes/Pickup.tscn" id="3_tx664"]
 [ext_resource type="PackedScene" uid="uid://bp46p2m5mdxki" path="res://Scenes/AmmoPickup.tscn" id="4_qxyf6"]
+[ext_resource type="PackedScene" uid="uid://45tdwpffm1ms" path="res://Scenes/zombie.tscn" id="6_ivr7h"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qg7tv"]
 texture = ExtResource("1_54u4b")
@@ -297,3 +298,6 @@ position = Vector2(-73, -239)
 
 [node name="AmmoPickup5" parent="Node2D2" instance=ExtResource("4_qxyf6")]
 position = Vector2(-354, -190)
+
+[node name="Zombie" parent="." instance=ExtResource("6_ivr7h")]
+position = Vector2(-98, -186)
