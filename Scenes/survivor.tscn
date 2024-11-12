@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://c7ygnibm5wyfu"]
+[gd_scene load_steps=72 format=3 uid="uid://c7ygnibm5wyfu"]
 
 [ext_resource type="Script" path="res://Scripts/survivor.gd" id="1_tamox"]
 [ext_resource type="Texture2D" uid="uid://bc3agmigrpvup" path="res://Assets/Top_Down_Survivor/rifle/idle/survivor-idle_rifle_0.png" id="2_spb2s"]
@@ -65,6 +65,7 @@
 [ext_resource type="Texture2D" uid="uid://ce4xe8lfrgrj5" path="res://Assets/Top_Down_Survivor/rifle/reload/survivor-reload_rifle_17.png" id="39_0f3xu"]
 [ext_resource type="Texture2D" uid="uid://26iwjoa6mtqx" path="res://Assets/Top_Down_Survivor/rifle/reload/survivor-reload_rifle_18.png" id="40_ry0wo"]
 [ext_resource type="Texture2D" uid="uid://boqymr57rc5wn" path="res://Assets/Top_Down_Survivor/rifle/reload/survivor-reload_rifle_19.png" id="41_m4aae"]
+[ext_resource type="Texture2D" uid="uid://b461at0y6uy3o" path="res://Assets/Lighting/light.png" id="67_jckur"]
 [ext_resource type="PackedScene" uid="uid://c4gvk3unb8v8q" path="res://Scenes/MuzzleFlash.tscn" id="69_exjar"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_w1j3v"]
@@ -416,5 +417,11 @@ texture = ExtResource("28_c5thn")
 [node name="MuzzleFlash" parent="." instance=ExtResource("69_exjar")]
 position = Vector2(185, 45.0007)
 scale = Vector2(0.4, 0.4)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(140, 22.5005)
+energy = 2.0
+texture = ExtResource("67_jckur")
+texture_scale = 3.0
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
