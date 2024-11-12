@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://2o5oswc77l7e"]
-
-[ext_resource type="AudioStream" uid="uid://ch6wi3cxbttji" path="res://Assets/Snake's Authentic Gun Sounds/Full Sound/5.56/MP3/556 Spray Slow MP3.mp3" id="1_pcgcr"]
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D"]
-process_thread_group = 2
-process_thread_group_order = 0
-process_thread_messages = 0
-stream = ExtResource("1_pcgcr")

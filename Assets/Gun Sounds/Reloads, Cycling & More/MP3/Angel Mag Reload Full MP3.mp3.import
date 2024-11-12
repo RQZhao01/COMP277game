@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dqrbkuqkagwxu"
+path="res://.godot/imported/Angel Mag Reload Full MP3.mp3-95c9dfc50b0a5e379b68950a1b6799a0.mp3str"
+
+[deps]
+
+source_file="res://Assets/Gun Sounds/Reloads, Cycling & More/MP3/Angel Mag Reload Full MP3.mp3"
+dest_files=["res://.godot/imported/Angel Mag Reload Full MP3.mp3-95c9dfc50b0a5e379b68950a1b6799a0.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dsed1eks1atpe"
+path="res://.godot/imported/22LR Bolt Cycle MP3.mp3-e894a51e8f463adb9eb976e6c48e55b6.mp3str"
+
+[deps]
+
+source_file="res://Assets/Gun Sounds/Reloads, Cycling & More/MP3/22LR Bolt Cycle MP3.mp3"
+dest_files=["res://.godot/imported/22LR Bolt Cycle MP3.mp3-e894a51e8f463adb9eb976e6c48e55b6.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
