@@ -381,7 +381,6 @@ ignore_rotation = false
 rotation_smoothing_speed = 1.0
 
 [node name="Noisecircle" type="Area2D" parent="."]
-visible = false
 z_index = 10
 scale = Vector2(50, 50)
 
@@ -397,7 +396,6 @@ scale = Vector2(0.054, 0.054)
 texture = ExtResource("28_c5thn")
 
 [node name="Hearing_circle" type="Area2D" parent="."]
-visible = false
 z_index = 9
 scale = Vector2(100, 100)
 

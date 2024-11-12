@@ -1,31 +1,67 @@
 extends CharacterBody2D
 
+var move_speed = 100.0
+@export var target: Node2D = null
+
+@onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
+
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
-var health = 10
 
+var health = 10
+var pursue = false
+
+func _ready() -> void:
+	$Sprite2D.play("idle")
+
+	
+		
+		
 
 func _physics_process(delta: float) -> void:
+	if pursue:
+		move_speed = 150
+		$Sprite2D.play("run")
+		navigation_agent_2d.target_position = target.global_position
+	
+	else:
+		if velocity != Vector2(0,0):
+			$Sprite2D.play("idle")
+		else:
+			$Sprite2D.play("walk1")
+		
+	if navigation_agent_2d.is_navigation_finished():
+		return
+	
+	var current_agent_position = global_position
+	var next_path_position = navigation_agent_2d.get_next_path_position()
+	velocity = current_agent_position.direction_to(next_path_position) * move_speed
+	
+	
+	
 	$Sprite2D.play("idle")
 	if health == 0:
 		queue_free()
 	
-	
-	
-	# Add the gravity.
-	
-
-	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction := Input.get_axis("ui_left", "ui_right")
-	if direction:
-		velocity.x = direction * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	
+	if area.name == "Noisecircle":
+		pursue = true
+		navigation_agent_2d.target_position = target.global_position
+		print("entered")
+	
+	
+	pass # Replace with function body.
+
+
+func _on_area_2d_area_exited(area: Area2D) -> void:
+	if area.name == "Noisecircle":
+		pursue = false
+		navigation_agent_2d.target_position = target.global_position
+		print("exited)")
+	pass # Replace with function body.
