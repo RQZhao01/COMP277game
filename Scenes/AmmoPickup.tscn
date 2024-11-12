@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://bp46p2m5mdxki"]
+[gd_scene load_steps=5 format=3 uid="uid://bp46p2m5mdxki"]
 
 [ext_resource type="Texture2D" uid="uid://cudhjanotiko5" path="res://Assets/PickUp/ammo-rifle 32px.png" id="1_ahl74"]
+[ext_resource type="Texture2D" uid="uid://b461at0y6uy3o" path="res://Assets/Lighting/light.png" id="2_p3x51"]
 
 [sub_resource type="GDScript" id="GDScript_ypmjp"]
 resource_name = "AmmoPickup"
@@ -30,5 +31,11 @@ shape = SubResource("RectangleShape2D_plijo")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_ahl74")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(1, 1, 0, 1)
+energy = 0.5
+texture = ExtResource("2_p3x51")
+texture_scale = 0.3
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
