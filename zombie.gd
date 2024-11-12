@@ -20,6 +20,9 @@ func _ready() -> void:
 		
 
 func _physics_process(delta: float) -> void:
+	print(health)
+	if health == 0:
+		queue_free()
 	if pursue:
 		move_speed = 150
 		$Sprite2D.play("run")
@@ -41,8 +44,7 @@ func _physics_process(delta: float) -> void:
 	
 	
 	$Sprite2D.play("idle")
-	if health == 0:
-		queue_free()
+	
 	
 
 	move_and_slide()
