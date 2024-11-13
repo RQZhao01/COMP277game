@@ -3,55 +3,90 @@ extends CharacterBody2D
 class_name Survivor
 
 #States
-var shooting = false
-var reloading = false
+var shooting: bool = false
+var reloading: bool = false
 var current_weapon: String = "rifle"
+var player_speed
 
-#consts
-const MAX_MEDKITS: int = 3
-const MAX_AMMO: int = 120
-const MAX_MAG: int = 30
+#Consts
 const MOUSE_SENSITIVITY = -0.005
+
 const WALK_SPEED: float = 250
 const RUN_SPEED: float = 500
 const SLOW_WALK_SPEED: float = 125
 
+const MAX_RIFLE_AMMO: int = 240
+const MAX_SHOTGUN_AMMO: int = 60
+const MAX_PISTOL_AMMO: int = 120
+
+const MAX_MEDKITS: int = 3
+const RIFLE_MAGAZINE_CAPACITY: int = 30
+const PISTOL_MAGAZINE_CAPACITY: int = 15
+const SHOTGUN_TUBE_CAPACITY: int = 8
+
+#Inventory
+var total_shotgun_ammo: int = 0
+var total_rifle_ammo: int = 0
+var total_pistol_ammo: int = 0
+
+var ammo_in_rifle: int = 0
+var ammo_in_pistol: int = 0
+var ammo_in_shotgun: int = 0
+
+var medkit_count: int = 0
+
+#Other
 var mouse_position
 var previous_position
-var medkit_count: int = 0
-var ammo_count: int = 0
-var mag_count: int = 0
 var delay: int = 0
-var player_speed
 
-
-func reload():
-	if mag_count < MAX_MAG and ammo_count > 0:
+		
+func reload_rifle():
+	if total_rifle_ammo > 0:
+		$AnimatedSprite2D.play("reload_rifle")
 		reloading = true
-		match current_weapon:
-			"rifle":
-				$AnimatedSprite2D.animation = "reload_rifle"
-			"pistol":
-				$AnimatedSprite2D.animation = "reload_pistol"
-			"shotgun":
-				$AnimatedSprite2D.animation = "reload_shotgun"
-		
-		$MuzzleFlash/AnimatedSprite2D.visible = false
-		# calculate the ammo for reloadsa
-		var needed_ammo = MAX_MAG - mag_count
-		var ammo_to_reload = min(needed_ammo, ammo_count)
-		ammo_count -= ammo_to_reload
-		mag_count += ammo_to_reload
-		print("Reloaded. Mag: ", mag_count, " Remaining ammo: ", ammo_count)
-	elif ammo_count < MAX_MAG:
-		print("Not enough ammo to reload!")
-		
+		var ammo_difference = RIFLE_MAGAZINE_CAPACITY - ammo_in_rifle
+		if total_rifle_ammo >= ammo_difference:
+			total_rifle_ammo -= ammo_difference
+			ammo_in_rifle += ammo_difference
+		else:
+			ammo_in_rifle += total_rifle_ammo
+			total_rifle_ammo -= total_rifle_ammo
+	else:
+		print("Not enough ammo to reload")
+	
+func reload_pistol():
+	if total_pistol_ammo > 0:
+		$AnimatedSprite2D.play("reload_pistol")
+		reloading = true
+		var ammo_difference = PISTOL_MAGAZINE_CAPACITY - ammo_in_pistol
+		if total_pistol_ammo >= ammo_difference:
+			total_pistol_ammo -= ammo_difference
+			ammo_in_pistol += ammo_difference
+		else:
+			ammo_in_pistol += total_pistol_ammo
+			total_pistol_ammo -= total_pistol_ammo
+	else:
+		print("Not enough ammo to reload")
+	
+func reload_shotgun():
+	if total_shotgun_ammo > 0:
+		$AnimatedSprite2D.play("reload_shotgun")
+		reloading = true
+		var ammo_difference = SHOTGUN_TUBE_CAPACITY - ammo_in_shotgun
+		if total_shotgun_ammo >= ammo_difference:
+			total_shotgun_ammo -= ammo_difference
+			ammo_in_shotgun += ammo_difference
+		else:
+			ammo_in_shotgun += total_shotgun_ammo
+			total_shotgun_ammo -= total_shotgun_ammo
+	else:
+		print("Not enough ammo to reload")
+	
 func add_medkit():
 	if medkit_count < MAX_MEDKITS:
 		medkit_count +=1
 		print("get 1 medkit!!!!!!")
-	else:
-		pass
 	
 func use_medkit():
 	if medkit_count > 0:
@@ -61,46 +96,66 @@ func use_medkit():
 		print("no medkit left")
 		
 func add_ammo():
-	if ammo_count < MAX_AMMO:
-		ammo_count += 30
-		ammo_count = min(ammo_count, MAX_AMMO)
-		print("Picked up 30 ammo, current ammo count:", ammo_count)
-	else:
-		pass
-		
+	match current_weapon:
+		"rifle":
+			if total_rifle_ammo < MAX_RIFLE_AMMO:
+				total_rifle_ammo += RIFLE_MAGAZINE_CAPACITY
+				total_rifle_ammo = min(total_rifle_ammo, MAX_RIFLE_AMMO)
+				print("Picked up 30 rifle ammo, total rifle ammo:", total_rifle_ammo)
+		"pistol":
+			if total_pistol_ammo < MAX_PISTOL_AMMO:
+				total_pistol_ammo += PISTOL_MAGAZINE_CAPACITY
+				total_pistol_ammo = min(total_pistol_ammo, MAX_PISTOL_AMMO)
+				print("Picked up 15 pistol ammo, total pistol ammo:", total_pistol_ammo)
+		"shotgun":
+			if total_shotgun_ammo < MAX_SHOTGUN_AMMO:
+				total_shotgun_ammo += SHOTGUN_TUBE_CAPACITY
+				total_shotgun_ammo = min(total_shotgun_ammo, MAX_SHOTGUN_AMMO)
+				print("Picked up 8 shotgun ammo, total shotgun ammo:", total_shotgun_ammo)
+
 func shoot():
-	if mag_count > 0:
-		mag_count -= 1
-		print("Shots left in mag:", mag_count, " Total ammo remaining:", ammo_count)
-		$MuzzleFlash/AnimatedSprite2D.visible = true
-		$MuzzleFlash/AnimatedSprite2D.play()
-		
-		var scene = load("res://Scenes/GunShootSound.tscn")
-		var sound = scene.instantiate()
-		add_child(sound)
-		match current_weapon:
-			"rifle":
+	match current_weapon:
+		"rifle":
+			if ammo_in_rifle > 0:
+				ammo_in_rifle -= 1
 				shoot_rifle()
-			"pistol":
+			else:
+				$MuzzleFlash/AnimatedSprite2D.visible = false
+				print("Out of ammo in rifle, need to reload")
+		"pistol":
+			if ammo_in_pistol > 0:
+				ammo_in_pistol -= 1
 				shoot_pistol()
-			"shotgun":
+			else:
+				$MuzzleFlash/AnimatedSprite2D.visible = false
+				print("Out of ammo in pistol, need to reload")
+		"shotgun":
+			if ammo_in_shotgun > 0:
+				ammo_in_shotgun -= 1
 				shoot_shotgun()
-	else:
-		$MuzzleFlash/AnimatedSprite2D.visible = false
-		print("Out of ammo in mag, need to reload")
-		
+			else:
+				$MuzzleFlash/AnimatedSprite2D.visible = false
+				print("Out of ammo in shotgun, need to reload")
+			
 func stop_shooting():
 	$MuzzleFlash/AnimatedSprite2D.stop()
 	$MuzzleFlash/AnimatedSprite2D.visible = false
 	
 func shoot_rifle():
+	print("Ammo left in rifle:", ammo_in_rifle, " Total rifle ammo remaining:", total_rifle_ammo)
+	$MuzzleFlash/AnimatedSprite2D.visible = true
+	$MuzzleFlash/AnimatedSprite2D.play()
+		
+	var scene = load("res://Scenes/GunShootSound.tscn")
+	var sound = scene.instantiate()
+	add_child(sound)
+	
 	var facing_direction = Vector2.UP.rotated(rotation + PI/2)
 	var bullet = preload("res://Scenes/Bullet.tscn")
 	var projectile = bullet.instantiate()
 	var random_number = randf_range(-PI/10, PI/10)
 	projectile.position = self.position + Vector2(20,-70).rotated(rotation + PI/2)
 	projectile.rotation = rotation + PI/2
-	print(facing_direction)
 	
 	if self.player_speed > 250:
 		projectile.direction_shot = facing_direction.rotated(1.5*random_number)
@@ -111,20 +166,25 @@ func shoot_rifle():
 		projectile.rotate(0.15*random_number)
 		get_parent().add_child(projectile)
 	else:
-		print(random_number)
 		projectile.direction_shot = facing_direction.rotated(0.2*random_number)
-		print(facing_direction)
 		projectile.rotate(0.2*random_number)
 		get_parent().add_child(projectile)
 		
 func shoot_pistol():
+	print("Ammo left in pistol:", ammo_in_pistol, " Total pistol ammo remaining:", total_pistol_ammo)
+	$MuzzleFlash/AnimatedSprite2D.visible = true
+	$MuzzleFlash/AnimatedSprite2D.play()
+		
+	var scene = load("res://Scenes/GunShootSound.tscn")
+	var sound = scene.instantiate()
+	add_child(sound)
+	
 	var facing_direction = Vector2.UP.rotated(rotation + PI/2)
 	var bullet = preload("res://Scenes/Bullet.tscn")
 	var projectile = bullet.instantiate()
 	var random_number = randf_range(-PI/10, PI/10)
 	projectile.position = self.position + Vector2(20,-70).rotated(rotation + PI/2)
 	projectile.rotation = rotation + PI/2
-	print(facing_direction)
 	
 	if self.player_speed > 250:
 		projectile.direction_shot = facing_direction.rotated(1.5*random_number)
@@ -135,20 +195,25 @@ func shoot_pistol():
 		projectile.rotate(0.15*random_number)
 		get_parent().add_child(projectile)
 	else:
-		print(random_number)
 		projectile.direction_shot = facing_direction.rotated(0.2*random_number)
-		print(facing_direction)
 		projectile.rotate(0.2*random_number)
 		get_parent().add_child(projectile)
 	
 func shoot_shotgun():
+	print("Ammo left in shotgun:", ammo_in_shotgun, " Total shotgun ammo remaining:", total_shotgun_ammo)
+	$MuzzleFlash/AnimatedSprite2D.visible = true
+	$MuzzleFlash/AnimatedSprite2D.play()
+		
+	var scene = load("res://Scenes/GunShootSound.tscn")
+	var sound = scene.instantiate()
+	add_child(sound)
+	
 	var facing_direction = Vector2.UP.rotated(rotation + PI/2)
 	var bullet = preload("res://Scenes/Bullet.tscn")
 	var projectile = bullet.instantiate()
 	var random_number = randf_range(-PI/10, PI/10)
 	projectile.position = self.position + Vector2(20,-70).rotated(rotation + PI/2)
 	projectile.rotation = rotation + PI/2
-	print(facing_direction)
 	
 	if self.player_speed > 250:
 		projectile.direction_shot = facing_direction.rotated(1.5*random_number)
@@ -159,9 +224,7 @@ func shoot_shotgun():
 		projectile.rotate(0.15*random_number)
 		get_parent().add_child(projectile)
 	else:
-		print(random_number)
 		projectile.direction_shot = facing_direction.rotated(0.2*random_number)
-		print(facing_direction)
 		projectile.rotate(0.2*random_number)
 		get_parent().add_child(projectile)
 	
@@ -226,15 +289,21 @@ func update_player_movement():
 	
 func update_reloading():
 	if Input.is_action_just_pressed("reload") && !reloading:
-		reload()
+		match current_weapon:
+			"rifle":
+				reload_rifle()
+			"pistol":
+				reload_pistol()
+			"shotgun":
+				reload_shotgun()
 		
 func update_player_direction():
-	mouse_position = (get_local_mouse_position())
+	mouse_position = get_local_mouse_position()
 	if InputEventMouseMotion:
 		var angle = (previous_position.y - mouse_position.y) * MOUSE_SENSITIVITY
 		self.rotation = angle
 		
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	update_player_direction()
 	update_reloading()
 	update_player_movement()
@@ -253,8 +322,8 @@ func _ready() -> void:
 	$AnimatedSprite2D.play("rifle_idle")
 	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN 
 	$MuzzleFlash/AnimatedSprite2D.visible = false
+	current_weapon = "rifle"
 	
 func _on_animated_sprite_2d_animation_finished() -> void:
 	reloading = false
 	print("animation finsihed")
-	

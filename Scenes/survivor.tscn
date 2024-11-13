@@ -986,7 +986,7 @@ script = ExtResource("1_tamox")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_w1j3v")
-animation = &"reload_shotgun"
+animation = &"reload_rifle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-25, 20)

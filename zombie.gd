@@ -19,8 +19,7 @@ func _ready() -> void:
 		
 		
 
-func _physics_process(delta: float) -> void:
-	print(health)
+func _physics_process(_delta: float) -> void:
 	if health == 0:
 		queue_free()
 	if pursue:
