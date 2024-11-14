@@ -973,6 +973,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1ywmy"]
+radius = 14.0
+height = 42.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_b8sx6"]
 
@@ -989,7 +991,7 @@ sprite_frames = SubResource("SpriteFrames_w1j3v")
 animation = &"reload_rifle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-25, 20)
+position = Vector2(-25, 7.49991)
 rotation = -1.5708
 scale = Vector2(5, 5)
 shape = SubResource("CapsuleShape2D_1ywmy")
@@ -1036,8 +1038,9 @@ position = Vector2(185, 45.0007)
 scale = Vector2(0.4, 0.4)
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(140, 22.5005)
+position = Vector2(-2.50004, 9.99999)
 energy = 2.0
+shadow_enabled = true
 texture = ExtResource("67_jckur")
 texture_scale = 3.0
 
