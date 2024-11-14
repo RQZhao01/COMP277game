@@ -422,6 +422,8 @@ scale = Vector2(0.4, 0.4)
 position = Vector2(-2.50004, 9.99999)
 energy = 2.0
 shadow_enabled = true
+shadow_filter = 1
+shadow_filter_smooth = 10.0
 texture = ExtResource("67_jckur")
 texture_scale = 3.0
 

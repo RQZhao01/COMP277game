@@ -364,7 +364,7 @@ target = NodePath("../Survivor")
 metadata/_edit_group_ = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.154876, 0.154876, 0.154876, 1)
+color = Color(0, 0, 0, 1)
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 show_behind_parent = true
