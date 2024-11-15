@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://cqjifcmlqa6ei"]
+
+[ext_resource type="AudioStream" uid="uid://uoqmhyyyxles" path="res://Assets/Sounds/Snake's SECOND Authentic Gun Sounds/Full Sounds/20 Gauge/MP3/20 Gauge Single.mp3" id="1_jscmk"]
+[ext_resource type="Script" path="res://Scripts/one_time_sound.gd" id="2_x4gmy"]
+
+[node name="ShotgunShootSound" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_jscmk")
+script = ExtResource("2_x4gmy")

@@ -9,6 +9,8 @@ var current_weapon: String = "rifle"
 var player_speed
 
 #Consts
+const RIFLE_FIRE_RATE: float = 5.0
+const SHOTGUN_FIRE_RATE: float = 1.0
 const MOUSE_SENSITIVITY = -0.005
 
 const WALK_SPEED: float = 250
@@ -38,12 +40,17 @@ var medkit_count: int = 0
 #Other
 var mouse_position
 var previous_position
-var delay: int = 0
+var delay: float = 0.0
 
-		
+
 func reload_rifle():
 	if total_rifle_ammo > 0:
 		$AnimatedSprite2D.play("reload_rifle")
+		
+		var reload_rifle_sound_scene = load("res://Scenes/Sounds/rifle_reload_sound.tscn")
+		var reload_rifle_sound = reload_rifle_sound_scene.instantiate()
+		self.add_child(reload_rifle_sound)
+		
 		reloading = true
 		var ammo_difference = RIFLE_MAGAZINE_CAPACITY - ammo_in_rifle
 		if total_rifle_ammo >= ammo_difference:
@@ -58,6 +65,9 @@ func reload_rifle():
 func reload_pistol():
 	if total_pistol_ammo > 0:
 		$AnimatedSprite2D.play("reload_pistol")
+		var reload_pistol_sound_scene = load("res://Scenes/Sounds/pistol_reload_sound.tscn")
+		var reload_pistol_sound = reload_pistol_sound_scene.instantiate()
+		self.add_child(reload_pistol_sound)
 		reloading = true
 		var ammo_difference = PISTOL_MAGAZINE_CAPACITY - ammo_in_pistol
 		if total_pistol_ammo >= ammo_difference:
@@ -113,30 +123,44 @@ func add_ammo():
 				total_shotgun_ammo = min(total_shotgun_ammo, MAX_SHOTGUN_AMMO)
 				print("Picked up 8 shotgun ammo, total shotgun ammo:", total_shotgun_ammo)
 
-func shoot():
-	match current_weapon:
-		"rifle":
-			if ammo_in_rifle > 0:
-				ammo_in_rifle -= 1
-				shoot_rifle()
-			else:
-				$MuzzleFlash/AnimatedSprite2D.visible = false
-				print("Out of ammo in rifle, need to reload")
-		"pistol":
-			if ammo_in_pistol > 0:
-				ammo_in_pistol -= 1
-				shoot_pistol()
-			else:
-				$MuzzleFlash/AnimatedSprite2D.visible = false
-				print("Out of ammo in pistol, need to reload")
-		"shotgun":
-			if ammo_in_shotgun > 0:
-				ammo_in_shotgun -= 1
-				shoot_shotgun()
-			else:
-				$MuzzleFlash/AnimatedSprite2D.visible = false
-				print("Out of ammo in shotgun, need to reload")
-			
+func update_player_shooting():
+	if !reloading:
+		delay += 1
+		match current_weapon:
+			"rifle":
+				if Input.is_action_pressed("shoot") and delay > RIFLE_FIRE_RATE:
+					if ammo_in_rifle > 0:
+						ammo_in_rifle -= 1
+						shoot_rifle()
+						delay = 0.0
+					else:
+						$MuzzleFlash/AnimatedSprite2D.visible = false
+						print("Out of ammo in rifle, need to reload")
+				else:
+					stop_shooting()
+			"pistol":
+				if Input.is_action_just_pressed("shoot"):
+					if ammo_in_pistol > 0:
+						ammo_in_pistol -= 1
+						shoot_pistol()
+						delay = 0.0
+					else:
+						$MuzzleFlash/AnimatedSprite2D.visible = false
+						print("Out of ammo in pistol, need to reload")
+				else:
+					stop_shooting()
+			"shotgun":
+				if Input.is_action_just_pressed("shoot") and delay > SHOTGUN_FIRE_RATE:
+					if ammo_in_shotgun > 0:
+						ammo_in_shotgun -= 1
+						shoot_shotgun()
+						delay = 0.0
+					else:
+						$MuzzleFlash/AnimatedSprite2D.visible = false
+						print("Out of ammo in shotgun, need to reload")
+				else:
+					stop_shooting()
+		
 func stop_shooting():
 	$MuzzleFlash/AnimatedSprite2D.stop()
 	$MuzzleFlash/AnimatedSprite2D.visible = false
@@ -146,9 +170,9 @@ func shoot_rifle():
 	$MuzzleFlash/AnimatedSprite2D.visible = true
 	$MuzzleFlash/AnimatedSprite2D.play()
 		
-	var scene = load("res://Scenes/GunShootSound.tscn")
-	var sound = scene.instantiate()
-	add_child(sound)
+	var rifle_sound_scene = load("res://Scenes/Sounds/rifle_shoot_sound.tscn")
+	var rifle_sound = rifle_sound_scene.instantiate()
+	add_child(rifle_sound)
 	
 	var facing_direction = Vector2.UP.rotated(rotation + PI/2)
 	var bullet = preload("res://Scenes/Bullet.tscn")
@@ -175,9 +199,9 @@ func shoot_pistol():
 	$MuzzleFlash/AnimatedSprite2D.visible = true
 	$MuzzleFlash/AnimatedSprite2D.play()
 		
-	var scene = load("res://Scenes/GunShootSound.tscn")
-	var sound = scene.instantiate()
-	add_child(sound)
+	var pistol_shoot_sound_scene = load("res://Scenes/Sounds/pistol_shoot_sound.tscn")
+	var pistol_shoot_sound = pistol_shoot_sound_scene.instantiate()
+	add_child(pistol_shoot_sound)
 	
 	var facing_direction = Vector2.UP.rotated(rotation + PI/2)
 	var bullet = preload("res://Scenes/Bullet.tscn")
@@ -204,9 +228,9 @@ func shoot_shotgun():
 	$MuzzleFlash/AnimatedSprite2D.visible = true
 	$MuzzleFlash/AnimatedSprite2D.play()
 		
-	var scene = load("res://Scenes/GunShootSound.tscn")
-	var sound = scene.instantiate()
-	add_child(sound)
+	var shotgun_shoot_sound_scene = load("res://Scenes/Sounds/shotgun_shoot_sound.tscn")
+	var shotgun_shoot_sound = shotgun_shoot_sound_scene.instantiate()
+	add_child(shotgun_shoot_sound)
 	
 	var facing_direction = Vector2.UP.rotated(rotation + PI/2)
 	var bullet = preload("res://Scenes/Bullet.tscn")
@@ -227,15 +251,6 @@ func shoot_shotgun():
 		projectile.direction_shot = facing_direction.rotated(0.2*random_number)
 		projectile.rotate(0.2*random_number)
 		get_parent().add_child(projectile)
-	
-func update_player_shooting():
-	if !reloading:
-		delay +=1
-		if Input.is_action_pressed("shoot") and delay > 5:
-			shoot()
-			delay = 0
-		elif Input.is_action_just_released("shoot"):
-			stop_shooting()
 			
 func update_player_movement():
 	if reloading:

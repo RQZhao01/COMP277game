@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5b28hqlll2ej"]
+
+[ext_resource type="AudioStream" uid="uid://6sm36t85dv5a" path="res://Assets/Sounds/Gun Sounds/Reloads, Cycling & More/MP3/AR Reload Full MP3.mp3" id="1_yn88g"]
+[ext_resource type="Script" path="res://Scripts/one_time_sound.gd" id="2_70x6u"]
+
+[node name="RifleReloadSound" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_yn88g")
+script = ExtResource("2_70x6u")

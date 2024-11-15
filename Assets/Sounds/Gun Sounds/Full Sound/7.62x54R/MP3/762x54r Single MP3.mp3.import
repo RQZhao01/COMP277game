@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cmnea54v1sri3"
+path="res://.godot/imported/762x54r Single MP3.mp3-9075e0e59604e64c29aedccc2d6eca20.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sounds/Gun Sounds/Full Sound/7.62x54R/MP3/762x54r Single MP3.mp3"
+dest_files=["res://.godot/imported/762x54r Single MP3.mp3-9075e0e59604e64c29aedccc2d6eca20.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

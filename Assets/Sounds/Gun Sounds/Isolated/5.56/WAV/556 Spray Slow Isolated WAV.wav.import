@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://buviao6d2sl0"
+path="res://.godot/imported/556 Spray Slow Isolated WAV.wav-16b16f13e208bce86291a0b27209b861.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/Gun Sounds/Isolated/5.56/WAV/556 Spray Slow Isolated WAV.wav"
+dest_files=["res://.godot/imported/556 Spray Slow Isolated WAV.wav-16b16f13e208bce86291a0b27209b861.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

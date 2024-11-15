@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ciku4w46shda2"
+path="res://.godot/imported/556 Spray Isolated WAV.wav-f115041b5149460f0a19a8be008d85b8.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/Gun Sounds/Isolated/5.56/WAV/556 Spray Isolated WAV.wav"
+dest_files=["res://.godot/imported/556 Spray Isolated WAV.wav-f115041b5149460f0a19a8be008d85b8.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
