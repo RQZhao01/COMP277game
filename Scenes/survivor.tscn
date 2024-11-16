@@ -1036,8 +1036,11 @@ position = Vector2(185, 45.0007)
 scale = Vector2(0.4, 0.4)
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(140, 22.5005)
+position = Vector2(25, 12.5001)
 energy = 2.0
+shadow_enabled = true
+shadow_filter = 1
+shadow_filter_smooth = 10.0
 texture = ExtResource("67_jckur")
 texture_scale = 3.0
 
