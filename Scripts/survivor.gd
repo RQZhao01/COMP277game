@@ -44,7 +44,7 @@ var delay: float = 0.0
 
 
 func reload_rifle():
-	if total_rifle_ammo > 0:
+	if total_rifle_ammo > 0 && ammo_in_rifle < 30:
 		$AnimatedSprite2D.play("reload_rifle")
 		
 		var reload_rifle_sound_scene = load("res://Scenes/Sounds/rifle_reload_sound.tscn")
@@ -60,10 +60,10 @@ func reload_rifle():
 			ammo_in_rifle += total_rifle_ammo
 			total_rifle_ammo -= total_rifle_ammo
 	else:
-		print("Not enough ammo to reload")
+		print("Not enough ammo to reload or no need to reload")
 	
 func reload_pistol():
-	if total_pistol_ammo > 0:
+	if total_pistol_ammo > 0 && ammo_in_pistol < 15:
 		$AnimatedSprite2D.play("reload_pistol")
 		var reload_pistol_sound_scene = load("res://Scenes/Sounds/pistol_reload_sound.tscn")
 		var reload_pistol_sound = reload_pistol_sound_scene.instantiate()
@@ -77,10 +77,10 @@ func reload_pistol():
 			ammo_in_pistol += total_pistol_ammo
 			total_pistol_ammo -= total_pistol_ammo
 	else:
-		print("Not enough ammo to reload")
+		print("Not enough ammo to reload or no need to reload")
 	
 func reload_shotgun():
-	if total_shotgun_ammo > 0:
+	if total_shotgun_ammo > 0 && ammo_in_shotgun < 8:
 		$AnimatedSprite2D.play("reload_shotgun")
 		reloading = true
 		var ammo_difference = SHOTGUN_TUBE_CAPACITY - ammo_in_shotgun
@@ -91,7 +91,7 @@ func reload_shotgun():
 			ammo_in_shotgun += total_shotgun_ammo
 			total_shotgun_ammo -= total_shotgun_ammo
 	else:
-		print("Not enough ammo to reload")
+		print("Not enough ammo to reload or no need to reload")
 	
 func add_medkit():
 	if medkit_count < MAX_MEDKITS:
