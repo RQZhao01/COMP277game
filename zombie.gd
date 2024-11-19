@@ -20,6 +20,8 @@ func _ready() -> void:
 		
 
 func _physics_process(delta: float) -> void:
+	
+	 
 	print(health)
 	if health == 0:
 		queue_free()
@@ -40,6 +42,8 @@ func _physics_process(delta: float) -> void:
 	var current_agent_position = global_position
 	var next_path_position = navigation_agent_2d.get_next_path_position()
 	velocity = current_agent_position.direction_to(next_path_position) * move_speed
+	
+	self.rotation = -velocity.angle_to(Vector2(-1,0)) + PI
 	
 	
 	

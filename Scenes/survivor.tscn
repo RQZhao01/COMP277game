@@ -399,6 +399,7 @@ texture = ExtResource("28_c5thn")
 [node name="Hearing_circle" type="Area2D" parent="."]
 z_index = 9
 scale = Vector2(100, 100)
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hearing_circle"]
 physics_interpolation_mode = 2
