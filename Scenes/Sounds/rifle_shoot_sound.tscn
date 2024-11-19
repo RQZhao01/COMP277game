@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bokfx7g6bjox8"]
+
+[ext_resource type="AudioStream" uid="uid://moak80ar04t7" path="res://Assets/Sounds/Gun Sounds/Isolated/5.56/MP3/556 Single Isolated MP3.mp3" id="1_i414g"]
+[ext_resource type="Script" path="res://Scripts/one_time_sound.gd" id="2_py0mt"]
+
+[node name="rifle_shoot_sound" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_i414g")
+script = ExtResource("2_py0mt")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dl7oq23j43vdq"
+path="res://.godot/imported/556 Double Tap MP3.mp3-a381a26ebf2161e9eaaa234535827494.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sounds/Gun Sounds/Full Sound/5.56/MP3/556 Double Tap MP3.mp3"
+dest_files=["res://.godot/imported/556 Double Tap MP3.mp3-a381a26ebf2161e9eaaa234535827494.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

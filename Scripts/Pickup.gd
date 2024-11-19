@@ -9,5 +9,3 @@ func _on_body_entered(body):
 			queue_free()  # Remove the picked thign
 		else:
 			print("max reached")
-			
-			print("lmao")

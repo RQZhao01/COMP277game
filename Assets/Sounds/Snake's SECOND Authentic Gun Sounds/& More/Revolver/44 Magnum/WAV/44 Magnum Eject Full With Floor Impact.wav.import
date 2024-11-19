@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bibl85wtx6ki8"
+path="res://.godot/imported/44 Magnum Eject Full With Floor Impact.wav-fd99bca059423ad94eab0980296c6f43.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/Snake's SECOND Authentic Gun Sounds/& More/Revolver/44 Magnum/WAV/44 Magnum Eject Full With Floor Impact.wav"
+dest_files=["res://.godot/imported/44 Magnum Eject Full With Floor Impact.wav-fd99bca059423ad94eab0980296c6f43.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

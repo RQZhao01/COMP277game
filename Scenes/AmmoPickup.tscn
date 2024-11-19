@@ -8,14 +8,9 @@ resource_name = "AmmoPickup"
 script/source = "extends Area2D
 
 func _on_body_entered(body):
-	if body is Survivor:  # Check if the body is the Survivor node
-		if body.ammo_count < body.MAX_AMMO:
-		#pick up 
-			#print(\"Survivor collided with the pickup!\")
-			body.add_ammo()
-			queue_free()  # Remove the picked thing
-		else:
-			print(\"max reached\")
+	if body is Survivor:
+		body.add_ammo()
+		queue_free()
 			
 "
 
