@@ -362,7 +362,6 @@ func update_player_direction():
 
 # Function to handle physics-based updates
 func _physics_process(_delta: float) -> void:
-<<<<<<< HEAD
 	if player_speed == RUN_SPEED:
 		$Noisecircle.scale= Vector2(100,100)
 	elif player_speed == WALK_SPEED:
@@ -371,9 +370,7 @@ func _physics_process(_delta: float) -> void:
 		$Noisecircle.scale= Vector2(10,10)
 	else:
 		pass
-=======
 	# Update player direction, reloading, movement, and shooting
->>>>>>> a536aaf9c7ad13fc929c7014c252c0ab2bea8a2e
 	update_player_direction()
 	update_reloading()
 	update_player_movement()
