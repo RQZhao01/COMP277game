@@ -319,6 +319,14 @@ func update_player_direction():
 		self.rotation = angle
 		
 func _physics_process(_delta: float) -> void:
+	if player_speed == RUN_SPEED:
+		$Noisecircle.scale= Vector2(100,100)
+	elif player_speed == WALK_SPEED:
+		$Noisecircle.scale= Vector2(50,50)
+	elif player_speed == SLOW_WALK_SPEED:
+		$Noisecircle.scale= Vector2(10,10)
+	else:
+		pass
 	update_player_direction()
 	update_reloading()
 	update_player_movement()

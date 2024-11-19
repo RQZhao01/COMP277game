@@ -1,4 +1,4 @@
-[gd_scene load_steps=251 format=3 uid="uid://45tdwpffm1ms"]
+[gd_scene load_steps=252 format=3 uid="uid://45tdwpffm1ms"]
 
 [ext_resource type="Script" path="res://zombie.gd" id="1_dfw6s"]
 [ext_resource type="Texture2D" uid="uid://bpj7pr68k357p" path="res://Assets/zombie_01/idle/idle0027.png" id="2_kj473"]
@@ -1059,29 +1059,41 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_p5wvb"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_hpc4i"]
+
 [node name="Zombie" type="CharacterBody2D"]
 z_index = 1
 motion_mode = 1
 script = ExtResource("1_dfw6s")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(1.5, 1.5)
+scale = Vector2(3, 3)
 shape = SubResource("CircleShape2D_kg0ng")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_1tx8m")
-animation = &"run"
+animation = &"attack1"
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 debug_enabled = true
 
 [node name="Area2D" type="Area2D" parent="."]
+scale = Vector2(0.5, 0.5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 scale = Vector2(20, 20)
 shape = SubResource("CircleShape2D_p5wvb")
 debug_color = Color(0.271952, 0.584821, 0.665416, 0.42)
 
+[node name="attack zone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="attack zone"]
+scale = Vector2(6, 6)
+shape = SubResource("CircleShape2D_hpc4i")
+debug_color = Color(0.96902, 0, 0.464089, 0.42)
+
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
+[connection signal="area_entered" from="attack zone" to="." method="_on_attack_zone_area_entered"]
+[connection signal="area_exited" from="attack zone" to="." method="_on_attack_zone_area_exited"]

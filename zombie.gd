@@ -11,6 +11,9 @@ const JUMP_VELOCITY = -400.0
 
 var health = 10
 var pursue = false
+var attack = false
+var anim
+
 
 func _ready() -> void:
 	$Sprite2D.play("idle")
@@ -24,18 +27,28 @@ func _ready() -> void:
 func _physics_process(_delta: float) -> void:
 	if health == 0:
 		queue_free()
-	if pursue:
+			#collision_detect.get_collider()
+			
+		
+
+	if attack:
+		print("attack")
+		$Sprite2D.play(anim)
+	elif pursue:
 		move_speed = 150
 		$Sprite2D.play("run")
 		navigation_agent_2d.target_position = target.global_position
-	
 	else:
-		if velocity != Vector2(0,0):
+		if velocity == Vector2(0,0):
+			print("idle")
 			$Sprite2D.play("idle")
 		else:
+			print("walk...")
 			$Sprite2D.play("walk1")
+			move_speed = 100
 		
 	if navigation_agent_2d.is_navigation_finished():
+		velocity = Vector2(0,0)
 		return
 	
 	var current_agent_position = global_position
@@ -46,7 +59,7 @@ func _physics_process(_delta: float) -> void:
 	
 	
 	
-	$Sprite2D.play("idle")
+	#$Sprite2D.play("idle")
 	
 	
 
@@ -69,4 +82,22 @@ func _on_area_2d_area_exited(area: Area2D) -> void:
 		pursue = false
 		navigation_agent_2d.target_position = target.global_position
 		print("exited)")
+	pass # Replace with function body.
+
+
+func _on_attack_zone_area_entered(area: Area2D) -> void:
+	#decrease player health hereAAZqA
+	print(area)
+	var random_number = randi_range(1, 3)
+	anim = "attack" + str(random_number)
+	if area.name == "hitbox":
+		attack = true
+	pass # Replace with function body.
+	
+
+
+
+func _on_attack_zone_area_exited(area: Area2D) -> void:
+	if area.name == "hitbox":
+		attack = false
 	pass # Replace with function body.
