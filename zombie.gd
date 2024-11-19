@@ -19,10 +19,14 @@ func _ready() -> void:
 		
 		
 
+<<<<<<< HEAD
 func _physics_process(delta: float) -> void:
 	
 	 
 	print(health)
+=======
+func _physics_process(_delta: float) -> void:
+>>>>>>> 2f3bba3e88bb2e106d27084ae1e32d7baac1f1ef
 	if health == 0:
 		queue_free()
 	if pursue:
