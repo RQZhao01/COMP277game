@@ -37,9 +37,7 @@ func _physics_process(_delta: float) -> void:
 		print("000000")
 	
 	if dead == null:
-		count += 1
-		if count > 150:
-			queue_free()
+		
 		pass
 	
 	elif health == 0 or health <= 0:
