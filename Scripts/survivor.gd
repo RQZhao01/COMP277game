@@ -123,6 +123,11 @@ func use_medkit():
 		# Play healing sound!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 		else:
 			print("No medkits left or player is dead")
+			
+func die():
+	is_alive = false
+	queue_free()
+	
 
 
 # Add ammo based on the current weapon
@@ -402,6 +407,9 @@ func _process(_delta: float) -> void:
 		
 	if Input.is_action_just_pressed("use_medkit"):
 		use_medkit()
+		
+	if current_health <= 0 && is_alive:
+		die()
 
 # Function called when the node is ready
 func _ready() -> void:
