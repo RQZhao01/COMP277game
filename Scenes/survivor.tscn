@@ -982,6 +982,7 @@ radius = 8.12535
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0noh0"]
 
 [node name="Survivor" type="CharacterBody2D"]
+z_index = 10
 rotation = -1.5708
 scale = Vector2(0.4, 0.4)
 script = ExtResource("1_tamox")
@@ -1003,7 +1004,7 @@ ignore_rotation = false
 rotation_smoothing_speed = 1.0
 
 [node name="Noisecircle" type="Area2D" parent="."]
-z_index = 10
+z_index = 1000
 scale = Vector2(50, 50)
 
 [node name="Noisecircleshape" type="CollisionShape2D" parent="Noisecircle"]
@@ -1018,7 +1019,7 @@ scale = Vector2(0.054, 0.054)
 texture = ExtResource("28_c5thn")
 
 [node name="Hearing_circle" type="Area2D" parent="."]
-z_index = 9
+z_index = 1000
 scale = Vector2(100, 100)
 metadata/_edit_group_ = true
 
