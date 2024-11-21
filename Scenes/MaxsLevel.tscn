@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=4 uid="uid://cwskbw5fpouqm"]
+[gd_scene load_steps=12 format=4 uid="uid://cwskbw5fpouqm"]
 
 [ext_resource type="Texture2D" uid="uid://bo4j2fdjupc6b" path="res://Assets/Tilemap/space-blks-1.034.png" id="1_ggyk1"]
 [ext_resource type="Script" path="res://Scripts/walls.gd" id="2_golsy"]
 [ext_resource type="PackedScene" uid="uid://c7ygnibm5wyfu" path="res://Scenes/survivor.tscn" id="3_0x5ts"]
+[ext_resource type="PackedScene" uid="uid://bp46p2m5mdxki" path="res://Scenes/AmmoPickup.tscn" id="5_1pmb6"]
 [ext_resource type="PackedScene" uid="uid://45tdwpffm1ms" path="res://Scenes/zombie.tscn" id="6_g1wfl"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_wk7us"]
@@ -401,3 +402,6 @@ position = Vector2(2034, -1605)
 
 [node name="Zombie24" parent="Zombies" instance=ExtResource("6_g1wfl")]
 position = Vector2(1752, -1870)
+
+[node name="AmmoPickup" parent="." instance=ExtResource("5_1pmb6")]
+position = Vector2(-379, -404)
