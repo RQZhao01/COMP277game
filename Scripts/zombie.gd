@@ -22,7 +22,7 @@ func _ready() -> void:
 	
 func _physics_process(_delta: float) -> void:
 	if health == 0:
-		queue_free()
+		$Sprite2D.play("dying1")
 			#collision_detect.get_collider()
 	if attack:
 		$Sprite2D.play(anim)
