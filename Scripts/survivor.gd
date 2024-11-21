@@ -119,7 +119,7 @@ func add_medkit():
 
 # Use a medkit
 func use_medkit():
-		if medkit_count > 0 and is_alive:
+		if medkit_count > 0 && is_alive && current_health < PLAYER_HP:
 			medkit_count -= 1
 			current_health = PLAYER_HP
 			print("Used 1 medkit. Current health:", current_health)
