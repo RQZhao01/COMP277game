@@ -32,7 +32,6 @@ func _physics_process(_delta: float) -> void:
 		
 
 	if attack:
-		print("attack")
 		$Sprite2D.play(anim)
 	elif pursue:
 		move_speed = 150
@@ -40,10 +39,8 @@ func _physics_process(_delta: float) -> void:
 		navigation_agent_2d.target_position = target.global_position
 	else:
 		if velocity == Vector2(0,0):
-			print("idle")
 			$Sprite2D.play("idle")
 		else:
-			print("walk...")
 			$Sprite2D.play("walk1")
 			move_speed = 100
 		
@@ -86,7 +83,7 @@ func _on_area_2d_area_exited(area: Area2D) -> void:
 
 
 func _on_attack_zone_area_entered(area: Area2D) -> void:
-	#decrease player health hereAAZqA
+	#decrease player health here
 	print(area)
 	var random_number = randi_range(1, 3)
 	anim = "attack" + str(random_number)
