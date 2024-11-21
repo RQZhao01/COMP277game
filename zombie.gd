@@ -47,7 +47,8 @@ func _physics_process(_delta: float) -> void:
 		$Sprite2D.play(anim)
 		if damage == true:
 			print("player is hurt")
-			player.get_parent().health -= 1
+			player.get_parent().current_health -= 1
+			print(player.get_parent().current_health)
 			
 			damage = false
 	elif pursue:
