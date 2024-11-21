@@ -1062,7 +1062,6 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_hpc4i"]
 
 [node name="Zombie" type="CharacterBody2D"]
-z_index = 10
 motion_mode = 1
 script = ExtResource("1_dfw6s")
 

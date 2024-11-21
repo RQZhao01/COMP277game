@@ -313,7 +313,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("10_e0sy2")
 }],
-"loop": false,
+"loop": true,
 "name": &"attack1",
 "speed": 20.0
 }, {
@@ -378,7 +378,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("24_34tgr")
 }],
-"loop": false,
+"loop": true,
 "name": &"attack2",
 "speed": 20.0
 }, {
@@ -443,7 +443,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("61_2hoqe")
 }],
-"loop": false,
+"loop": true,
 "name": &"attack3",
 "speed": 20.0
 }, {
@@ -515,7 +515,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("62_as3bo")
 }],
-"loop": false,
+"loop": true,
 "name": &"dying1",
 "speed": 10.0
 }, {
@@ -571,7 +571,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("63_gp2gh")
 }],
-"loop": false,
+"loop": true,
 "name": &"dying2",
 "speed": 20.0
 }, {
@@ -1062,7 +1062,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_hpc4i"]
 
 [node name="Zombie" type="CharacterBody2D"]
-z_index = 10
+z_index = 1
 motion_mode = 1
 script = ExtResource("1_dfw6s")
 
@@ -1073,7 +1073,7 @@ shape = SubResource("CircleShape2D_kg0ng")
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_1tx8m")
-animation = &"attack3"
+animation = &"attack1"
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 debug_enabled = true
@@ -1094,7 +1094,6 @@ shape = SubResource("CircleShape2D_hpc4i")
 debug_color = Color(0.96902, 0, 0.464089, 0.42)
 
 [connection signal="animation_finished" from="Sprite2D" to="." method="_on_sprite_2d_animation_finished"]
-[connection signal="animation_looped" from="Sprite2D" to="." method="_on_sprite_2d_animation_looped"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
 [connection signal="area_entered" from="attack zone" to="." method="_on_attack_zone_area_entered"]
