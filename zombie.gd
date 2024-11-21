@@ -16,6 +16,7 @@ var anim
 var dead = false
 var count = 0
 var damage = false
+var player
 
 
 
@@ -36,19 +37,18 @@ func _physics_process(_delta: float) -> void:
 		print("000000")
 	
 	if dead == null:
-		count += 1
-		if count > 150:
-			queue_free()
+		
 		pass
 	
 	elif health == 0 or health <= 0:
 		dead = true
 			#collision_detect.get_collider()
 	elif attack:
-		
 		$Sprite2D.play(anim)
 		if damage == true:
 			print("player is hurt")
+			player.get_parent().health -= 1
+			
 			damage = false
 	elif pursue:
 		move_speed = 150
@@ -105,6 +105,7 @@ func _on_attack_zone_area_entered(area: Area2D) -> void:
 	var random_number = randi_range(1, 3)
 	anim = "attack" + str(random_number)
 	if area.name == "hitbox":
+		player = area
 		attack = true
 	pass # Replace with function body.
 	

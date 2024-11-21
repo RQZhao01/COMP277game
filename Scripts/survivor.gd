@@ -49,6 +49,9 @@ var mouse_position  # Tracks the mouse position
 var previous_position  # Last recorded mouse position
 var delay: float = 0.0  # Delay between actions like shooting
 
+
+
+var health = 10.0
 # Reload rifle logic
 func reload_rifle():
 	if total_rifle_ammo > 0 && ammo_in_rifle < RIFLE_MAGAZINE_CAPACITY:
@@ -391,6 +394,7 @@ func _physics_process(_delta: float) -> void:
 # Function to handle general updates every frame
 # process is called every frame, which is uneven and changes between computers
 func _process(_delta: float) -> void:
+	print(health)
 	# Change the current weapon based on input
 	if Input.is_action_pressed("weapon_1"):
 		current_weapon = "rifle"
