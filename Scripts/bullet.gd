@@ -10,9 +10,14 @@ func _physics_process(delta: float) -> void:
 	velocity = direction_shot * speed * delta
 	var collision_detect=move_and_collide(velocity)
 	if collision_detect:
-		if collision_detect.get_collider().name == "walls":
+		print(collision_detect.get_collider().name)
+		
+		if collision_detect.get_collider().name == "TileMap":
 			queue_free()
-		if collision_detect.get_collider().name == "Zombie":
+		#if collision_detect.get_collider().name == "Zombie":
+			#collision_detect.get_collider().health -= 1
+			#queue_free()
+		if collision_detect.get_collider().name.substr(0,6) == "Zombie":
 			collision_detect.get_collider().health -= 1
 			queue_free()
 			

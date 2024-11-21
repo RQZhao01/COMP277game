@@ -1,6 +1,6 @@
 [gd_scene load_steps=252 format=3 uid="uid://45tdwpffm1ms"]
 
-[ext_resource type="Script" path="res://zombie.gd" id="1_dfw6s"]
+[ext_resource type="Script" path="res://Scripts/zombie.gd" id="1_dfw6s"]
 [ext_resource type="Texture2D" uid="uid://bpj7pr68k357p" path="res://Assets/zombie_01/idle/idle0027.png" id="2_kj473"]
 [ext_resource type="Texture2D" uid="uid://l6ejmw3rbod1" path="res://Assets/zombie_01/attack01/attack01_0000.png" id="2_uf2u8"]
 [ext_resource type="Texture2D" uid="uid://bd155dc7atf5e" path="res://Assets/zombie_01/idle/idle0000.png" id="2_x6416"]
@@ -1061,7 +1061,7 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hpc4i"]
 
-[node name="Zombie" type="CharacterBody2D"]
+[node name="Zombie" type="CharacterBody2D" groups=["Zombie"]]
 z_index = 10
 motion_mode = 1
 script = ExtResource("1_dfw6s")
