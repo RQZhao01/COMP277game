@@ -26,6 +26,9 @@ const MAX_PISTOL_AMMO: int = 120
 # Maximum medkits and player health points
 const MAX_MEDKITS: int = 3
 const PLAYER_HP: int = 100
+var medkit_count: int = 0  # Number of medkits currently held
+var is_alive: bool = true #is alive for player
+var current_health: int = PLAYER_HP
 
 # Magazine capacities for weapons
 const RIFLE_MAGAZINE_CAPACITY: int = 30
@@ -40,8 +43,6 @@ var total_pistol_ammo: int = 0
 var ammo_in_rifle: int = 0
 var ammo_in_pistol: int = 0
 var ammo_in_shotgun: int = 0
-
-var medkit_count: int = 0  # Number of medkits currently held
 
 # Miscellaneous variables
 var mouse_position  # Tracks the mouse position
@@ -115,11 +116,14 @@ func add_medkit():
 
 # Use a medkit
 func use_medkit():
-	if medkit_count > 0:
-		medkit_count -= 1
-		print("Used 1 medkit")
-	else:
-		print("No medkits left")
+		if medkit_count > 0 and is_alive:
+			medkit_count -= 1
+			current_health = PLAYER_HP
+			print("Used 1 medkit. Current health:", current_health)
+		# Play healing sound!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+		else:
+			print("No medkits left or player is dead")
+
 
 # Add ammo based on the current weapon
 func add_ammo():
@@ -394,6 +398,9 @@ func _process(_delta: float) -> void:
 		current_weapon = "pistol"
 	elif Input.is_action_pressed("weapon_3"):
 		current_weapon = "shotgun"
+		
+	if Input.is_action_just_pressed("use_medkit"):
+		use_medkit()
 
 # Function called when the node is ready
 func _ready() -> void:

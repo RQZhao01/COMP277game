@@ -46,11 +46,6 @@ func _physics_process(_delta: float) -> void:
 			#collision_detect.get_collider()
 	elif attack:
 		
-<<<<<<< HEAD
-=======
-
-	if attack:
->>>>>>> 1fa5964163e34902858337828b3e9fed5b2b2418
 		$Sprite2D.play(anim)
 		if damage == true:
 			print("player is hurt")
