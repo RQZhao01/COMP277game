@@ -258,32 +258,40 @@ func shoot_pistol():
 
 # Function to handle shooting the shotgun (similar to rifle and pistol logic)
 func shoot_shotgun():
+	var projectiles_array: Array
+	# print ammo count
 	print("Ammo left in shotgun:", ammo_in_shotgun, " Total shotgun ammo remaining:", total_shotgun_ammo)
+	# play muzzle flash animation
 	$MuzzleFlash/AnimatedSprite2D.visible = true
 	$MuzzleFlash/AnimatedSprite2D.play()
 	
+	# this plays the sound for the shotgun
 	var shotgun_shoot_sound_scene = load("res://Scenes/Sounds/shotgun_shoot_sound.tscn")
 	var shotgun_shoot_sound = shotgun_shoot_sound_scene.instantiate()
 	add_child(shotgun_shoot_sound)
 	
 	var facing_direction = Vector2.UP.rotated(rotation + PI / 2)
 	var bullet = preload("res://Scenes/Bullet.tscn")
-	var projectile = bullet.instantiate()
-	var random_number = randf_range(-PI / 10, PI / 10)
-	projectile.position = self.position + Vector2(20, -70).rotated(rotation + PI / 2)
-	projectile.rotation = rotation + PI / 2
+	for i in range(8):
+		var projectile = bullet.instantiate()
+		var random_number = randf_range(-PI / 5, PI / 5)
+		projectile.position = self.position + Vector2(20, -70).rotated(rotation + PI / 2)
+		projectile.rotation = rotation + PI / 2
 	
-	if self.player_speed > 250:
-		projectile.direction_shot = facing_direction.rotated(1.5 * random_number)
-		projectile.rotate(1.5 * random_number)
-	elif self.player_speed < 250:
-		projectile.direction_shot = facing_direction.rotated(0.15 * random_number)
-		projectile.rotate(0.15 * random_number)
-	else:
-		projectile.direction_shot = facing_direction.rotated(0.2 * random_number)
-		projectile.rotate(0.2 * random_number)
+		if self.player_speed > 250:
+			projectile.direction_shot = facing_direction.rotated(1.5 * random_number)
+			projectile.rotate(1.5 * random_number)
+		elif self.player_speed < 250:
+			projectile.direction_shot = facing_direction.rotated(0.15 * random_number)
+			projectile.rotate(0.15 * random_number)
+		else:
+			projectile.direction_shot = facing_direction.rotated(0.2 * random_number)
+			projectile.rotate(0.2 * random_number)
+			
+		projectiles_array.append(projectile)
 	
-	get_parent().add_child(projectile)
+	for element in projectiles_array:
+		get_parent().add_child(element)
 
 # Function to update player movement based on inputs and actions
 func update_player_movement():
@@ -291,8 +299,10 @@ func update_player_movement():
 		player_speed = 50  # Reduce speed when reloading
 	else:
 		# Adjust speed and animations based on movement inputs
+		#ctrl makes the player slow walk
 		if Input.is_action_pressed("ui_ctrl"):
 			player_speed = SLOW_WALK_SPEED
+			$Noisecircle.scale= Vector2(10,10)
 			match current_weapon:
 				"rifle":
 					$AnimatedSprite2D.play("rifle_slow_walk")
@@ -300,8 +310,10 @@ func update_player_movement():
 					$AnimatedSprite2D.play("pistol_slow_walk")
 				"shotgun":
 					$AnimatedSprite2D.play("shotgun_slow_walk")
+		#shift makes the player run
 		elif Input.is_action_pressed("ui_shift"):
 			player_speed = RUN_SPEED
+			$Noisecircle.scale= Vector2(100,100)
 			match current_weapon:
 				"rifle":
 					$AnimatedSprite2D.play("rifle_run")
@@ -309,8 +321,10 @@ func update_player_movement():
 					$AnimatedSprite2D.play("pistol_run")
 				"shotgun":
 					$AnimatedSprite2D.play("shotgun_run")
+		#the default movement is walk
 		else:
 			player_speed = WALK_SPEED
+			$Noisecircle.scale= Vector2(50,50)
 			match current_weapon:
 				"rifle":
 					$AnimatedSprite2D.play("rifle_walk")
@@ -360,16 +374,10 @@ func update_player_direction():
 		var angle = (previous_position.y - mouse_position.y) * MOUSE_SENSITIVITY
 		self.rotation = angle
 
-# Function to handle physics-based updates
+# Function to handle physics-based updates 
+# physics process is called with a set frequency, eg: every 0.01 seconds
+# use for stuff when timing matters
 func _physics_process(_delta: float) -> void:
-	if player_speed == RUN_SPEED:
-		$Noisecircle.scale= Vector2(100,100)
-	elif player_speed == WALK_SPEED:
-		$Noisecircle.scale= Vector2(50,50)
-	elif player_speed == SLOW_WALK_SPEED:
-		$Noisecircle.scale= Vector2(10,10)
-	else:
-		pass
 	# Update player direction, reloading, movement, and shooting
 	update_player_direction()
 	update_reloading()
@@ -377,6 +385,7 @@ func _physics_process(_delta: float) -> void:
 	update_player_shooting()
 
 # Function to handle general updates every frame
+# process is called every frame, which is uneven and changes between computers
 func _process(_delta: float) -> void:
 	# Change the current weapon based on input
 	if Input.is_action_pressed("weapon_1"):
