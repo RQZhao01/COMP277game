@@ -12,7 +12,7 @@ func _physics_process(delta: float) -> void:
 	if collision_detect:
 		print(collision_detect.get_collider().name)
 		
-		if collision_detect.get_collider().name == "TileMap":
+		if collision_detect.get_collider().name == "TileMap" or collision_detect.get_collider().name == "walls" :
 			queue_free()
 		#if collision_detect.get_collider().name == "Zombie":
 			#collision_detect.get_collider().health -= 1

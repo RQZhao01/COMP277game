@@ -396,6 +396,7 @@ func _physics_process(_delta: float) -> void:
 # Function to handle general updates every frame
 # process is called every frame, which is uneven and changes between computers
 func _process(_delta: float) -> void:
+	print(current_health)
 
 	# Change the current weapon based on input
 	if Input.is_action_pressed("weapon_1"):
