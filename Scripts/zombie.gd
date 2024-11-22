@@ -9,7 +9,7 @@ var move_speed = 100.0
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
-var health = 10
+var health = 5
 var pursue = false
 var attack = false
 var anim
@@ -26,8 +26,7 @@ func _ready() -> void:
 	$Sprite2D.play("idle")
 
 
-func _physics_process(_delta: float) -> void:
-	navigation_agent_2d.radius = 100
+func _process(_delta: float) -> void:
 	if dead == true:
 		z_index = 0
 		$CollisionShape2D.disabled = true
@@ -35,8 +34,17 @@ func _physics_process(_delta: float) -> void:
 		health = 999
 		velocity = Vector2(0,0)
 		print("dead")
-		$Sprite2D.play("dying1")
 		print("000000")
+		randomize()
+		var random_number = randi() % 2
+		if random_number == 0:
+			$Sprite2D.play("dying1")
+		else:
+			$Sprite2D.play("dying2")
+		
+		
+		
+		
 	
 	if dead == null:
 		
@@ -55,7 +63,7 @@ func _physics_process(_delta: float) -> void:
 			damage = false
 			
 	elif pursue:
-		move_speed = 150
+		move_speed = 250
 		$Sprite2D.play("run")
 		navigation_agent_2d.target_position = target.global_position
 	else:

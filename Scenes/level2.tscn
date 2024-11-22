@@ -367,3 +367,21 @@ target = NodePath("../../Survivor")
 position = Vector2(-675, -294)
 target = NodePath("../../Survivor")
 metadata/_edit_group_ = true
+
+[node name="Zombie3" parent="zombies" instance=ExtResource("6_y6h6m")]
+position = Vector2(-117, -398)
+
+[node name="Zombie4" parent="zombies" instance=ExtResource("6_y6h6m")]
+position = Vector2(102, -376)
+
+[node name="Zombie5" parent="zombies" instance=ExtResource("6_y6h6m")]
+position = Vector2(360, -327)
+
+[node name="Zombie6" parent="zombies" instance=ExtResource("6_y6h6m")]
+position = Vector2(-22, -451)
+
+[node name="Zombie7" parent="zombies" instance=ExtResource("6_y6h6m")]
+position = Vector2(92, -489)
+
+[node name="Zombie8" parent="zombies" instance=ExtResource("6_y6h6m")]
+position = Vector2(-263, -375)
