@@ -1,4 +1,4 @@
-[gd_scene load_steps=185 format=3 uid="uid://c7ygnibm5wyfu"]
+[gd_scene load_steps=188 format=3 uid="uid://c7ygnibm5wyfu"]
 
 [ext_resource type="Script" path="res://Scripts/survivor.gd" id="1_tamox"]
 [ext_resource type="Texture2D" uid="uid://bpir0oihg5kin" path="res://Assets/Survivor/handgun/idle/survivor-idle_handgun_0.png" id="2_44gyy"]
@@ -179,6 +179,9 @@
 [ext_resource type="Texture2D" uid="uid://bbvyfedb3b7jg" path="res://Assets/Survivor/shotgun/move/survivor-move_shotgun_17.png" id="174_c4b2t"]
 [ext_resource type="Texture2D" uid="uid://ddmmlb4k5o310" path="res://Assets/Survivor/shotgun/move/survivor-move_shotgun_18.png" id="175_hxl8p"]
 [ext_resource type="Texture2D" uid="uid://2fk0hrytn0pk" path="res://Assets/Survivor/shotgun/move/survivor-move_shotgun_19.png" id="176_7nwml"]
+[ext_resource type="Texture2D" uid="uid://cryjv6hf6r1yb" path="res://Assets/Survivor/HealthBar/healthbarUnder.png" id="180_p6tni"]
+[ext_resource type="Texture2D" uid="uid://bjv6yojvwcttp" path="res://Assets/Survivor/HealthBar/healthbarProgress.png" id="181_k3p8p"]
+[ext_resource type="Script" path="res://Scripts/HealthBar.gd" id="182_5jwvq"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_w1j3v"]
 animations = [{
@@ -1057,4 +1060,22 @@ scale = Vector2(5.5, 5.5)
 shape = SubResource("CapsuleShape2D_0noh0")
 debug_color = Color(0, 0.632574, 0.450007, 0.42)
 
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -125.0
+offset_top = -80.0004
+offset_right = 61.0003
+offset_bottom = -40.0004
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+size_flags_stretch_ratio = 0.0
+nine_patch_stretch = true
+texture_under = ExtResource("180_p6tni")
+texture_over = ExtResource("181_k3p8p")
+script = ExtResource("182_5jwvq")
+
+[connection signal="current_health_changed" from="." to="TextureProgressBar" method="_on_survivor_current_health_changed"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
