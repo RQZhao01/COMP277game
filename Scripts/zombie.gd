@@ -22,12 +22,19 @@ var player
 
 func _ready() -> void:
 	target = self.get_parent().get_parent().find_child("Survivor")
-	print(target)
+	
 	$Sprite2D.play("idle")
 	
 
 
 func _process(_delta: float) -> void:
+	
+	var pos = self.get_parent().get_parent().find_child("Survivor").find_child("light").global_position - self.global_position
+	$RayCast2D.target_position = pos
+	$RayCast2D.rotation = -self.rotation
+	
+	
+	
 	if dead == true:
 		z_index = 0
 		$CollisionShape2D.disabled = true
@@ -58,13 +65,26 @@ func _process(_delta: float) -> void:
 		dead = true
 			#collision_detect.get_collider()
 	elif attack:
+		print("attack")
 		$Sprite2D.play(anim)
 		if damage == true:
 			print("player is hurt")
 			player.get_parent().current_health -= 10
 			print(player.get_parent().current_health)
-			
 			damage = false
+	elif $RayCast2D.is_colliding():
+		#print($RayCast2D.get_collider().name)
+		if $RayCast2D.get_collider().name == "Survivor":
+			move_speed = 250
+			$Sprite2D.play("run")
+			navigation_agent_2d.target_position = target.global_position
+		else:
+			if velocity == Vector2(0,0):
+				$Sprite2D.play("idle")
+			else:
+				$Sprite2D.play("walk1")
+				move_speed = 100
+		
 			
 	elif pursue:
 		move_speed = 250
@@ -88,8 +108,24 @@ func _process(_delta: float) -> void:
 		self.rotation = -velocity.angle_to(Vector2(-1,0)) + PI
 	
 	
+		
+	#if $RayCast2D.is_colliding():
+		#print($RayCast2D.get_collider().name)
+		#if $RayCast2D.get_collider().name == "Survivor":
+			#pursue = true
+		#else:
+			#pursue = false
 	
 	
+	#if $RayCast2D.get_collider().name == "TileMap" or $RayCast2D.get_collider().name == "walls":
+		#print("no ray")
+	#else:
+		#print("ray")
+		#pursue = true
+		
+	
+	
+	#print($Sprite2D.visible)
 	
 	
 	#$Sprite2D.play("idle")
@@ -120,7 +156,7 @@ func _on_area_2d_area_exited(area: Area2D) -> void:
 
 func _on_attack_zone_area_entered(area: Area2D) -> void:
 	#decrease player health here
-	print(area)
+	
 	var random_number = randi_range(1, 3)
 	anim = "attack" + str(random_number)
 	if area.name == "hitbox":
@@ -141,3 +177,22 @@ func _on_attack_zone_area_exited(area: Area2D) -> void:
 func _on_sprite_2d_animation_finished() -> void:
 	damage = true
 	pass # Replace with function body.
+
+
+
+
+
+
+	
+
+
+#func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
+	#print("visible")
+	#self.get_node("Area2D").get_node("CollisionShape2D").scale = Vector2(100,100)
+	#pass # Replace with function body.
+#
+#
+#func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
+	#print("Invisible")
+	#self.get_node("Area2D").get_node("CollisionShape2D").scale = Vector2(25,25)
+	#pass # Replace with function body.

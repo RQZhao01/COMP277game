@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://4yavtuta6ajv"]
+[gd_scene load_steps=4 format=3 uid="uid://oi5s6l3k5bx8"]
 
 [ext_resource type="Script" path="res://Scripts/darkrooms.gd" id="1_7hdb0"]
 [ext_resource type="Texture2D" uid="uid://cl47fqbr5n2yl" path="res://Assets/white 3.jpeg" id="2_tx7wv"]
