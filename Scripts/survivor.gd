@@ -125,7 +125,7 @@ func use_medkit():
 			medkit_count -= 1
 			current_health = PLAYER_HP
 			print("Used 1 medkit. Current health:", current_health)
-			current_health_changed.emit()
+			
 		# Play healing sound!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 		else:
 			print("No medkits left or player is dead")
@@ -407,6 +407,9 @@ func _physics_process(_delta: float) -> void:
 # process is called every frame, which is uneven and changes between computers
 func _process(_delta: float) -> void:
 	#print(current_health)
+	current_health_changed.emit()
+	print(current_health)
+	print("......")
 
 	# Change the current weapon based on input
 	if Input.is_action_pressed("weapon_1"):

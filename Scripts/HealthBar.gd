@@ -10,8 +10,11 @@ func _ready():
 		print("not assigned")
 	
 func update():
-	value = int(survivor.current_health * 100 / survivor.PLAYER_HP)
+	print("update")
+	value = int(get_parent().current_health * 100 / get_parent().PLAYER_HP)
 
 
 func _on_survivor_current_health_changed() -> void:
+	print("?????")
+	update()
 	pass # Replace with function body.

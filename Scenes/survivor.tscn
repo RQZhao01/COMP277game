@@ -1072,9 +1072,10 @@ grow_horizontal = 2
 grow_vertical = 2
 rotation = 1.5708
 size_flags_stretch_ratio = 0.0
+value = 100.0
 nine_patch_stretch = true
 texture_under = ExtResource("180_p6tni")
-texture_over = ExtResource("181_k3p8p")
+texture_progress = ExtResource("181_k3p8p")
 script = ExtResource("182_5jwvq")
 
 [connection signal="current_health_changed" from="." to="TextureProgressBar" method="_on_survivor_current_health_changed"]

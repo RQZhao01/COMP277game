@@ -17,14 +17,14 @@ var dead = false
 var count = 0
 var damage = false
 var player
-var current_health_changed: Survivor
+
 
 
 func _ready() -> void:
 	target = self.get_parent().get_parent().find_child("Survivor")
 	print(target)
 	$Sprite2D.play("idle")
-	current_health_changed = get_node("res://Scenes/survivor.tscn")
+	
 
 
 func _process(_delta: float) -> void:
@@ -60,7 +60,7 @@ func _process(_delta: float) -> void:
 			print("player is hurt")
 			player.get_parent().current_health -= 10
 			print(player.get_parent().current_health)
-			current_health_changed.emit()
+			
 			damage = false
 			
 	elif pursue:
