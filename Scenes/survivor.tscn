@@ -1043,7 +1043,10 @@ position = Vector2(185, 45.0007)
 scale = Vector2(0.4, 0.4)
 
 [node name="light" type="PointLight2D" parent="."]
+z_index = 1
+z_as_relative = false
 position = Vector2(25, 12.5001)
+energy = 1.5
 shadow_enabled = true
 shadow_filter = 1
 shadow_filter_smooth = 10.0

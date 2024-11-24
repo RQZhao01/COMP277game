@@ -1,4 +1,4 @@
-[gd_scene load_steps=252 format=3 uid="uid://45tdwpffm1ms"]
+[gd_scene load_steps=254 format=3 uid="uid://45tdwpffm1ms"]
 
 [ext_resource type="Script" path="res://Scripts/zombie.gd" id="1_dfw6s"]
 [ext_resource type="Texture2D" uid="uid://bpj7pr68k357p" path="res://Assets/zombie_01/idle/idle0027.png" id="2_kj473"]
@@ -248,7 +248,13 @@
 [ext_resource type="Texture2D" uid="uid://3d5yvx2etnjv" path="res://Assets/zombie_01/walk/walk0030.png" id="246_5utsm"]
 [ext_resource type="Texture2D" uid="uid://ciome5v5n3vnx" path="res://Assets/zombie_01/walk/walk0031.png" id="247_3ngks"]
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_5ytrg"]
+light_mode = 2
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8gu5b"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_g6swv"]
+light_mode = 2
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1tx8m"]
 animations = [{
@@ -1063,6 +1069,7 @@ animations = [{
 
 [node name="Zombie" type="CharacterBody2D" groups=["Zombie"]]
 z_index = 10
+material = SubResource("CanvasItemMaterial_5ytrg")
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_dfw6s")
@@ -1073,6 +1080,7 @@ scale = Vector2(2, 2)
 shape = SubResource("CapsuleShape2D_8gu5b")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_g6swv")
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_1tx8m")
 animation = &"attack3"
