@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 class_name Survivor
 
+signal current_health_changed
+
 # State variables to manage player's actions
 var shooting: bool = false  # Whether the player is shooting
 var reloading: bool = false  # Whether the player is reloading
@@ -64,6 +66,7 @@ func reload_rifle():
 		if total_rifle_ammo >= ammo_difference:
 			total_rifle_ammo -= ammo_difference
 			ammo_in_rifle += ammo_difference
+			print("Ammo in pocket: ", total_rifle_ammo)
 		else:
 			ammo_in_rifle += total_rifle_ammo
 			total_rifle_ammo = 0
@@ -85,6 +88,7 @@ func reload_pistol():
 		if total_pistol_ammo >= ammo_difference:
 			total_pistol_ammo -= ammo_difference
 			ammo_in_pistol += ammo_difference
+			print("Ammo in pocket: ", total_pistol_ammo)
 		else:
 			ammo_in_pistol += total_pistol_ammo
 			total_pistol_ammo = 0
@@ -102,6 +106,7 @@ func reload_shotgun():
 		if total_shotgun_ammo >= ammo_difference:
 			total_shotgun_ammo -= ammo_difference
 			ammo_in_shotgun += ammo_difference
+			print("Ammo in pocket: ", total_shotgun_ammo)
 		else:
 			ammo_in_shotgun += total_shotgun_ammo
 			total_shotgun_ammo = 0
@@ -120,10 +125,15 @@ func use_medkit():
 			medkit_count -= 1
 			current_health = PLAYER_HP
 			print("Used 1 medkit. Current health:", current_health)
+			current_health_changed.emit()
 		# Play healing sound!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 		else:
 			print("No medkits left or player is dead")
 			
+			
+
+
+
 func die():
 	is_alive = false
 	queue_free()
@@ -201,7 +211,7 @@ func stop_shooting():
 # Function to handle shooting the rifle
 func shoot_rifle():
 	# Print ammo count for debugging and visibility
-	print("Ammo left in rifle:", ammo_in_rifle, " Total rifle ammo remaining:", total_rifle_ammo)
+	print("Ammo left in rifle:", ammo_in_rifle)
 	
 	# Enable and play the muzzle flash effect
 	$MuzzleFlash/AnimatedSprite2D.visible = true
@@ -238,7 +248,7 @@ func shoot_rifle():
 
 # Function to handle shooting the pistol (similar to rifle logic)
 func shoot_pistol():
-	print("Ammo left in pistol:", ammo_in_pistol, " Total pistol ammo remaining:", total_pistol_ammo)
+	print("Ammo left in pistol:", ammo_in_pistol)
 	$MuzzleFlash/AnimatedSprite2D.visible = true
 	$MuzzleFlash/AnimatedSprite2D.play()
 	
@@ -269,7 +279,7 @@ func shoot_pistol():
 func shoot_shotgun():
 	var projectiles_array: Array
 	# print ammo count
-	print("Ammo left in shotgun:", ammo_in_shotgun, " Total shotgun ammo remaining:", total_shotgun_ammo)
+	print("Ammo left in shotgun:", ammo_in_shotgun)
 	# play muzzle flash animation
 	$MuzzleFlash/AnimatedSprite2D.visible = true
 	$MuzzleFlash/AnimatedSprite2D.play()
@@ -396,7 +406,7 @@ func _physics_process(_delta: float) -> void:
 # Function to handle general updates every frame
 # process is called every frame, which is uneven and changes between computers
 func _process(_delta: float) -> void:
-	print(current_health)
+	#print(current_health)
 
 	# Change the current weapon based on input
 	if Input.is_action_pressed("weapon_1"):
