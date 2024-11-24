@@ -19,6 +19,7 @@ func _physics_process(delta: float) -> void:
 			#queue_free()
 		if collision_detect.get_collider().name.substr(0,6) == "Zombie":
 			collision_detect.get_collider().health -= 1
+			collision_detect.get_collider().pursue = true
 			queue_free()
 			
 func _on_area_entered(area: Area2D) -> void:

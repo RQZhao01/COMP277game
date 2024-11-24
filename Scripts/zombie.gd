@@ -51,6 +51,9 @@ func _process(_delta: float) -> void:
 		
 		pass
 	
+	
+	
+	
 	elif health == 0 or health <= 0:
 		dead = true
 			#collision_detect.get_collider()
@@ -83,6 +86,8 @@ func _process(_delta: float) -> void:
 		velocity = current_agent_position.direction_to(next_path_position) * move_speed
 	
 		self.rotation = -velocity.angle_to(Vector2(-1,0)) + PI
+	
+	
 	
 	
 	

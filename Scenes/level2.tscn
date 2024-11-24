@@ -619,7 +619,7 @@ position = Vector2(1861, -6482)
 position = Vector2(-2051, -194)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.492188, 0.492188, 0.492188, 1)
+color = Color(0.695313, 0.695313, 0.695313, 1)
 
 [node name="Zombies" type="Node2D" parent="."]
 light_mask = 2
