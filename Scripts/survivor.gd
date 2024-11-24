@@ -321,7 +321,7 @@ func update_player_movement():
 		#ctrl makes the player slow walk
 		if Input.is_action_pressed("ui_ctrl"):
 			player_speed = SLOW_WALK_SPEED
-			$Noisecircle.scale= Vector2(10,10)
+			$Noisecircle.scale= Vector2(20,20)
 			match current_weapon:
 				"rifle":
 					$AnimatedSprite2D.play("rifle_slow_walk")
