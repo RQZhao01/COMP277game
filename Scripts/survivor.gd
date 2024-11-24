@@ -408,8 +408,7 @@ func _physics_process(_delta: float) -> void:
 func _process(_delta: float) -> void:
 	#print(current_health)
 	current_health_changed.emit()
-	print(current_health)
-	print("......")
+	
 
 	# Change the current weapon based on input
 	if Input.is_action_pressed("weapon_1"):
@@ -438,3 +437,7 @@ func _ready() -> void:
 func _on_animated_sprite_2d_animation_finished() -> void:
 	reloading = false  # Reset reloading state
 	print("animation finished")  # Debug print to confirm animation completion
+
+
+func _on_darkrooms_area_entered(area: Area2D) -> void:
+	pass # Replace with function body.

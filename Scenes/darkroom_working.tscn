@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://baf1jf3e2ajmk"]
+
+[ext_resource type="Script" path="res://Scripts/darkrooms.gd" id="1_xrjim"]
+[ext_resource type="Texture2D" uid="uid://cl47fqbr5n2yl" path="res://Assets/white 3.jpeg" id="2_45dul"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ct02"]
+size = Vector2(80.8, 89.6)
+
+[node name="darkroom" type="Area2D"]
+position = Vector2(-668, -648)
+scale = Vector2(5, 5)
+script = ExtResource("1_xrjim")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(5.2, -8.6)
+shape = SubResource("RectangleShape2D_5ct02")
+metadata/_edit_group_ = true
+
+[node name="PointLight2D" type="PointLight2D" parent="CollisionShape2D"]
+position = Vector2(0.399997, 1)
+scale = Vector2(0.1972, 0.207533)
+color = Color(0.374139, 0.374139, 0.374139, 1)
+energy = 3.0
+blend_mode = 1
+texture = ExtResource("2_45dul")
+metadata/_edit_group_ = true
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
