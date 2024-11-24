@@ -1089,10 +1089,10 @@ animation = &"attack3"
 debug_enabled = true
 
 [node name="Area2D" type="Area2D" parent="."]
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.31, 0.31)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-scale = Vector2(25, 25)
+scale = Vector2(20, 20)
 shape = SubResource("CircleShape2D_p5wvb")
 debug_color = Color(0.271952, 0.584821, 0.665416, 0.42)
 

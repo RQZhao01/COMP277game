@@ -749,3 +749,55 @@ scale = Vector2(5.39691, 4.74835)
 [node name="darkroom2" parent="dark_rooms" instance=ExtResource("7_k4ux8")]
 position = Vector2(1413, -757)
 scale = Vector2(10.1864, 5.64589)
+
+[node name="darkroom3" parent="dark_rooms" instance=ExtResource("7_k4ux8")]
+position = Vector2(-2493, -2703)
+scale = Vector2(5.19808, 5.6139)
+
+[node name="darkroom4" parent="dark_rooms" instance=ExtResource("7_k4ux8")]
+position = Vector2(-691, -3245)
+scale = Vector2(3.73879, 2.9661)
+
+[node name="darkroom5" parent="dark_rooms" instance=ExtResource("7_k4ux8")]
+position = Vector2(-48, -3235)
+scale = Vector2(3.61274, 3.24016)
+
+[node name="darkroom6" parent="dark_rooms" instance=ExtResource("7_k4ux8")]
+position = Vector2(-52, -2665)
+scale = Vector2(3.77574, 3.33892)
+
+[node name="darkroom7" parent="dark_rooms" instance=ExtResource("7_k4ux8")]
+position = Vector2(-694, -2653)
+scale = Vector2(3.75533, 3.31587)
+
+[node name="darkroom8" parent="dark_rooms" instance=ExtResource("7_k4ux8")]
+position = Vector2(-1276, -2110)
+scale = Vector2(6.5202, 4.85989)
+
+[node name="darkroom9" parent="dark_rooms" instance=ExtResource("7_k4ux8")]
+position = Vector2(-81, -1595)
+scale = Vector2(13.5058, 14.0674)
+
+[node name="darkroom10" parent="dark_rooms" instance=ExtResource("7_k4ux8")]
+position = Vector2(2145, -2616)
+scale = Vector2(13.9941, 14.4451)
+
+[node name="darkroom11" parent="dark_rooms" instance=ExtResource("7_k4ux8")]
+position = Vector2(1182, -3580)
+scale = Vector2(5.7822, 4.04731)
+
+[node name="darkroom12" parent="dark_rooms" instance=ExtResource("7_k4ux8")]
+position = Vector2(-2311, -3803)
+scale = Vector2(12.953, 13.9209)
+
+[node name="darkroom13" parent="dark_rooms" instance=ExtResource("7_k4ux8")]
+position = Vector2(-2787, -5416)
+scale = Vector2(5.42343, 13.8439)
+
+[node name="darkroom14" parent="dark_rooms" instance=ExtResource("7_k4ux8")]
+position = Vector2(-467, -5203)
+scale = Vector2(19.6738, 13.7906)
+
+[node name="darkroom15" parent="dark_rooms" instance=ExtResource("7_k4ux8")]
+position = Vector2(1916, -4813)
+scale = Vector2(16.6872, 15.3473)

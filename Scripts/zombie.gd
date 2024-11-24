@@ -17,6 +17,7 @@ var dead = false
 var count = 0
 var damage = false
 var player
+var blind = false
 
 
 
@@ -29,9 +30,12 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	
-	var pos = self.get_parent().get_parent().find_child("Survivor").find_child("light").global_position - self.global_position
-	$RayCast2D.target_position = pos
-	$RayCast2D.rotation = -self.rotation
+	if blind == false:
+		var pos = self.get_parent().get_parent().find_child("Survivor").find_child("light").global_position - self.global_position
+		$RayCast2D.target_position = pos
+		$RayCast2D.rotation = -self.rotation
+	else:
+		$RayCast2D.target_position = Vector2(0,0)
 	
 	
 	
@@ -65,7 +69,7 @@ func _process(_delta: float) -> void:
 		dead = true
 			#collision_detect.get_collider()
 	elif attack:
-		print("attack")
+		
 		$Sprite2D.play(anim)
 		if damage == true:
 			print("player is hurt")
@@ -109,28 +113,7 @@ func _process(_delta: float) -> void:
 	
 	
 		
-	#if $RayCast2D.is_colliding():
-		#print($RayCast2D.get_collider().name)
-		#if $RayCast2D.get_collider().name == "Survivor":
-			#pursue = true
-		#else:
-			#pursue = false
-	
-	
-	#if $RayCast2D.get_collider().name == "TileMap" or $RayCast2D.get_collider().name == "walls":
-		#print("no ray")
-	#else:
-		#print("ray")
-		#pursue = true
-		
-	
-	
-	#print($Sprite2D.visible)
-	
-	
-	#$Sprite2D.play("idle")
-	
-	
+
 
 	move_and_slide()
 
@@ -162,6 +145,8 @@ func _on_attack_zone_area_entered(area: Area2D) -> void:
 	if area.name == "hitbox":
 		player = area
 		attack = true
+	if area.name.substr(0,8) == "darkroom":
+		blind = true
 	pass # Replace with function body.
 	
 
@@ -170,6 +155,8 @@ func _on_attack_zone_area_entered(area: Area2D) -> void:
 func _on_attack_zone_area_exited(area: Area2D) -> void:
 	if area.name == "hitbox":
 		attack = false
+	if area.name.substr(0,8) == "darkroom":
+		blind = false
 	pass # Replace with function body.
 
 
@@ -177,22 +164,3 @@ func _on_attack_zone_area_exited(area: Area2D) -> void:
 func _on_sprite_2d_animation_finished() -> void:
 	damage = true
 	pass # Replace with function body.
-
-
-
-
-
-
-	
-
-
-#func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
-	#print("visible")
-	#self.get_node("Area2D").get_node("CollisionShape2D").scale = Vector2(100,100)
-	#pass # Replace with function body.
-#
-#
-#func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
-	#print("Invisible")
-	#self.get_node("Area2D").get_node("CollisionShape2D").scale = Vector2(25,25)
-	#pass # Replace with function body.
