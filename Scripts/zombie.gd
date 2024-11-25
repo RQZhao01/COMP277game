@@ -51,11 +51,19 @@ func _process(_delta: float) -> void:
 		randomize()
 		var random_number = randi() % 2
 		if random_number == 0:
+			var dead = load("res://Scenes/Sounds/Zombie_death.tscn")
+			var DEAD = dead.instantiate()
+			self.add_child(DEAD)
 			$Sprite2D.play("dying1")
+			
 		else:
+			var dead = load("res://Scenes/Sounds/Zombie_death.tscn")
+			var DEAD = dead.instantiate()
+			self.add_child(DEAD)
 			$Sprite2D.play("dying2")
 		$Area2D.get_node("CollisionShape2D").set_disabled(true)
 		$"attack zone".get_node("CollisionShape2D").set_disabled(true)
+		
 		
 	if dead == null:
 		print("dead")
@@ -70,7 +78,7 @@ func _process(_delta: float) -> void:
 		$Sprite2D.play(anim)
 		if damage == true:
 			print("player is hurt")
-			player.get_parent().current_health -= 10
+			player.get_parent().current_health -= 25
 			print(player.get_parent().current_health)
 			damage = false
 	elif $RayCast2D.is_colliding():

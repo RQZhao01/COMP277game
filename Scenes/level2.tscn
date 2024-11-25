@@ -619,7 +619,6 @@ position = Vector2(1861, -6482)
 position = Vector2(-1985, -191)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
 color = Color(0.847656, 0.847656, 0.847656, 1)
 
 [node name="Zombies" type="Node2D" parent="."]
@@ -777,11 +776,11 @@ scale = Vector2(6.5202, 4.85989)
 
 [node name="darkroom9" parent="dark_rooms" instance=ExtResource("7_k4ux8")]
 position = Vector2(-81, -1595)
-scale = Vector2(13.5058, 14.0674)
+scale = Vector2(13.8728, 14.7898)
 
 [node name="darkroom10" parent="dark_rooms" instance=ExtResource("7_k4ux8")]
 position = Vector2(2145, -2616)
-scale = Vector2(13.9941, 14.4451)
+scale = Vector2(14.1631, 14.7288)
 
 [node name="darkroom11" parent="dark_rooms" instance=ExtResource("7_k4ux8")]
 position = Vector2(1182, -3580)

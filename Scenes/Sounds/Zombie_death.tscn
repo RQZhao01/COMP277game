@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://x3w18cvmbiaq"]
+
+[ext_resource type="AudioStream" uid="uid://cffnj6pdvlk02" path="res://Assets/Sounds/zombie-choking-short-44937.mp3" id="1_bbroh"]
+[ext_resource type="Script" path="res://Scripts/one_time_sound.gd" id="2_wuyix"]
+
+[node name="ZombieDeath" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_bbroh")
+volume_db = 10.0
+script = ExtResource("2_wuyix")
