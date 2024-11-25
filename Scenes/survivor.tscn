@@ -1,4 +1,4 @@
-[gd_scene load_steps=188 format=3 uid="uid://c7ygnibm5wyfu"]
+[gd_scene load_steps=190 format=3 uid="uid://c7ygnibm5wyfu"]
 
 [ext_resource type="Script" path="res://Scripts/survivor.gd" id="1_tamox"]
 [ext_resource type="Texture2D" uid="uid://bpir0oihg5kin" path="res://Assets/Survivor/handgun/idle/survivor-idle_handgun_0.png" id="2_44gyy"]
@@ -182,6 +182,8 @@
 [ext_resource type="Texture2D" uid="uid://cryjv6hf6r1yb" path="res://Assets/Survivor/HealthBar/healthbarUnder.png" id="180_p6tni"]
 [ext_resource type="Texture2D" uid="uid://bjv6yojvwcttp" path="res://Assets/Survivor/HealthBar/healthbarProgress.png" id="181_k3p8p"]
 [ext_resource type="Script" path="res://Scripts/HealthBar.gd" id="182_5jwvq"]
+[ext_resource type="Texture2D" uid="uid://dkesnr2dwm3y4" path="res://Assets/rifle.png" id="183_87knm"]
+[ext_resource type="Script" path="res://Scripts/texture_rect.gd" id="183_dnr2u"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_w1j3v"]
 animations = [{
@@ -1080,5 +1082,22 @@ texture_under = ExtResource("180_p6tni")
 texture_progress = ExtResource("181_k3p8p")
 script = ExtResource("182_5jwvq")
 
+[node name="Weapon_display" type="TextureRect" parent="."]
+z_index = 1000
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 259.996
+offset_top = 1000.0
+offset_right = 771.996
+offset_bottom = 1512.0
+grow_vertical = 0
+rotation = 1.57051
+scale = Vector2(0.421724, 0.47675)
+texture = ExtResource("183_87knm")
+expand_mode = 5
+script = ExtResource("183_dnr2u")
+
 [connection signal="current_health_changed" from="." to="TextureProgressBar" method="_on_survivor_current_health_changed"]
+[connection signal="weapon_changed" from="." to="Weapon_display" method="_on_survivor_weapon_changed"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
