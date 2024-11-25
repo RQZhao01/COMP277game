@@ -18,6 +18,7 @@ var count = 0
 var damage = false
 var player
 var blind = false
+var scream = false
 
 
 
@@ -53,16 +54,12 @@ func _process(_delta: float) -> void:
 			$Sprite2D.play("dying1")
 		else:
 			$Sprite2D.play("dying2")
+		$Area2D.get_node("CollisionShape2D").set_disabled(true)
+		$"attack zone".get_node("CollisionShape2D").set_disabled(true)
 		
-		
-		
-		
-	
 	if dead == null:
-		
+		print("dead")
 		pass
-	
-	
 	
 	
 	elif health == 0 or health <= 0:
@@ -82,6 +79,13 @@ func _process(_delta: float) -> void:
 			move_speed = 250
 			$Sprite2D.play("run")
 			navigation_agent_2d.target_position = target.global_position
+			if scream == false:
+				scream = load("res://Scenes/Sounds/Zombie_screm.tscn")
+				var SCREAAAAAm = scream.instantiate()
+				self.add_child(SCREAAAAAm)
+				scream = true
+			
+			
 		else:
 			if velocity == Vector2(0,0):
 				$Sprite2D.play("idle")
@@ -94,11 +98,14 @@ func _process(_delta: float) -> void:
 		move_speed = 250
 		$Sprite2D.play("run")
 		navigation_agent_2d.target_position = target.global_position
+		
+		
 	else:
 		if velocity == Vector2(0,0):
 			$Sprite2D.play("idle")
 		else:
 			$Sprite2D.play("walk1")
+			scream = false
 			move_speed = 100
 		
 	if navigation_agent_2d.is_navigation_finished():
@@ -122,6 +129,11 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 	
 	if area.name == "Noisecircle":
 		pursue = true
+		if scream == false:
+			var scream = load("res://Scenes/Sounds/Zombie_screm.tscn")
+			var SCREAAAAAm = scream.instantiate()
+			self.add_child(SCREAAAAAm)
+			scream = true
 		#print(target.global_position)
 		navigation_agent_2d.target_position = target.global_position
 	
