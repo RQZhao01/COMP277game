@@ -22,7 +22,7 @@ metadata/_edit_group_ = true
 [node name="PointLight2D" type="PointLight2D" parent="CollisionShape2D"]
 position = Vector2(0.399997, 1)
 scale = Vector2(0.1972, 0.207533)
-color = Color(0.0807834, 0.0807833, 0.0807833, 1)
+color = Color(0.105469, 0.105469, 0.105469, 1)
 energy = 35.0
 blend_mode = 1
 texture = ExtResource("2_45dul")

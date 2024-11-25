@@ -1083,17 +1083,19 @@ texture_progress = ExtResource("181_k3p8p")
 script = ExtResource("182_5jwvq")
 
 [node name="Weapon_display" type="TextureRect" parent="."]
+light_mask = 0
+visibility_layer = 7
 z_index = 1000
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 259.996
-offset_top = 1000.0
-offset_right = 771.996
-offset_bottom = 1512.0
+offset_left = 222.496
+offset_top = 1142.5
+offset_right = 734.496
+offset_bottom = 1654.5
 grow_vertical = 0
 rotation = 1.57051
-scale = Vector2(0.421724, 0.47675)
+scale = Vector2(0.442274, 0.435031)
 texture = ExtResource("183_87knm")
 expand_mode = 5
 script = ExtResource("183_dnr2u")
