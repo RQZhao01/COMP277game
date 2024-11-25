@@ -5,6 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://c7ygnibm5wyfu" path="res://Scenes/survivor.tscn" id="3_0x5ts"]
 [ext_resource type="PackedScene" uid="uid://bp46p2m5mdxki" path="res://Scenes/AmmoPickup.tscn" id="5_1pmb6"]
 [ext_resource type="PackedScene" uid="uid://45tdwpffm1ms" path="res://Scenes/zombie.tscn" id="6_g1wfl"]
+[ext_resource type="PackedScene" uid="uid://ctyparo8gfa03" path="res://Scenes/Pickup.tscn" id="6_yigd1"]
+[ext_resource type="PackedScene" uid="uid://baf1jf3e2ajmk" path="res://Scenes/darkroom_working.tscn" id="7_cjvbf"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_5vlcd"]
 vertices = PackedVector2Array(32, 32, -32, 32, -32, -32, 32, -32)
@@ -569,5 +571,108 @@ position = Vector2(2034, -1605)
 [node name="Zombie24" parent="Zombies" instance=ExtResource("6_g1wfl")]
 position = Vector2(1752, -1870)
 
-[node name="AmmoPickup" parent="." instance=ExtResource("5_1pmb6")]
+[node name="AmmoPickups" type="Node2D" parent="."]
+
+[node name="AmmoPickup" parent="AmmoPickups" instance=ExtResource("5_1pmb6")]
 position = Vector2(-379, -404)
+
+[node name="AmmoPickup2" parent="AmmoPickups" instance=ExtResource("5_1pmb6")]
+position = Vector2(-1000, -3842)
+
+[node name="AmmoPickup3" parent="AmmoPickups" instance=ExtResource("5_1pmb6")]
+position = Vector2(-175, -3012)
+
+[node name="AmmoPickup4" parent="AmmoPickups" instance=ExtResource("5_1pmb6")]
+position = Vector2(345, -3469)
+
+[node name="AmmoPickup5" parent="AmmoPickups" instance=ExtResource("5_1pmb6")]
+position = Vector2(-2322, -3119)
+
+[node name="AmmoPickup6" parent="AmmoPickups" instance=ExtResource("5_1pmb6")]
+position = Vector2(-2311, -1626)
+
+[node name="AmmoPickup7" parent="AmmoPickups" instance=ExtResource("5_1pmb6")]
+position = Vector2(2331, -1948)
+
+[node name="AmmoPickup8" parent="AmmoPickups" instance=ExtResource("5_1pmb6")]
+position = Vector2(-929, -1000)
+
+[node name="AmmoPickup9" parent="AmmoPickups" instance=ExtResource("5_1pmb6")]
+position = Vector2(-120, -993)
+
+[node name="AmmoPickup10" parent="AmmoPickups" instance=ExtResource("5_1pmb6")]
+position = Vector2(-720, -446)
+
+[node name="AmmoPickup11" parent="AmmoPickups" instance=ExtResource("5_1pmb6")]
+position = Vector2(-2047, -3502)
+
+[node name="AmmoPickup12" parent="AmmoPickups" instance=ExtResource("5_1pmb6")]
+position = Vector2(-1976, -5406)
+
+[node name="AmmoPickup13" parent="AmmoPickups" instance=ExtResource("5_1pmb6")]
+position = Vector2(-2023, -4484)
+
+[node name="AmmoPickup14" parent="AmmoPickups" instance=ExtResource("5_1pmb6")]
+position = Vector2(-12, -4574)
+
+[node name="AmmoPickup15" parent="AmmoPickups" instance=ExtResource("5_1pmb6")]
+position = Vector2(1066, -2868)
+
+[node name="Medkits" type="Node2D" parent="."]
+
+[node name="Pickup" parent="Medkits" instance=ExtResource("6_yigd1")]
+position = Vector2(-311, -5208)
+
+[node name="Pickup2" parent="Medkits" instance=ExtResource("6_yigd1")]
+position = Vector2(-838, -5118)
+
+[node name="Pickup3" parent="Medkits" instance=ExtResource("6_yigd1")]
+position = Vector2(-2041, -5112)
+
+[node name="Pickup4" parent="Medkits" instance=ExtResource("6_yigd1")]
+position = Vector2(108, -4149)
+
+[node name="Pickup5" parent="Medkits" instance=ExtResource("6_yigd1")]
+position = Vector2(90, -2999)
+
+[node name="Pickup6" parent="Medkits" instance=ExtResource("6_yigd1")]
+position = Vector2(-772, -3364)
+
+[node name="Pickup7" parent="Medkits" instance=ExtResource("6_yigd1")]
+position = Vector2(-2095, -4113)
+
+[node name="Pickup8" parent="Medkits" instance=ExtResource("6_yigd1")]
+position = Vector2(-2179, -2933)
+
+[node name="Pickup9" parent="Medkits" instance=ExtResource("6_yigd1")]
+position = Vector2(-1323, -2975)
+
+[node name="Pickup10" parent="Medkits" instance=ExtResource("6_yigd1")]
+position = Vector2(-2113, -2490)
+
+[node name="Pickup11" parent="Medkits" instance=ExtResource("6_yigd1")]
+position = Vector2(-2431, -2023)
+
+[node name="Pickup12" parent="Medkits" instance=ExtResource("6_yigd1")]
+position = Vector2(1712, -2802)
+
+[node name="Pickup13" parent="Medkits" instance=ExtResource("6_yigd1")]
+position = Vector2(1700, -1317)
+
+[node name="Pickup14" parent="Medkits" instance=ExtResource("6_yigd1")]
+position = Vector2(832, -1155)
+
+[node name="Pickup15" parent="Medkits" instance=ExtResource("6_yigd1")]
+position = Vector2(-706, -1263)
+
+[node name="Pickup16" parent="Medkits" instance=ExtResource("6_yigd1")]
+position = Vector2(-7, -4805)
+
+[node name="Pickup17" parent="Medkits" instance=ExtResource("6_yigd1")]
+position = Vector2(2063, -4166)
+
+[node name="DarkRooms" type="Node2D" parent="."]
+
+[node name="darkroom" parent="DarkRooms" instance=ExtResource("7_cjvbf")]
+position = Vector2(-1377, -722)
+scale = Vector2(5, 3.1891)
