@@ -32,6 +32,11 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	
+	if $Sprite2D.animation == "idle" and $AudioStreamPlayer2D.playing == false:
+		$AudioStreamPlayer2D.play()
+	
+	if $Sprite2D.animation != "idle" and $AudioStreamPlayer2D.playing == true:
+		$AudioStreamPlayer2D.stop()
 	
 	var pos = self.get_parent().get_parent().find_child("Survivor").find_child("light").global_position - self.global_position
 	$RayCast2D.target_position = pos
@@ -189,4 +194,5 @@ func _on_attack_zone_area_exited(area: Area2D) -> void:
 
 func _on_sprite_2d_animation_finished() -> void:
 	damage = true
+	
 	pass # Replace with function body.

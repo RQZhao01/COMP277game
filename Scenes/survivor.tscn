@@ -1038,6 +1038,7 @@ scale = Vector2(0.054, 0.054)
 texture = ExtResource("28_c5thn")
 
 [node name="Hearing_circle" type="Area2D" parent="."]
+visible = false
 z_index = 1000
 scale = Vector2(100, 100)
 metadata/_edit_group_ = true
@@ -1138,6 +1139,9 @@ position = Vector2(-32.476, -5.35582)
 rotation = 1.5708
 shape = SubResource("ConvexPolygonShape2D_45oo7")
 debug_color = Color(0.266863, 0.707031, 0.0441895, 0.42)
+
+[node name="AudioListener2D" type="AudioListener2D" parent="."]
+current = true
 
 [connection signal="current_health_changed" from="." to="TextureProgressBar" method="_on_survivor_current_health_changed"]
 [connection signal="weapon_changed" from="." to="Weapon_display" method="_on_survivor_weapon_changed"]

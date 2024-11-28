@@ -170,6 +170,7 @@ func update_player_shooting():
 					if ammo_in_rifle > 0:
 						ammo_in_rifle -= 1
 						shoot_rifle()
+						$Noisecircle.scale= Vector2(80,80)
 						delay = 0.0
 					else:
 						stop_shooting()
@@ -183,6 +184,7 @@ func update_player_shooting():
 					if ammo_in_pistol > 0:
 						ammo_in_pistol -= 1
 						shoot_pistol()
+						$Noisecircle.scale= Vector2(55,55)
 						delay = 0.0
 					else:
 						stop_shooting()
@@ -196,6 +198,7 @@ func update_player_shooting():
 					if ammo_in_shotgun > 0:
 						ammo_in_shotgun -= 1
 						shoot_shotgun()
+						$Noisecircle.scale= Vector2(110,110)
 						delay = 0.0
 					else:
 						stop_shooting()
