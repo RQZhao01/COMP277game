@@ -1,4 +1,4 @@
-[gd_scene load_steps=190 format=3 uid="uid://c7ygnibm5wyfu"]
+[gd_scene load_steps=194 format=3 uid="uid://c7ygnibm5wyfu"]
 
 [ext_resource type="Script" path="res://Scripts/survivor.gd" id="1_tamox"]
 [ext_resource type="Texture2D" uid="uid://bpir0oihg5kin" path="res://Assets/Survivor/handgun/idle/survivor-idle_handgun_0.png" id="2_44gyy"]
@@ -184,6 +184,7 @@
 [ext_resource type="Script" path="res://Scripts/HealthBar.gd" id="182_5jwvq"]
 [ext_resource type="Texture2D" uid="uid://dkesnr2dwm3y4" path="res://Assets/rifle.png" id="183_87knm"]
 [ext_resource type="Script" path="res://Scripts/texture_rect.gd" id="183_dnr2u"]
+[ext_resource type="Script" path="res://Scripts/flashlight.gd" id="185_7ie11"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_w1j3v"]
 animations = [{
@@ -986,6 +987,19 @@ radius = 8.12535
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0noh0"]
 
+[sub_resource type="Gradient" id="Gradient_283wa"]
+colors = PackedColorArray(0.884058, 0.884058, 0.884058, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_3oyfs"]
+gradient = SubResource("Gradient_283wa")
+fill = 1
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0.5, 0.5)
+metadata/_snap_enabled = true
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_45oo7"]
+points = PackedVector2Array(500, -900, 0, 0, -500, -900, 0, -999)
+
 [node name="Survivor" type="CharacterBody2D"]
 z_index = 10
 rotation = -1.5708
@@ -1100,6 +1114,33 @@ texture = ExtResource("183_87knm")
 expand_mode = 5
 script = ExtResource("183_dnr2u")
 
+[node name="flashlight" type="PointLight2D" parent="."]
+z_index = -1
+position = Vector2(-35.0001, 14.9999)
+rotation = 0.436332
+scale = Vector2(40, 40)
+skew = 0.698132
+energy = 10.0
+blend_mode = 2
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_3oyfs")
+offset = Vector2(24.155, -23.85)
+texture_scale = 0.75
+script = ExtResource("185_7ie11")
+
+[node name="Area2D" type="Area2D" parent="flashlight"]
+position = Vector2(0.216849, 0.078927)
+rotation = -0.785398
+scale = Vector2(0.0240241, 0.0390512)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="flashlight/Area2D"]
+position = Vector2(-32.476, -5.35582)
+rotation = 1.5708
+shape = SubResource("ConvexPolygonShape2D_45oo7")
+debug_color = Color(0.266863, 0.707031, 0.0441895, 0.42)
+
 [connection signal="current_health_changed" from="." to="TextureProgressBar" method="_on_survivor_current_health_changed"]
 [connection signal="weapon_changed" from="." to="Weapon_display" method="_on_survivor_weapon_changed"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="area_entered" from="flashlight/Area2D" to="flashlight" method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="flashlight/Area2D" to="flashlight" method="_on_area_2d_area_exited"]

@@ -22,6 +22,7 @@ var scream = false
 
 
 
+
 func _ready() -> void:
 	target = self.get_parent().get_parent().find_child("Survivor")
 	
@@ -31,13 +32,14 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	
-	if blind == false:
-		var pos = self.get_parent().get_parent().find_child("Survivor").find_child("light").global_position - self.global_position
-		$RayCast2D.target_position = pos
-		$RayCast2D.rotation = -self.rotation
-	else:
-		$RayCast2D.target_position = Vector2(0,0)
 	
+	var pos = self.get_parent().get_parent().find_child("Survivor").find_child("light").global_position - self.global_position
+	$RayCast2D.target_position = pos
+	$RayCast2D.rotation = -self.rotation
+	
+	#if $RayCast2D.is_colliding() == true:
+		#if self.name == "Zombie2":
+			#print($RayCast2D.get_collider().name)
 	
 	
 	if dead == true:
@@ -81,7 +83,7 @@ func _process(_delta: float) -> void:
 			player.get_parent().current_health -= 25
 			print(player.get_parent().current_health)
 			damage = false
-	elif $RayCast2D.is_colliding():
+	elif $RayCast2D.is_colliding() and blind == false:
 		#print($RayCast2D.get_collider().name)
 		if $RayCast2D.get_collider().name == "Survivor":
 			move_speed = 250
@@ -99,6 +101,7 @@ func _process(_delta: float) -> void:
 				$Sprite2D.play("idle")
 			else:
 				$Sprite2D.play("walk1")
+				scream = false
 				move_speed = 100
 		
 			
@@ -113,6 +116,7 @@ func _process(_delta: float) -> void:
 			$Sprite2D.play("idle")
 		else:
 			$Sprite2D.play("walk1")
+			
 			scream = false
 			move_speed = 100
 		

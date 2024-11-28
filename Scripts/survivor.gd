@@ -406,7 +406,7 @@ func _physics_process(_delta: float) -> void:
 # Function to handle general updates every frame
 # process is called every frame, which is uneven and changes between computers
 func _process(_delta: float) -> void:
-	print(current_weapon)
+	
 	#print(current_health)
 	current_health_changed.emit()
 	emit_signal("weapon_changed",current_weapon)
