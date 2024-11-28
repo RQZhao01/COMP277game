@@ -372,6 +372,8 @@ func update_player_movement():
 		)
 	var vector = player_speed * input_direction
 	velocity = vector.rotated(self.rotation + PI / 2)
+	if velocity == Vector2(0,0):
+		$Noisecircle.scale= Vector2(20,20)
 	move_and_slide()
 
 # Function to handle reloading logic
