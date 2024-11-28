@@ -171,6 +171,7 @@ func _on_attack_zone_area_entered(area: Area2D) -> void:
 		attack = true
 	if area.name.substr(0,8) == "darkroom":
 		blind = true
+		navigation_agent_2d.target_position = self.global_position
 	pass # Replace with function body.
 	
 
@@ -181,6 +182,7 @@ func _on_attack_zone_area_exited(area: Area2D) -> void:
 		attack = false
 	if area.name.substr(0,8) == "darkroom":
 		blind = false
+		
 	pass # Replace with function body.
 
 
