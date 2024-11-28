@@ -3,7 +3,7 @@ extends CharacterBody2D
 class_name Survivor
 
 signal current_health_changed
-
+signal weapon_changed(weapon:String)
 # State variables to manage player's actions
 var shooting: bool = false  # Whether the player is shooting
 var reloading: bool = false  # Whether the player is reloading
@@ -170,6 +170,7 @@ func update_player_shooting():
 					if ammo_in_rifle > 0:
 						ammo_in_rifle -= 1
 						shoot_rifle()
+						$Noisecircle.scale= Vector2(80,80)
 						delay = 0.0
 					else:
 						stop_shooting()
@@ -183,6 +184,7 @@ func update_player_shooting():
 					if ammo_in_pistol > 0:
 						ammo_in_pistol -= 1
 						shoot_pistol()
+						$Noisecircle.scale= Vector2(55,55)
 						delay = 0.0
 					else:
 						stop_shooting()
@@ -196,6 +198,7 @@ func update_player_shooting():
 					if ammo_in_shotgun > 0:
 						ammo_in_shotgun -= 1
 						shoot_shotgun()
+						$Noisecircle.scale= Vector2(110,110)
 						delay = 0.0
 					else:
 						stop_shooting()
@@ -369,6 +372,8 @@ func update_player_movement():
 		)
 	var vector = player_speed * input_direction
 	velocity = vector.rotated(self.rotation + PI / 2)
+	if velocity == Vector2(0,0):
+		$Noisecircle.scale= Vector2(20,20)
 	move_and_slide()
 
 # Function to handle reloading logic
@@ -406,17 +411,22 @@ func _physics_process(_delta: float) -> void:
 # Function to handle general updates every frame
 # process is called every frame, which is uneven and changes between computers
 func _process(_delta: float) -> void:
+	
 	#print(current_health)
 	current_health_changed.emit()
+	emit_signal("weapon_changed",current_weapon)
 	
 
 	# Change the current weapon based on input
 	if Input.is_action_pressed("weapon_1"):
 		current_weapon = "rifle"
+		emit_signal("weapon_changed",current_weapon)
 	elif Input.is_action_pressed("weapon_2"):
 		current_weapon = "pistol"
+		emit_signal("weapon_changed",current_weapon)
 	elif Input.is_action_pressed("weapon_3"):
 		current_weapon = "shotgun"
+		emit_signal("weapon_changed",current_weapon)
 		
 	if Input.is_action_just_pressed("use_medkit"):
 		use_medkit()
