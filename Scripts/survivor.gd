@@ -419,10 +419,10 @@ func _process(_delta: float) -> void:
 
 	# Change the current weapon based on input
 	if Input.is_action_pressed("weapon_1"):
-		current_weapon = "rifle"
+		current_weapon = "pistol"
 		emit_signal("weapon_changed",current_weapon)
 	elif Input.is_action_pressed("weapon_2"):
-		current_weapon = "pistol"
+		current_weapon = "rifle"
 		emit_signal("weapon_changed",current_weapon)
 	elif Input.is_action_pressed("weapon_3"):
 		current_weapon = "shotgun"
