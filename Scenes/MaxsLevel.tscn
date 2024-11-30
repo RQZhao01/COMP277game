@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=4 uid="uid://cwskbw5fpouqm"]
+[gd_scene load_steps=57 format=4 uid="uid://dkd40iw0p2pjk"]
 
 [ext_resource type="Texture2D" uid="uid://bo4j2fdjupc6b" path="res://Assets/Tilemap/space-blks-1.034.png" id="1_ggyk1"]
 [ext_resource type="Script" path="res://Scripts/walls.gd" id="2_golsy"]
@@ -7,6 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://45tdwpffm1ms" path="res://Scenes/zombie.tscn" id="6_g1wfl"]
 [ext_resource type="PackedScene" uid="uid://ctyparo8gfa03" path="res://Scenes/Pickup.tscn" id="6_yigd1"]
 [ext_resource type="PackedScene" uid="uid://baf1jf3e2ajmk" path="res://Scenes/darkroom_working.tscn" id="7_cjvbf"]
+[ext_resource type="AudioStream" uid="uid://n70hvx5qn30i" path="res://Assets/Sounds/Ambient/basement-with-fridge-room-tone-32354.mp3" id="8_lwqhl"]
+[ext_resource type="AudioStream" uid="uid://dns1fk7e2062n" path="res://Assets/Sounds/Ambient/machine-room-55632.mp3" id="9_u1s3b"]
+[ext_resource type="Texture2D" uid="uid://b6ided6akyfpn" path="res://Assets/Furniture/table-with-sink-and-coffee.jpg" id="10_thbve"]
+[ext_resource type="Texture2D" uid="uid://bpd1xlng8y6b7" path="res://Assets/Furniture/weapon-locker.png" id="11_jycdy"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_5vlcd"]
 vertices = PackedVector2Array(32, 32, -32, 32, -32, -32, 32, -32)
@@ -461,6 +465,11 @@ physics_layer_0/collision_layer = 1
 navigation_layer_0/layers = 1
 sources/0 = SubResource("TileSetAtlasSource_qg7tv")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o3kna"]
+size = Vector2(272, 100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k5mhd"]
+
 [node name="MaxsLevel" type="Node2D"]
 position = Vector2(550, 430)
 
@@ -496,13 +505,13 @@ position = Vector2(-556, -307)
 position = Vector2(-24, -12)
 
 [node name="Zombie" parent="Zombies" instance=ExtResource("6_g1wfl")]
-position = Vector2(-901, -1288)
+position = Vector2(1794, -1491)
 
 [node name="Zombie2" parent="Zombies" instance=ExtResource("6_g1wfl")]
-position = Vector2(-156, -3700)
+position = Vector2(285, -3708)
 
 [node name="Zombie3" parent="Zombies" instance=ExtResource("6_g1wfl")]
-position = Vector2(-682, -3771)
+position = Vector2(-979, -3681)
 
 [node name="Zombie4" parent="Zombies" instance=ExtResource("6_g1wfl")]
 position = Vector2(-323, -4765)
@@ -523,19 +532,19 @@ position = Vector2(-1640, -5172)
 position = Vector2(1887, -1254)
 
 [node name="Zombie10" parent="Zombies" instance=ExtResource("6_g1wfl")]
-position = Vector2(-2119, -1266)
+position = Vector2(-1640, -2844)
 
 [node name="Zombie11" parent="Zombies" instance=ExtResource("6_g1wfl")]
-position = Vector2(-1300, -1520)
+position = Vector2(2432, -1277)
 
 [node name="Zombie12" parent="Zombies" instance=ExtResource("6_g1wfl")]
 position = Vector2(1995, -2910)
 
 [node name="Zombie13" parent="Zombies" instance=ExtResource("6_g1wfl")]
-position = Vector2(-206, -1260)
+position = Vector2(2136, -1291)
 
 [node name="Zombie14" parent="Zombies" instance=ExtResource("6_g1wfl")]
-position = Vector2(-2034, -2017)
+position = Vector2(-1247, -2844)
 
 [node name="Zombie15" parent="Zombies" instance=ExtResource("6_g1wfl")]
 position = Vector2(-1814, -3045)
@@ -544,16 +553,16 @@ position = Vector2(-1814, -3045)
 position = Vector2(-1011, -3339)
 
 [node name="Zombie17" parent="Zombies" instance=ExtResource("6_g1wfl")]
-position = Vector2(-480, -3153)
+position = Vector2(356, -2899)
 
 [node name="Zombie18" parent="Zombies" instance=ExtResource("6_g1wfl")]
 position = Vector2(-898, -2910)
 
 [node name="Zombie19" parent="Zombies" instance=ExtResource("6_g1wfl")]
-position = Vector2(28, -3249)
+position = Vector2(268, -3201)
 
 [node name="Zombie20" parent="Zombies" instance=ExtResource("6_g1wfl")]
-position = Vector2(-525, -3464)
+position = Vector2(204, -3362)
 
 [node name="Zombie21" parent="Zombies" instance=ExtResource("6_g1wfl")]
 position = Vector2(2300, -3243)
@@ -570,7 +579,7 @@ position = Vector2(1752, -1870)
 [node name="AmmoPickups" type="Node2D" parent="."]
 
 [node name="AmmoPickup" parent="AmmoPickups" instance=ExtResource("5_1pmb6")]
-position = Vector2(-379, -404)
+position = Vector2(-378, -470)
 
 [node name="AmmoPickup2" parent="AmmoPickups" instance=ExtResource("5_1pmb6")]
 position = Vector2(-1000, -3842)
@@ -597,7 +606,7 @@ position = Vector2(-929, -1000)
 position = Vector2(-120, -993)
 
 [node name="AmmoPickup10" parent="AmmoPickups" instance=ExtResource("5_1pmb6")]
-position = Vector2(-720, -446)
+position = Vector2(-378, -433)
 
 [node name="AmmoPickup11" parent="AmmoPickups" instance=ExtResource("5_1pmb6")]
 position = Vector2(-2047, -3502)
@@ -680,3 +689,50 @@ scale = Vector2(-13.7308, -28.0011)
 [node name="darkroom3" parent="DarkRooms" instance=ExtResource("7_cjvbf")]
 position = Vector2(-2102, -4062)
 scale = Vector2(3.28, 13.4691)
+
+[node name="AmbientNoise" type="Node2D" parent="."]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="AmbientNoise"]
+position = Vector2(-555, -291)
+stream = ExtResource("8_lwqhl")
+volume_db = 15.111
+autoplay = true
+parameters/looping = true
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="AmbientNoise"]
+position = Vector2(-1335, -1379)
+stream = ExtResource("9_u1s3b")
+volume_db = 1.0
+autoplay = true
+max_distance = 500.0
+parameters/looping = true
+
+[node name="Furniture" type="Node2D" parent="."]
+
+[node name="Table" type="Area2D" parent="Furniture"]
+texture_filter = 1
+texture_repeat = 1
+position = Vector2(-352, -289)
+rotation = 1.5708
+scale = Vector2(0.75, 0.75)
+
+[node name="Sprite2D" type="Sprite2D" parent="Furniture/Table"]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(-2.33128e-07, 9.33333)
+texture = ExtResource("10_thbve")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Furniture/Table"]
+position = Vector2(0, 9.99992)
+shape = SubResource("RectangleShape2D_o3kna")
+
+[node name="Locker" type="Area2D" parent="Furniture"]
+position = Vector2(-749, -398)
+rotation = 1.5708
+
+[node name="Sprite2D" type="Sprite2D" parent="Furniture/Locker"]
+light_mask = 2
+texture = ExtResource("11_jycdy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Furniture/Locker"]
+shape = SubResource("RectangleShape2D_k5mhd")

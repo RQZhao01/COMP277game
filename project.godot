@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 project/assembly_name="Level"
 
+[global_group]
+
+exit_rooms=""
+
 [input]
 
 move_right={
