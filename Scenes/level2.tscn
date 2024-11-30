@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=4 uid="uid://0lvr243c853l"]
+[gd_scene load_steps=68 format=4 uid="uid://c08ovd8a3o7oa"]
 
 [ext_resource type="Texture2D" uid="uid://bo4j2fdjupc6b" path="res://Assets/Tilemap/space-blks-1.034.png" id="1_722ra"]
 [ext_resource type="Script" path="res://Scripts/walls.gd" id="2_iv3x4"]
