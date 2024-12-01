@@ -1,4 +1,4 @@
-[gd_scene load_steps=194 format=3 uid="uid://c7ygnibm5wyfu"]
+[gd_scene load_steps=197 format=3 uid="uid://c7ygnibm5wyfu"]
 
 [ext_resource type="Script" path="res://Scripts/survivor.gd" id="1_tamox"]
 [ext_resource type="Texture2D" uid="uid://bpir0oihg5kin" path="res://Assets/Survivor/handgun/idle/survivor-idle_handgun_0.png" id="2_44gyy"]
@@ -179,12 +179,15 @@
 [ext_resource type="Texture2D" uid="uid://bbvyfedb3b7jg" path="res://Assets/Survivor/shotgun/move/survivor-move_shotgun_17.png" id="174_c4b2t"]
 [ext_resource type="Texture2D" uid="uid://ddmmlb4k5o310" path="res://Assets/Survivor/shotgun/move/survivor-move_shotgun_18.png" id="175_hxl8p"]
 [ext_resource type="Texture2D" uid="uid://2fk0hrytn0pk" path="res://Assets/Survivor/shotgun/move/survivor-move_shotgun_19.png" id="176_7nwml"]
+[ext_resource type="Script" path="res://Scenes/canvas_layer.gd" id="177_xtgt8"]
 [ext_resource type="Texture2D" uid="uid://cryjv6hf6r1yb" path="res://Assets/Survivor/HealthBar/healthbarUnder.png" id="180_p6tni"]
 [ext_resource type="Texture2D" uid="uid://bjv6yojvwcttp" path="res://Assets/Survivor/HealthBar/healthbarProgress.png" id="181_k3p8p"]
 [ext_resource type="Script" path="res://Scripts/HealthBar.gd" id="182_5jwvq"]
 [ext_resource type="Texture2D" uid="uid://dkesnr2dwm3y4" path="res://Assets/rifle.png" id="183_87knm"]
 [ext_resource type="Script" path="res://Scripts/texture_rect.gd" id="183_dnr2u"]
+[ext_resource type="Texture2D" uid="uid://dj684yd5g7o3b" path="res://Assets/white.jpg" id="185_6vh1u"]
 [ext_resource type="Script" path="res://Scripts/flashlight.gd" id="185_7ie11"]
+[ext_resource type="Script" path="res://Scenes/white_bg.gd" id="185_w6kj6"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_w1j3v"]
 animations = [{
@@ -1006,6 +1009,51 @@ rotation = -1.5708
 scale = Vector2(0.4, 0.4)
 script = ExtResource("1_tamox")
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("177_xtgt8")
+
+[node name="WhiteBg" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -274.0
+offset_top = -127.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("185_6vh1u")
+expand_mode = 1
+script = ExtResource("185_w6kj6")
+
+[node name="Weapon_display" type="TextureRect" parent="CanvasLayer/WhiteBg"]
+light_mask = 0
+visibility_layer = 7
+z_index = 1000
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 73.0
+offset_top = -152.0
+offset_right = 375.0
+offset_bottom = 150.0
+grow_vertical = 0
+rotation = 0.689405
+scale = Vector2(0.442274, 0.435031)
+texture = ExtResource("183_87knm")
+expand_mode = 5
+script = ExtResource("183_dnr2u")
+
+[node name="AmmoDisplay" type="Label" parent="CanvasLayer/WhiteBg"]
+layout_mode = 0
+offset_left = 149.0
+offset_top = 85.0
+offset_right = 204.0
+offset_bottom = 108.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "0"
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_w1j3v")
 animation = &"pistol_idle"
@@ -1060,6 +1108,7 @@ position = Vector2(185, 45.0007)
 scale = Vector2(0.4, 0.4)
 
 [node name="light" type="PointLight2D" parent="."]
+visible = false
 z_index = 1
 z_as_relative = false
 position = Vector2(25, 12.5001)
@@ -1097,24 +1146,6 @@ texture_under = ExtResource("180_p6tni")
 texture_progress = ExtResource("181_k3p8p")
 script = ExtResource("182_5jwvq")
 
-[node name="Weapon_display" type="TextureRect" parent="."]
-light_mask = 0
-visibility_layer = 7
-z_index = 1000
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 222.496
-offset_top = 1142.5
-offset_right = 734.496
-offset_bottom = 1654.5
-grow_vertical = 0
-rotation = 1.57051
-scale = Vector2(0.442274, 0.435031)
-texture = ExtResource("183_87knm")
-expand_mode = 5
-script = ExtResource("183_dnr2u")
-
 [node name="flashlight" type="PointLight2D" parent="."]
 z_index = -1
 position = Vector2(-35.0001, 14.9999)
@@ -1144,7 +1175,7 @@ debug_color = Color(0.266863, 0.707031, 0.0441895, 0.42)
 current = true
 
 [connection signal="current_health_changed" from="." to="TextureProgressBar" method="_on_survivor_current_health_changed"]
-[connection signal="weapon_changed" from="." to="Weapon_display" method="_on_survivor_weapon_changed"]
+[connection signal="weapon_changed" from="." to="CanvasLayer/WhiteBg/Weapon_display" method="_on_survivor_weapon_changed"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="area_entered" from="flashlight/Area2D" to="flashlight" method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="flashlight/Area2D" to="flashlight" method="_on_area_2d_area_exited"]
