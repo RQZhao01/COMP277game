@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 [gd_scene load_steps=72 format=3 uid="uid://c7ygnibm5wyfu"]
 
 [ext_resource type="Script" path="res://Scripts/survivor.gd" id="1_tamox"]
@@ -51,6 +52,86 @@
 [ext_resource type="Texture2D" uid="uid://125c6o53n5my" path="res://Assets/Top_Down_Survivor/rifle/reload/survivor-reload_rifle_4.png" id="26_a7sp4"]
 [ext_resource type="Texture2D" uid="uid://cc1egla8k18uj" path="res://Assets/Top_Down_Survivor/rifle/reload/survivor-reload_rifle_5.png" id="27_8cgxc"]
 [ext_resource type="Texture2D" uid="uid://hk2n1hpcl14p" path="res://Assets/Top_Down_Survivor/rifle/reload/survivor-reload_rifle_6.png" id="28_8tr8s"]
+=======
+[gd_scene load_steps=198 format=3 uid="uid://c7ygnibm5wyfu"]
+
+[ext_resource type="Script" path="res://Scripts/survivor.gd" id="1_tamox"]
+[ext_resource type="Texture2D" uid="uid://bpir0oihg5kin" path="res://Assets/Survivor/handgun/idle/survivor-idle_handgun_0.png" id="2_44gyy"]
+[ext_resource type="Texture2D" uid="uid://bc3agmigrpvup" path="res://Assets/Survivor/rifle/idle/survivor-idle_rifle_0.png" id="2_spb2s"]
+[ext_resource type="Texture2D" uid="uid://b762q264gjfpk" path="res://Assets/Survivor/rifle/move/survivor-move_rifle_0.png" id="3_apyh1"]
+[ext_resource type="Texture2D" uid="uid://dlmib3mcecsvd" path="res://Assets/Survivor/rifle/idle/survivor-idle_rifle_1.png" id="3_g0rdv"]
+[ext_resource type="Texture2D" uid="uid://b6bwvmlj7kxdx" path="res://Assets/Survivor/handgun/idle/survivor-idle_handgun_1.png" id="3_rprur"]
+[ext_resource type="Texture2D" uid="uid://b8k71yxck2eii" path="res://Assets/Survivor/rifle/move/survivor-move_rifle_1.png" id="4_aiihr"]
+[ext_resource type="Texture2D" uid="uid://dufl1biu2u66y" path="res://Assets/Survivor/rifle/idle/survivor-idle_rifle_2.png" id="4_u700x"]
+[ext_resource type="Texture2D" uid="uid://bt6ffj8wsffuf" path="res://Assets/Survivor/handgun/idle/survivor-idle_handgun_2.png" id="4_w851u"]
+[ext_resource type="Texture2D" uid="uid://dhy7irm38phnd" path="res://Assets/Survivor/rifle/move/survivor-move_rifle_2.png" id="5_etfm7"]
+[ext_resource type="Texture2D" uid="uid://blo16dqij48yb" path="res://Assets/Survivor/handgun/idle/survivor-idle_handgun_3.png" id="5_qvpwo"]
+[ext_resource type="Texture2D" uid="uid://c8m7vc5xaa7g0" path="res://Assets/Survivor/rifle/idle/survivor-idle_rifle_3.png" id="5_rxbxy"]
+[ext_resource type="Texture2D" uid="uid://bhx6hr8n3cn2j" path="res://Assets/Survivor/rifle/idle/survivor-idle_rifle_4.png" id="6_2btf1"]
+[ext_resource type="Texture2D" uid="uid://b77y0y74bwr3j" path="res://Assets/Survivor/handgun/idle/survivor-idle_handgun_4.png" id="6_6qqd4"]
+[ext_resource type="Texture2D" uid="uid://bav1b2bp35ggy" path="res://Assets/Survivor/rifle/move/survivor-move_rifle_3.png" id="6_cl3jj"]
+[ext_resource type="Texture2D" uid="uid://dnx7lq3el24nl" path="res://Assets/Survivor/handgun/idle/survivor-idle_handgun_5.png" id="7_5bamo"]
+[ext_resource type="Script" path="res://Scenes/ammo_display.gd" id="7_5cume"]
+[ext_resource type="Texture2D" uid="uid://begiv6a4jk3qx" path="res://Assets/Survivor/rifle/move/survivor-move_rifle_4.png" id="7_630t6"]
+[ext_resource type="Texture2D" uid="uid://dw2r2bmvekbiw" path="res://Assets/Survivor/rifle/idle/survivor-idle_rifle_5.png" id="7_cwnw3"]
+[ext_resource type="Texture2D" uid="uid://dkgwf34yy41we" path="res://Assets/Survivor/handgun/idle/survivor-idle_handgun_6.png" id="8_iwcni"]
+[ext_resource type="Texture2D" uid="uid://b8q1ek23s8ovn" path="res://Assets/Survivor/rifle/idle/survivor-idle_rifle_6.png" id="8_ufkkf"]
+[ext_resource type="Texture2D" uid="uid://b514uwmvcobkj" path="res://Assets/Survivor/rifle/move/survivor-move_rifle_5.png" id="8_xsiw5"]
+[ext_resource type="Texture2D" uid="uid://caogrvxq28xwj" path="res://Assets/Survivor/rifle/idle/survivor-idle_rifle_7.png" id="9_7pnft"]
+[ext_resource type="Texture2D" uid="uid://bba1qh1au82ki" path="res://Assets/Survivor/rifle/move/survivor-move_rifle_10.png" id="9_8b3na"]
+[ext_resource type="Texture2D" uid="uid://0qxbw3ufjqqd" path="res://Assets/Survivor/handgun/idle/survivor-idle_handgun_7.png" id="9_sc1sb"]
+[ext_resource type="Texture2D" uid="uid://crqaktdk5r4xy" path="res://Assets/Survivor/rifle/idle/survivor-idle_rifle_8.png" id="10_6e627"]
+[ext_resource type="Texture2D" uid="uid://cllyhx5fakmfp" path="res://Assets/Survivor/handgun/idle/survivor-idle_handgun_8.png" id="10_sk084"]
+[ext_resource type="Texture2D" uid="uid://dmyi6px6b4524" path="res://Assets/Survivor/rifle/move/survivor-move_rifle_14.png" id="10_wjuoj"]
+[ext_resource type="Texture2D" uid="uid://dc6do0dbyajtp" path="res://Assets/Survivor/rifle/idle/survivor-idle_rifle_9.png" id="11_c3mae"]
+[ext_resource type="Texture2D" uid="uid://cuf6afkd11xxc" path="res://Assets/Survivor/rifle/move/survivor-move_rifle_13.png" id="11_gw6h3"]
+[ext_resource type="Texture2D" uid="uid://cs6g6g66pxlwd" path="res://Assets/Survivor/handgun/idle/survivor-idle_handgun_9.png" id="11_mcj0k"]
+[ext_resource type="Texture2D" uid="uid://hbv2ul4y780r" path="res://Assets/Survivor/rifle/idle/survivor-idle_rifle_10.png" id="12_dlatg"]
+[ext_resource type="Texture2D" uid="uid://7h2aamup8evq" path="res://Assets/Survivor/handgun/idle/survivor-idle_handgun_10.png" id="12_dx8j6"]
+[ext_resource type="Texture2D" uid="uid://dyy4dinhk6y1" path="res://Assets/Survivor/rifle/move/survivor-move_rifle_11.png" id="12_y6joj"]
+[ext_resource type="Texture2D" uid="uid://cdqqfc4h67jxe" path="res://Assets/Survivor/rifle/move/survivor-move_rifle_12.png" id="13_6w2an"]
+[ext_resource type="Texture2D" uid="uid://cbe18ufk7ojmd" path="res://Assets/Survivor/rifle/idle/survivor-idle_rifle_11.png" id="13_bu472"]
+[ext_resource type="Texture2D" uid="uid://bx1gsu4umxqsg" path="res://Assets/Survivor/handgun/idle/survivor-idle_handgun_11.png" id="13_qhtwx"]
+[ext_resource type="Texture2D" uid="uid://hu36iiolfm6c" path="res://Assets/Survivor/handgun/idle/survivor-idle_handgun_12.png" id="14_8t5mn"]
+[ext_resource type="Texture2D" uid="uid://ch6oda05j7w2p" path="res://Assets/Survivor/rifle/move/survivor-move_rifle_9.png" id="14_h47oh"]
+[ext_resource type="Texture2D" uid="uid://2w4iuown2hrn" path="res://Assets/Survivor/rifle/idle/survivor-idle_rifle_12.png" id="14_im0he"]
+[ext_resource type="Texture2D" uid="uid://dtg7i50yg1dns" path="res://Assets/Survivor/handgun/idle/survivor-idle_handgun_13.png" id="15_8bxu5"]
+[ext_resource type="Texture2D" uid="uid://chckxndauaaxf" path="res://Assets/Survivor/rifle/idle/survivor-idle_rifle_13.png" id="15_a673v"]
+[ext_resource type="Texture2D" uid="uid://cxowuklfs4q66" path="res://Assets/Survivor/rifle/move/survivor-move_rifle_18.png" id="15_mmo2l"]
+[ext_resource type="Texture2D" uid="uid://ckpp6wduei5rn" path="res://Assets/Survivor/rifle/move/survivor-move_rifle_19.png" id="16_0osf0"]
+[ext_resource type="Texture2D" uid="uid://c0hef7hti46ij" path="res://Assets/Survivor/handgun/idle/survivor-idle_handgun_14.png" id="16_bxevl"]
+[ext_resource type="Texture2D" uid="uid://b88cb30p50fqo" path="res://Assets/Survivor/rifle/idle/survivor-idle_rifle_14.png" id="16_n54f7"]
+[ext_resource type="Texture2D" uid="uid://cnfp8h75h17r8" path="res://Assets/Survivor/rifle/idle/survivor-idle_rifle_15.png" id="17_2s0yn"]
+[ext_resource type="Texture2D" uid="uid://clepgfo4yxot7" path="res://Assets/Survivor/handgun/idle/survivor-idle_handgun_15.png" id="17_621r6"]
+[ext_resource type="Texture2D" uid="uid://bqd6cp3be1g7l" path="res://Assets/Survivor/rifle/move/survivor-move_rifle_17.png" id="17_rr2f0"]
+[ext_resource type="Texture2D" uid="uid://bluwigbryvo2l" path="res://Assets/Survivor/handgun/idle/survivor-idle_handgun_16.png" id="18_6gjel"]
+[ext_resource type="Texture2D" uid="uid://ch3eml11hw3ba" path="res://Assets/Survivor/rifle/idle/survivor-idle_rifle_16.png" id="18_kv0kf"]
+[ext_resource type="Texture2D" uid="uid://br0t686euxrim" path="res://Assets/Survivor/rifle/move/survivor-move_rifle_16.png" id="18_wa7rb"]
+[ext_resource type="Texture2D" uid="uid://ty5623a3ol2f" path="res://Assets/Survivor/rifle/move/survivor-move_rifle_15.png" id="19_2aspc"]
+[ext_resource type="Texture2D" uid="uid://fkd4k8f028bx" path="res://Assets/Survivor/rifle/idle/survivor-idle_rifle_17.png" id="19_37nw0"]
+[ext_resource type="Texture2D" uid="uid://bqij5xb5bxjxw" path="res://Assets/Survivor/handgun/idle/survivor-idle_handgun_17.png" id="19_noun0"]
+[ext_resource type="Texture2D" uid="uid://blrjouf74dmlw" path="res://Assets/Survivor/handgun/idle/survivor-idle_handgun_18.png" id="20_0cu0c"]
+[ext_resource type="Texture2D" uid="uid://dnnshxluvrysr" path="res://Assets/Survivor/rifle/move/survivor-move_rifle_8.png" id="20_pelyv"]
+[ext_resource type="Texture2D" uid="uid://d2jafatprldkr" path="res://Assets/Survivor/rifle/idle/survivor-idle_rifle_18.png" id="20_sqepq"]
+[ext_resource type="Texture2D" uid="uid://bpeyo432t0alf" path="res://Assets/Survivor/handgun/idle/survivor-idle_handgun_19.png" id="21_am52l"]
+[ext_resource type="Texture2D" uid="uid://b83fmh678ajqv" path="res://Assets/Survivor/rifle/move/survivor-move_rifle_6.png" id="21_bnm1y"]
+[ext_resource type="Texture2D" uid="uid://cr0t4kg88grbk" path="res://Assets/Survivor/rifle/idle/survivor-idle_rifle_19.png" id="21_ohxt8"]
+[ext_resource type="Texture2D" uid="uid://cjfnuldgtdobh" path="res://Assets/Survivor/rifle/reload/survivor-reload_rifle_0.png" id="22_a8qy3"]
+[ext_resource type="Texture2D" uid="uid://bp3dv24oo55ub" path="res://Assets/Survivor/handgun/move/survivor-move_handgun_0.png" id="22_dwjj7"]
+[ext_resource type="Texture2D" uid="uid://bgcykp8h2vvho" path="res://Assets/Survivor/rifle/move/survivor-move_rifle_7.png" id="22_ehn0s"]
+[ext_resource type="Texture2D" uid="uid://dixkqow3ybm4o" path="res://Assets/Survivor/handgun/move/survivor-move_handgun_1.png" id="23_4djmr"]
+[ext_resource type="Texture2D" uid="uid://dcpx0nugdfi4b" path="res://Assets/Survivor/rifle/reload/survivor-reload_rifle_1.png" id="23_p1os8"]
+[ext_resource type="Texture2D" uid="uid://bvsx1ka76xdye" path="res://Assets/Survivor/handgun/move/survivor-move_handgun_2.png" id="24_q764u"]
+[ext_resource type="Texture2D" uid="uid://djejo7a5g6tyo" path="res://Assets/Survivor/rifle/reload/survivor-reload_rifle_2.png" id="24_weg3o"]
+[ext_resource type="Texture2D" uid="uid://bgbo0tcalq7bg" path="res://Assets/Survivor/rifle/reload/survivor-reload_rifle_3.png" id="25_osrx3"]
+[ext_resource type="Texture2D" uid="uid://bqwtbs3yo5d3d" path="res://Assets/Survivor/handgun/move/survivor-move_handgun_3.png" id="25_rx5vi"]
+[ext_resource type="Texture2D" uid="uid://125c6o53n5my" path="res://Assets/Survivor/rifle/reload/survivor-reload_rifle_4.png" id="26_a7sp4"]
+[ext_resource type="Texture2D" uid="uid://buphnxpmiw67b" path="res://Assets/Survivor/handgun/move/survivor-move_handgun_4.png" id="26_fokth"]
+[ext_resource type="Texture2D" uid="uid://cc1egla8k18uj" path="res://Assets/Survivor/rifle/reload/survivor-reload_rifle_5.png" id="27_8cgxc"]
+[ext_resource type="Texture2D" uid="uid://dmn21362t18m6" path="res://Assets/Survivor/handgun/move/survivor-move_handgun_5.png" id="27_a0fj5"]
+[ext_resource type="Texture2D" uid="uid://hk2n1hpcl14p" path="res://Assets/Survivor/rifle/reload/survivor-reload_rifle_6.png" id="28_8tr8s"]
+[ext_resource type="Texture2D" uid="uid://dvcapd4d0mcva" path="res://Assets/Survivor/handgun/move/survivor-move_handgun_6.png" id="28_56i83"]
+>>>>>>> Stashed changes
 [ext_resource type="Texture2D" uid="uid://copxjshvlke8i" path="res://Assets/white-circle-3d-png.webp" id="28_c5thn"]
 [ext_resource type="Texture2D" uid="uid://1oj4vpql5uf6" path="res://Assets/Top_Down_Survivor/rifle/reload/survivor-reload_rifle_7.png" id="29_e2x83"]
 [ext_resource type="Texture2D" uid="uid://dticqhhuri12l" path="res://Assets/Top_Down_Survivor/rifle/reload/survivor-reload_rifle_8.png" id="30_l1wjv"]
@@ -367,6 +448,55 @@ rotation = -1.5708
 scale = Vector2(0.4, 0.4)
 script = ExtResource("1_tamox")
 
+<<<<<<< Updated upstream
+=======
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("177_xtgt8")
+
+[node name="WhiteBg" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -274.0
+offset_top = -127.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("185_6vh1u")
+expand_mode = 1
+script = ExtResource("185_w6kj6")
+
+[node name="Weapon_display" type="TextureRect" parent="CanvasLayer/WhiteBg"]
+light_mask = 0
+visibility_layer = 7
+z_index = 1000
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 73.0
+offset_top = -152.0
+offset_right = 375.0
+offset_bottom = 150.0
+grow_vertical = 0
+rotation = 0.689405
+scale = Vector2(0.442274, 0.435031)
+texture = ExtResource("183_87knm")
+expand_mode = 5
+script = ExtResource("183_dnr2u")
+
+[node name="AmmoDisplay" type="Label" parent="CanvasLayer/WhiteBg"]
+layout_mode = 0
+offset_left = 149.0
+offset_top = 85.0
+offset_right = 204.0
+offset_bottom = 108.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "0"
+script = ExtResource("7_5cume")
+
+>>>>>>> Stashed changes
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_w1j3v")
 animation = &"rifle_reload"
