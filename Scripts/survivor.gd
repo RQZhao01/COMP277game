@@ -4,6 +4,7 @@ class_name Survivor
 
 signal current_health_changed
 signal weapon_changed(weapon:String)
+signal medkit_change
 # State variables to manage player's actions
 var shooting: bool = false  # Whether the player is shooting
 var reloading: bool = false  # Whether the player is reloading
@@ -118,14 +119,14 @@ func add_medkit():
 	if medkit_count < MAX_MEDKITS:
 		medkit_count += 1
 		print("Picked up 1 medkit")
-
+		emit_signal("medkit_change")
 # Use a medkit
 func use_medkit():
 		if medkit_count > 0 && is_alive && current_health < PLAYER_HP:
 			medkit_count -= 1
 			current_health = PLAYER_HP
 			print("Used 1 medkit. Current health:", current_health)
-			
+			emit_signal("medkit_change")
 		# Play healing sound!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 		else:
 			print("No medkits left or player is dead")
@@ -136,9 +137,7 @@ func use_medkit():
 
 func die():
 	is_alive = false
-	get_parent().get_node("Zombies").queue_free()
 	queue_free()
-	
 	
 
 

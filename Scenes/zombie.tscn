@@ -322,7 +322,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"attack1",
-"speed": 30.0
+"speed": 20.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -387,7 +387,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"attack2",
-"speed": 30.0
+"speed": 20.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -452,7 +452,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"attack3",
-"speed": 30.0
+"speed": 20.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -1084,7 +1084,9 @@ shape = SubResource("CapsuleShape2D_8gu5b")
 material = SubResource("CanvasItemMaterial_g6swv")
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_1tx8m")
-animation = &"attack1"
+animation = &"attack3"
+frame = 19
+frame_progress = 1.0
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 avoidance_enabled = true
@@ -1099,7 +1101,6 @@ shape = SubResource("CircleShape2D_p5wvb")
 debug_color = Color(0.271952, 0.584821, 0.665416, 0.42)
 
 [node name="attack zone" type="Area2D" parent="."]
-scale = Vector2(1.5, 1.5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="attack zone"]
 scale = Vector2(6, 6)

@@ -28,7 +28,6 @@ func _on_weapon_display_weapon_type_2() -> void:
 
 
 func _on_weapon_display_weapon_type_3() -> void:
-	
 	var shotgun_ammo_in_gun = get_parent().get_parent().get_parent().ammo_in_shotgun
 	var shotgun_ammo_pocket = get_parent().get_parent().get_parent().total_shotgun_ammo
 	text = "%d / %d" % [shotgun_ammo_in_gun,shotgun_ammo_pocket]
