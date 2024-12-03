@@ -1,9 +1,10 @@
-[gd_scene load_steps=60 format=3 uid="uid://bnhcm4tp54phh"]
+[gd_scene load_steps=61 format=3 uid="uid://bnhcm4tp54phh"]
 
 [ext_resource type="Texture2D" uid="uid://bo4j2fdjupc6b" path="res://Assets/Tilemap/space-blks-1.034.png" id="1_yk50f"]
 [ext_resource type="PackedScene" uid="uid://45tdwpffm1ms" path="res://Scenes/zombie.tscn" id="3_ggtey"]
 [ext_resource type="PackedScene" uid="uid://c7ygnibm5wyfu" path="res://Scenes/survivor.tscn" id="3_i3wyj"]
 [ext_resource type="PackedScene" uid="uid://bp46p2m5mdxki" path="res://Scenes/AmmoPickup.tscn" id="4_j15p6"]
+[ext_resource type="PackedScene" uid="uid://ctyparo8gfa03" path="res://Scenes/Pickup.tscn" id="5_xa3e6"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_5vlcd"]
 vertices = PackedVector2Array(32, 32, -32, 32, -32, -32, 32, -32)
@@ -524,11 +525,131 @@ position = Vector2(-24, -12)
 
 [node name="Zombie" parent="Zombies" instance=ExtResource("3_ggtey")]
 
+[node name="Zombie2" parent="Zombies" instance=ExtResource("3_ggtey")]
+position = Vector2(-2712, 407)
+
+[node name="Zombie3" parent="Zombies" instance=ExtResource("3_ggtey")]
+position = Vector2(-1403, -34)
+
+[node name="Zombie4" parent="Zombies" instance=ExtResource("3_ggtey")]
+position = Vector2(-769, 882)
+
+[node name="Zombie5" parent="Zombies" instance=ExtResource("3_ggtey")]
+position = Vector2(3450, 1193)
+
+[node name="Zombie6" parent="Zombies" instance=ExtResource("3_ggtey")]
+position = Vector2(-4107, -136)
+
+[node name="Zombie7" parent="Zombies" instance=ExtResource("3_ggtey")]
+position = Vector2(150, -1187)
+
+[node name="Zombie8" parent="Zombies" instance=ExtResource("3_ggtey")]
+position = Vector2(-1812, -2171)
+
+[node name="Zombie9" parent="Zombies" instance=ExtResource("3_ggtey")]
+position = Vector2(-2061, -2971)
+
+[node name="Zombie10" parent="Zombies" instance=ExtResource("3_ggtey")]
+position = Vector2(-305, -4586)
+
+[node name="Zombie11" parent="Zombies" instance=ExtResource("3_ggtey")]
+position = Vector2(-3212, -2887)
+
+[node name="Zombie12" parent="Zombies" instance=ExtResource("3_ggtey")]
+position = Vector2(-3987, -4386)
+
+[node name="Zombie13" parent="Zombies" instance=ExtResource("3_ggtey")]
+position = Vector2(-5266, -1993)
+
+[node name="Zombie14" parent="Zombies" instance=ExtResource("3_ggtey")]
+position = Vector2(-4819, -2417)
+
+[node name="Zombie15" parent="Zombies" instance=ExtResource("3_ggtey")]
+position = Vector2(-4625, -3654)
+
+[node name="Zombie16" parent="Zombies" instance=ExtResource("3_ggtey")]
+position = Vector2(-4063, -6410)
+
+[node name="Zombie17" parent="Zombies" instance=ExtResource("3_ggtey")]
+position = Vector2(-3497, -5428)
+
+[node name="Zombie18" parent="Zombies" instance=ExtResource("3_ggtey")]
+position = Vector2(-2772, -6032)
+
+[node name="Zombie19" parent="Zombies" instance=ExtResource("3_ggtey")]
+position = Vector2(-5470, -5763)
+
+[node name="Zombie20" parent="Zombies" instance=ExtResource("3_ggtey")]
+position = Vector2(-5181, -5467)
+
+[node name="Zombie21" parent="Zombies" instance=ExtResource("3_ggtey")]
+position = Vector2(2378, -5855)
+
+[node name="Zombie22" parent="Zombies" instance=ExtResource("3_ggtey")]
+position = Vector2(1731, -5997)
+
+[node name="Zombie23" parent="Zombies" instance=ExtResource("3_ggtey")]
+position = Vector2(1777, -7091)
+
+[node name="Zombie24" parent="Zombies" instance=ExtResource("3_ggtey")]
+position = Vector2(71, -7365)
+
+[node name="Zombie25" parent="Zombies" instance=ExtResource("3_ggtey")]
+position = Vector2(-2475, -8214)
+
+[node name="Zombie26" parent="Zombies" instance=ExtResource("3_ggtey")]
+position = Vector2(-3901, -7456)
+
 [node name="AmmoPickups" type="Node2D" parent="."]
 
 [node name="AmmoPickup" parent="AmmoPickups" instance=ExtResource("4_j15p6")]
-position = Vector2(-197, -171)
+position = Vector2(-4926, 679)
+
+[node name="AmmoPickup2" parent="AmmoPickups" instance=ExtResource("4_j15p6")]
+position = Vector2(-4875, 680)
+
+[node name="AmmoPickup3" parent="AmmoPickups" instance=ExtResource("4_j15p6")]
+position = Vector2(-4827, 681)
+
+[node name="AmmoPickup4" parent="AmmoPickups" instance=ExtResource("4_j15p6")]
+position = Vector2(-2653, 868)
+
+[node name="AmmoPickup5" parent="AmmoPickups" instance=ExtResource("4_j15p6")]
+position = Vector2(-2653, 926)
+
+[node name="AmmoPickup6" parent="AmmoPickups" instance=ExtResource("4_j15p6")]
+position = Vector2(-2654, 993)
+
+[node name="AmmoPickup7" parent="AmmoPickups" instance=ExtResource("4_j15p6")]
+position = Vector2(-5552, -6257)
+
+[node name="AmmoPickup8" parent="AmmoPickups" instance=ExtResource("4_j15p6")]
+position = Vector2(-5488, -6256)
+
+[node name="AmmoPickup9" parent="AmmoPickups" instance=ExtResource("4_j15p6")]
+position = Vector2(-5423, -6256)
 
 [node name="Medkits" type="Node2D" parent="."]
+
+[node name="Pickup" parent="Medkits" instance=ExtResource("5_xa3e6")]
+position = Vector2(1530, -1062)
+
+[node name="Pickup2" parent="Medkits" instance=ExtResource("5_xa3e6")]
+position = Vector2(-777, -2739)
+
+[node name="Pickup3" parent="Medkits" instance=ExtResource("5_xa3e6")]
+position = Vector2(-4948, -3645)
+
+[node name="Pickup4" parent="Medkits" instance=ExtResource("5_xa3e6")]
+position = Vector2(2035, -6887)
+
+[node name="Pickup5" parent="Medkits" instance=ExtResource("5_xa3e6")]
+position = Vector2(-5297, -6257)
+
+[node name="Pickup6" parent="Medkits" instance=ExtResource("5_xa3e6")]
+position = Vector2(-5233, -6257)
+
+[node name="Pickup7" parent="Medkits" instance=ExtResource("5_xa3e6")]
+position = Vector2(-5169, -6258)
 
 [node name="DarkRooms" type="Node2D" parent="."]
