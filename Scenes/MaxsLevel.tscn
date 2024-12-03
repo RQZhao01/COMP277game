@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=4 uid="uid://dkd40iw0p2pjk"]
+[gd_scene load_steps=56 format=4 uid="uid://dkd40iw0p2pjk"]
 
 [ext_resource type="Texture2D" uid="uid://bo4j2fdjupc6b" path="res://Assets/Tilemap/space-blks-1.034.png" id="1_ggyk1"]
 [ext_resource type="Script" path="res://Scripts/walls.gd" id="2_golsy"]
@@ -80,6 +80,9 @@ polygon = PackedVector2Array(-32, -14.1262, -24.7208, -19.0703, -19.0703, -19.77
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_1tfow"]
 polygon = PackedVector2Array(-32, -13.0667, -25.074, -17.6577, -19.4235, -19.0703, -17.6577, -25.074, -13.773, -28.9587, -13.0667, -32, 15.1856, -32, 19.0703, -25.7803, 15.1856, -18.364, 26.1334, -16.9514, 32, -13.773, 32, 32, -14.1262, 32, -18.0109, 26.8397, -17.3046, 19.7766, -23.3082, 19.7766, -26.8397, 15.1856, -32, 14.8325)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_8eyt3"]
+polygon = PackedVector2Array(-32, -13.773, -25.4271, -19.4235, -18.364, -19.4235, -17.6577, -26.1334, -12.3604, -27.8992, -13.4199, -32, 32, -32, 32, 32, -32, 32)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_hiinf"]
 polygon = PackedVector2Array(-6.35678, -0.70631, 0.353153, -7.41624, 14.4793, -7.41624, 14.8325, -15.5388, 32, -15.5388, 32, 32, -14.1262, 32, -14.4793, 15.1856, -7.41624, 12.7136)
@@ -363,6 +366,7 @@ texture_region_size = Vector2i(64, 64)
 3:7/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_j2tri")
 4:7/0 = 0
 4:7/0/z_index = 1
+4:7/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_8eyt3")
 4:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 5:7/0 = 0
 5:7/0/z_index = 1

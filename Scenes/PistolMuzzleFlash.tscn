@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://ble6rdysrai2"]
+
+[ext_resource type="Texture2D" uid="uid://bxl0smeuxxw0j" path="res://Assets/Muzzle Flashes/muzzle_flare_01.png" id="1_ulefh"]
+[ext_resource type="Texture2D" uid="uid://64damtyf3nys" path="res://Assets/Muzzle Flashes/Empty.png" id="2_cmp10"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5q42x"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ulefh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_cmp10")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_cmp10")
+}],
+"loop": true,
+"name": &"shoot",
+"speed": 30.0
+}]
+
+[node name="MuzzleFlash" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_5q42x")
+animation = &"shoot"

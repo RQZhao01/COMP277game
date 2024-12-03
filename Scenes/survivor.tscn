@@ -1,4 +1,4 @@
-[gd_scene load_steps=200 format=3 uid="uid://c7ygnibm5wyfu"]
+[gd_scene load_steps=201 format=3 uid="uid://c7ygnibm5wyfu"]
 
 [ext_resource type="Script" path="res://Scripts/survivor.gd" id="1_tamox"]
 [ext_resource type="Texture2D" uid="uid://bpir0oihg5kin" path="res://Assets/Survivor/handgun/idle/survivor-idle_handgun_0.png" id="2_44gyy"]
@@ -191,6 +191,7 @@
 [ext_resource type="Script" path="res://Scripts/texture_rect.gd" id="183_dnr2u"]
 [ext_resource type="Script" path="res://Scripts/flashlight.gd" id="185_7ie11"]
 [ext_resource type="Script" path="res://Scenes/white_bg.gd" id="185_w6kj6"]
+[ext_resource type="PackedScene" uid="uid://ble6rdysrai2" path="res://Scenes/PistolMuzzleFlash.tscn" id="192_e1ixc"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_w1j3v"]
 animations = [{
@@ -1204,6 +1205,10 @@ debug_color = Color(0.266863, 0.707031, 0.0441895, 0.42)
 
 [node name="AudioListener2D" type="AudioListener2D" parent="."]
 current = true
+
+[node name="PistolMuzzleFlash" parent="." instance=ExtResource("192_e1ixc")]
+position = Vector2(145, 55.0005)
+scale = Vector2(0.25, 0.25)
 
 [connection signal="current_health_changed" from="." to="TextureProgressBar" method="_on_survivor_current_health_changed"]
 [connection signal="medkit_change" from="." to="CanvasLayer/WhiteBg/Medkit_Display" method="_on_survivor_medkit_change"]

@@ -211,6 +211,9 @@ func update_player_shooting():
 func stop_shooting():
 	$MuzzleFlash/AnimatedSprite2D.stop()
 	$MuzzleFlash/AnimatedSprite2D.visible = false
+	$PistolMuzzleFlash/AnimatedSprite2D.stop()
+	$PistolMuzzleFlash/AnimatedSprite2D.visible = false
+	
 	
 # Function to handle shooting the rifle
 func shoot_rifle():
@@ -253,8 +256,8 @@ func shoot_rifle():
 # Function to handle shooting the pistol (similar to rifle logic)
 func shoot_pistol():
 	print("Ammo left in pistol:", ammo_in_pistol)
-	$MuzzleFlash/AnimatedSprite2D.visible = true
-	$MuzzleFlash/AnimatedSprite2D.play()
+	$PistolMuzzleFlash/AnimatedSprite2D.visible = true
+	$PistolMuzzleFlash/AnimatedSprite2D.play()
 	
 	var pistol_shoot_sound_scene = load("res://Scenes/Sounds/pistol_shoot_sound.tscn")
 	var pistol_shoot_sound = pistol_shoot_sound_scene.instantiate()
@@ -442,6 +445,7 @@ func _ready() -> void:
 	$AnimatedSprite2D.play("rifle_idle")  # Set the initial animation to rifle idle
 	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN  # Hide the mouse cursor
 	$MuzzleFlash/AnimatedSprite2D.visible = false  # Hide the muzzle flash initially
+	$PistolMuzzleFlash/AnimatedSprite2D.visible = false  # Hide the muzzle flash initially
 	current_weapon = "rifle"  # Default to rifle as the starting weapon
 
 # Function triggered when the animation finishes
