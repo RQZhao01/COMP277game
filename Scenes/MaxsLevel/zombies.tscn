@@ -1,0 +1,78 @@
+[gd_scene load_steps=2 format=3 uid="uid://c1kskhn6qnc20"]
+
+[ext_resource type="PackedScene" uid="uid://45tdwpffm1ms" path="res://Scenes/zombie.tscn" id="1_hf4a8"]
+
+[node name="Zombies" type="Node2D"]
+position = Vector2(-24, -12)
+
+[node name="Zombie" parent="." instance=ExtResource("1_hf4a8")]
+position = Vector2(1797, -1635)
+
+[node name="Zombie2" parent="." instance=ExtResource("1_hf4a8")]
+position = Vector2(323, -3744)
+
+[node name="Zombie3" parent="." instance=ExtResource("1_hf4a8")]
+position = Vector2(286, -3577)
+
+[node name="Zombie4" parent="." instance=ExtResource("1_hf4a8")]
+position = Vector2(-323, -4765)
+
+[node name="Zombie5" parent="." instance=ExtResource("1_hf4a8")]
+position = Vector2(1425, -5017)
+
+[node name="Zombie6" parent="." instance=ExtResource("1_hf4a8")]
+position = Vector2(-108, -5005)
+
+[node name="Zombie7" parent="." instance=ExtResource("1_hf4a8")]
+position = Vector2(-1102, -5316)
+
+[node name="Zombie8" parent="." instance=ExtResource("1_hf4a8")]
+position = Vector2(-1640, -5172)
+
+[node name="Zombie9" parent="." instance=ExtResource("1_hf4a8")]
+position = Vector2(1600, -1805)
+
+[node name="Zombie10" parent="." instance=ExtResource("1_hf4a8")]
+position = Vector2(-1640, -2844)
+
+[node name="Zombie11" parent="." instance=ExtResource("1_hf4a8")]
+position = Vector2(1924, -1812)
+
+[node name="Zombie12" parent="." instance=ExtResource("1_hf4a8")]
+position = Vector2(1995, -2910)
+
+[node name="Zombie13" parent="." instance=ExtResource("1_hf4a8")]
+position = Vector2(1647, -2005)
+
+[node name="Zombie14" parent="." instance=ExtResource("1_hf4a8")]
+position = Vector2(-1268, -3156)
+
+[node name="Zombie15" parent="." instance=ExtResource("1_hf4a8")]
+position = Vector2(-1814, -3045)
+
+[node name="Zombie16" parent="." instance=ExtResource("1_hf4a8")]
+position = Vector2(328, -3231)
+
+[node name="Zombie17" parent="." instance=ExtResource("1_hf4a8")]
+position = Vector2(235, -2874)
+
+[node name="Zombie18" parent="." instance=ExtResource("1_hf4a8")]
+position = Vector2(-20, -2905)
+
+[node name="Zombie19" parent="." instance=ExtResource("1_hf4a8")]
+position = Vector2(301, -3033)
+
+[node name="Zombie20" parent="." instance=ExtResource("1_hf4a8")]
+position = Vector2(269, -3372)
+
+[node name="Zombie21" parent="." instance=ExtResource("1_hf4a8")]
+position = Vector2(2300, -3243)
+
+[node name="Zombie22" parent="." instance=ExtResource("1_hf4a8")]
+position = Vector2(1724, -3226)
+
+[node name="Zombie23" parent="." instance=ExtResource("1_hf4a8")]
+position = Vector2(1884, -2020)
+
+[node name="Zombie24" parent="." instance=ExtResource("1_hf4a8")]
+position = Vector2(1752, -1870)
