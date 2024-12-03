@@ -1,3 +1,13 @@
-[gd_scene format=3 uid="uid://dxbwlj7ankd2y"]
+[gd_scene load_steps=2 format=3 uid="uid://dxbwlj7ankd2y"]
+
+[ext_resource type="Texture2D" uid="uid://d1twkfgy7jtk4" path="res://Assets/Furniture/metal-table.png" id="1_lodkq"]
 
 [node name="MetalTable" type="NavigationObstacle2D"]
+radius = 71.43
+vertices = PackedVector2Array(-60, -32, 58, -33, 59, 33, -60, 34)
+affect_navigation_mesh = true
+carve_navigation_mesh = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+light_mask = 2
+texture = ExtResource("1_lodkq")

@@ -1089,6 +1089,7 @@ frame = 19
 frame_progress = 1.0
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+avoidance_enabled = true
 debug_enabled = true
 
 [node name="Area2D" type="Area2D" parent="."]

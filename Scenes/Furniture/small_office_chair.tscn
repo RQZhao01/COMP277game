@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://dayxy8hrmyymn"]
+
+[ext_resource type="Texture2D" uid="uid://cfeai6rt7r5oo" path="res://Assets/Furniture/small-office-chair.png" id="1_1ieem"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ea7q"]
+size = Vector2(69, 61)
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_hocxx"]
+vertices = PackedVector2Array(37, 28, -31, 28, -32, -31, 36, -31)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-32, -31, 36, -31, 37, 28, -31, 28)])
+parsed_geometry_type = 1
+agent_radius = 0.0
+
+[node name="SmallOfficeChair" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+light_mask = 2
+texture = ExtResource("1_1ieem")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2.5, -1.5)
+shape = SubResource("RectangleShape2D_8ea7q")
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_hocxx")
+navigation_layers = 7
+enter_cost = 100000.0
+travel_cost = 100000.0
