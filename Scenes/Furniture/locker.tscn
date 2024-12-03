@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://spn5rxi3cbj"]
+
+[ext_resource type="Texture2D" uid="uid://bpd1xlng8y6b7" path="res://Assets/Furniture/weapon-locker.png" id="1_k68lw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k5mhd"]
+size = Vector2(161, 69)
+
+[node name="Locker" type="Area2D"]
+position = Vector2(-749, -398)
+rotation = 1.5708
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+top_level = true
+light_mask = 2
+visibility_layer = 2
+position = Vector2(-199, 30)
+rotation = 1.5708
+texture = ExtResource("1_k68lw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2.38419e-07, -13)
+shape = SubResource("RectangleShape2D_k5mhd")

@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjtmss4270d4y"]
+
+[ext_resource type="Texture2D" uid="uid://36uhytb1bm5w" path="res://Assets/Furniture/opened-box.png" id="1_kck68"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5vq8t"]
+size = Vector2(92.7029, 75.4413)
+
+[node name="Opened Box" type="Area2D"]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(-721, -153)
+rotation = -2.20959
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+light_mask = 2
+visibility_layer = 2
+texture = ExtResource("1_kck68")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.12714, -0.30719)
+shape = SubResource("RectangleShape2D_5vq8t")

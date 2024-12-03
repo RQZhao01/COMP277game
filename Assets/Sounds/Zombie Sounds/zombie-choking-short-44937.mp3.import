@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cffnj6pdvlk02"
+path="res://.godot/imported/zombie-choking-short-44937.mp3-7def757741e468e9029a4a784f200fa5.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sounds/Zombie Sounds/zombie-choking-short-44937.mp3"
+dest_files=["res://.godot/imported/zombie-choking-short-44937.mp3-7def757741e468e9029a4a784f200fa5.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

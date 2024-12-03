@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bsuglrwt3q88k"]
 
-[ext_resource type="AudioStream" uid="uid://cx682gvajir3q" path="res://Assets/Sounds/zombie-screaming-207590.mp3" id="1_xwl8p"]
+[ext_resource type="AudioStream" uid="uid://cx682gvajir3q" path="res://Assets/Sounds/Zombie Sounds/zombie-screaming-207590.mp3" id="1_xwl8p"]
 [ext_resource type="Script" path="res://Scripts/zombie_screm.gd" id="2_gl44f"]
 
 [node name="ZombieScrem" type="AudioStreamPlayer2D"]

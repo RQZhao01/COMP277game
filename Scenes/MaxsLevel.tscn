@@ -1,19 +1,19 @@
-[gd_scene load_steps=61 format=4 uid="uid://dkd40iw0p2pjk"]
+[gd_scene load_steps=59 format=4 uid="uid://dkd40iw0p2pjk"]
 
 [ext_resource type="Texture2D" uid="uid://bo4j2fdjupc6b" path="res://Assets/Tilemap/space-blks-1.034.png" id="1_ggyk1"]
 [ext_resource type="Script" path="res://Scripts/walls.gd" id="2_golsy"]
+[ext_resource type="PackedScene" uid="uid://spn5rxi3cbj" path="res://Scenes/Furniture/locker.tscn" id="2_tfbo8"]
 [ext_resource type="PackedScene" uid="uid://c7ygnibm5wyfu" path="res://Scenes/survivor.tscn" id="3_0x5ts"]
+[ext_resource type="PackedScene" uid="uid://cjtmss4270d4y" path="res://Scenes/Furniture/opened_box.tscn" id="3_ko8i1"]
+[ext_resource type="PackedScene" uid="uid://6hqnhnvp62vu" path="res://Scenes/Furniture/table.tscn" id="4_upcwu"]
 [ext_resource type="PackedScene" uid="uid://bp46p2m5mdxki" path="res://Scenes/AmmoPickup.tscn" id="5_1pmb6"]
 [ext_resource type="PackedScene" uid="uid://45tdwpffm1ms" path="res://Scenes/zombie.tscn" id="6_g1wfl"]
 [ext_resource type="PackedScene" uid="uid://ctyparo8gfa03" path="res://Scenes/Pickup.tscn" id="6_yigd1"]
 [ext_resource type="PackedScene" uid="uid://baf1jf3e2ajmk" path="res://Scenes/darkroom_working.tscn" id="7_cjvbf"]
 [ext_resource type="AudioStream" uid="uid://n70hvx5qn30i" path="res://Assets/Sounds/Ambient/basement-with-fridge-room-tone-32354.mp3" id="8_lwqhl"]
 [ext_resource type="AudioStream" uid="uid://dns1fk7e2062n" path="res://Assets/Sounds/Ambient/machine-room-55632.mp3" id="9_u1s3b"]
-[ext_resource type="Texture2D" uid="uid://b6ided6akyfpn" path="res://Assets/Furniture/table-with-sink-and-coffee.jpg" id="10_thbve"]
 [ext_resource type="AudioStream" uid="uid://cu6tclx5japa4" path="res://Assets/Sounds/Ambient/big-room-ambience-1-77517.mp3" id="10_v300k"]
 [ext_resource type="AudioStream" uid="uid://xpojpnhw7nmm" path="res://Assets/Sounds/Ambient/room-with-buzz-incandescent-light-bulb-23892.mp3" id="11_87oac"]
-[ext_resource type="Texture2D" uid="uid://bpd1xlng8y6b7" path="res://Assets/Furniture/weapon-locker.png" id="11_jycdy"]
-[ext_resource type="Texture2D" uid="uid://36uhytb1bm5w" path="res://Assets/Furniture/opened-box.png" id="14_7tp4n"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_5vlcd"]
 vertices = PackedVector2Array(32, 32, -32, 32, -32, -32, 32, -32)
@@ -461,21 +461,18 @@ texture_region_size = Vector2i(64, 64)
 9:10/0 = 0
 9:10/0/z_index = 1
 
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_8gok1"]
+scenes/2/scene = ExtResource("2_tfbo8")
+scenes/3/scene = ExtResource("3_ko8i1")
+scenes/4/scene = ExtResource("4_upcwu")
+
 [sub_resource type="TileSet" id="TileSet_biqnq"]
 tile_size = Vector2i(64, 64)
 occlusion_layer_0/light_mask = 1
 physics_layer_0/collision_layer = 1
 navigation_layer_0/layers = 1
 sources/0 = SubResource("TileSetAtlasSource_qg7tv")
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_o3kna"]
-size = Vector2(272, 100)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_k5mhd"]
-size = Vector2(161, 69)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5vq8t"]
-size = Vector2(92.7029, 75.4413)
+sources/1 = SubResource("TileSetScenesCollectionSource_8gok1")
 
 [node name="MaxsLevel" type="Node2D"]
 position = Vector2(550, 430)
@@ -747,53 +744,3 @@ parameters/looping = true
 [node name="Lightbulb Buzz" type="AudioStreamPlayer2D" parent="Ambient Noise"]
 position = Vector2(-538, -2092)
 stream = ExtResource("11_87oac")
-
-[node name="Furniture" type="Node2D" parent="."]
-
-[node name="Table" type="Area2D" parent="Furniture"]
-texture_filter = 1
-texture_repeat = 1
-position = Vector2(-352, -289)
-rotation = 1.5708
-scale = Vector2(0.75, 0.75)
-
-[node name="Sprite2D" type="Sprite2D" parent="Furniture/Table"]
-light_mask = 2
-visibility_layer = 2
-position = Vector2(-2.33128e-07, 9.33333)
-texture = ExtResource("10_thbve")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Furniture/Table"]
-position = Vector2(0, 9.99992)
-shape = SubResource("RectangleShape2D_o3kna")
-
-[node name="Locker" type="Area2D" parent="Furniture"]
-position = Vector2(-749, -398)
-rotation = 1.5708
-
-[node name="Sprite2D" type="Sprite2D" parent="Furniture/Locker"]
-top_level = true
-light_mask = 2
-visibility_layer = 2
-position = Vector2(-199, 30)
-rotation = 1.5708
-texture = ExtResource("11_jycdy")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Furniture/Locker"]
-position = Vector2(2.38419e-07, -13)
-shape = SubResource("RectangleShape2D_k5mhd")
-
-[node name="Area2D" type="Area2D" parent="Furniture"]
-light_mask = 2
-visibility_layer = 2
-position = Vector2(-721, -153)
-rotation = -2.20959
-
-[node name="Sprite2D" type="Sprite2D" parent="Furniture/Area2D"]
-light_mask = 2
-visibility_layer = 2
-texture = ExtResource("14_7tp4n")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Furniture/Area2D"]
-position = Vector2(1.12714, -0.30719)
-shape = SubResource("RectangleShape2D_5vq8t")

@@ -247,7 +247,7 @@
 [ext_resource type="Texture2D" uid="uid://r8lalay2bi03" path="res://Assets/zombie_01/walk/walk0029.png" id="245_ol8oj"]
 [ext_resource type="Texture2D" uid="uid://3d5yvx2etnjv" path="res://Assets/zombie_01/walk/walk0030.png" id="246_5utsm"]
 [ext_resource type="Texture2D" uid="uid://ciome5v5n3vnx" path="res://Assets/zombie_01/walk/walk0031.png" id="247_3ngks"]
-[ext_resource type="AudioStream" uid="uid://jmru4685iw6f" path="res://Assets/Sounds/zombie-moan-44932.mp3" id="248_ry7cw"]
+[ext_resource type="AudioStream" uid="uid://jmru4685iw6f" path="res://Assets/Sounds/Zombie Sounds/zombie-moan-44932.mp3" id="248_ry7cw"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_5ytrg"]
 light_mode = 2

@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bnkt8wyfcauo4"]
+
+[ext_resource type="Texture2D" uid="uid://dw88qi4banotq" path="res://Assets/Furniture/unopened-box.png" id="1_1vehw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o60fg"]
+size = Vector2(66, 99)
+
+[node name="ClosedBox" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 0.5)
+shape = SubResource("RectangleShape2D_o60fg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_1vehw")

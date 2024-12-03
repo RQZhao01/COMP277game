@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://6hqnhnvp62vu"]
+
+[ext_resource type="Texture2D" uid="uid://b6ided6akyfpn" path="res://Assets/Furniture/table-with-sink-and-coffee.jpg" id="1_ngkib"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o3kna"]
+size = Vector2(272, 100)
+
+[node name="Table" type="Area2D"]
+texture_filter = 1
+texture_repeat = 1
+position = Vector2(-352, -289)
+rotation = 1.5708
+scale = Vector2(0.75, 0.75)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(-2.33128e-07, 9.33333)
+texture = ExtResource("1_ngkib")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 9.99992)
+shape = SubResource("RectangleShape2D_o3kna")

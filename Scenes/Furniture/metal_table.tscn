@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://dxbwlj7ankd2y"]
+
+[node name="MetalTable" type="NavigationObstacle2D"]
