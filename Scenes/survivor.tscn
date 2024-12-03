@@ -1,4 +1,4 @@
-[gd_scene load_steps=197 format=3 uid="uid://c7ygnibm5wyfu"]
+[gd_scene load_steps=198 format=3 uid="uid://c7ygnibm5wyfu"]
 
 [ext_resource type="Script" path="res://Scripts/survivor.gd" id="1_tamox"]
 [ext_resource type="Texture2D" uid="uid://bpir0oihg5kin" path="res://Assets/Survivor/handgun/idle/survivor-idle_handgun_0.png" id="2_44gyy"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://dnx7lq3el24nl" path="res://Assets/Survivor/handgun/idle/survivor-idle_handgun_5.png" id="7_5bamo"]
 [ext_resource type="Texture2D" uid="uid://begiv6a4jk3qx" path="res://Assets/Survivor/rifle/move/survivor-move_rifle_4.png" id="7_630t6"]
 [ext_resource type="Texture2D" uid="uid://dw2r2bmvekbiw" path="res://Assets/Survivor/rifle/idle/survivor-idle_rifle_5.png" id="7_cwnw3"]
+[ext_resource type="Script" path="res://Scenes/ammo_display.gd" id="7_vm6nu"]
 [ext_resource type="Texture2D" uid="uid://dkgwf34yy41we" path="res://Assets/Survivor/handgun/idle/survivor-idle_handgun_6.png" id="8_iwcni"]
 [ext_resource type="Texture2D" uid="uid://b8q1ek23s8ovn" path="res://Assets/Survivor/rifle/idle/survivor-idle_rifle_6.png" id="8_ufkkf"]
 [ext_resource type="Texture2D" uid="uid://b514uwmvcobkj" path="res://Assets/Survivor/rifle/move/survivor-move_rifle_5.png" id="8_xsiw5"]
@@ -1046,13 +1047,13 @@ expand_mode = 5
 script = ExtResource("183_dnr2u")
 
 [node name="AmmoDisplay" type="Label" parent="CanvasLayer/WhiteBg"]
-layout_mode = 0
 offset_left = 149.0
-offset_top = 85.0
+offset_top = 84.9999
 offset_right = 204.0
 offset_bottom = 108.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "0"
+script = ExtResource("7_vm6nu")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_w1j3v")
@@ -1175,6 +1176,9 @@ current = true
 
 [connection signal="current_health_changed" from="." to="TextureProgressBar" method="_on_survivor_current_health_changed"]
 [connection signal="weapon_changed" from="." to="CanvasLayer/WhiteBg/Weapon_display" method="_on_survivor_weapon_changed"]
+[connection signal="weapon_type1" from="CanvasLayer/WhiteBg/Weapon_display" to="CanvasLayer/WhiteBg/AmmoDisplay" method="_on_weapon_display_weapon_type_1"]
+[connection signal="weapon_type2" from="CanvasLayer/WhiteBg/Weapon_display" to="CanvasLayer/WhiteBg/AmmoDisplay" method="_on_weapon_display_weapon_type_2"]
+[connection signal="weapon_type3" from="CanvasLayer/WhiteBg/Weapon_display" to="CanvasLayer/WhiteBg/AmmoDisplay" method="_on_weapon_display_weapon_type_3"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="area_entered" from="flashlight/Area2D" to="flashlight" method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="flashlight/Area2D" to="flashlight" method="_on_area_2d_area_exited"]
