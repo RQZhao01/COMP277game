@@ -1047,6 +1047,7 @@ expand_mode = 5
 script = ExtResource("183_dnr2u")
 
 [node name="AmmoDisplay" type="Label" parent="CanvasLayer/WhiteBg"]
+layout_mode = 0
 offset_left = 149.0
 offset_top = 84.9999
 offset_right = 204.0

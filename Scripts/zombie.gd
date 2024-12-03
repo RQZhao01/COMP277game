@@ -6,7 +6,7 @@ var move_speed = 100.0
 @onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
 
 
-const SPEED = 300.0
+const SPEED = 400.0
 const JUMP_VELOCITY = -400.0
 
 var health = 5
@@ -91,7 +91,7 @@ func _process(_delta: float) -> void:
 	elif $RayCast2D.is_colliding() and blind == false:
 		#print($RayCast2D.get_collider().name)
 		if $RayCast2D.get_collider().name == "Survivor":
-			move_speed = 250
+			move_speed = 400
 			$Sprite2D.play("run")
 			navigation_agent_2d.target_position = target.global_position
 			if scream == false:
