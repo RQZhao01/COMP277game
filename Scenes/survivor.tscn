@@ -1,10 +1,10 @@
-[gd_scene load_steps=198 format=3 uid="uid://c7ygnibm5wyfu"]
+[gd_scene load_steps=200 format=3 uid="uid://c7ygnibm5wyfu"]
 
 [ext_resource type="Script" path="res://Scripts/survivor.gd" id="1_tamox"]
 [ext_resource type="Texture2D" uid="uid://bpir0oihg5kin" path="res://Assets/Survivor/handgun/idle/survivor-idle_handgun_0.png" id="2_44gyy"]
 [ext_resource type="Texture2D" uid="uid://bc3agmigrpvup" path="res://Assets/Survivor/rifle/idle/survivor-idle_rifle_0.png" id="2_spb2s"]
+[ext_resource type="Texture2D" uid="uid://v73ke5514vm4" path="res://Assets/HudBG.png" id="3_2sk8v"]
 [ext_resource type="Texture2D" uid="uid://b762q264gjfpk" path="res://Assets/Survivor/rifle/move/survivor-move_rifle_0.png" id="3_apyh1"]
-[ext_resource type="Texture2D" uid="uid://v73ke5514vm4" path="res://Assets/HudBG.png" id="3_dvt11"]
 [ext_resource type="Texture2D" uid="uid://dlmib3mcecsvd" path="res://Assets/Survivor/rifle/idle/survivor-idle_rifle_1.png" id="3_g0rdv"]
 [ext_resource type="Texture2D" uid="uid://b6bwvmlj7kxdx" path="res://Assets/Survivor/handgun/idle/survivor-idle_handgun_1.png" id="3_rprur"]
 [ext_resource type="Texture2D" uid="uid://b8k71yxck2eii" path="res://Assets/Survivor/rifle/move/survivor-move_rifle_1.png" id="4_aiihr"]
@@ -20,11 +20,13 @@
 [ext_resource type="Texture2D" uid="uid://begiv6a4jk3qx" path="res://Assets/Survivor/rifle/move/survivor-move_rifle_4.png" id="7_630t6"]
 [ext_resource type="Texture2D" uid="uid://dw2r2bmvekbiw" path="res://Assets/Survivor/rifle/idle/survivor-idle_rifle_5.png" id="7_cwnw3"]
 [ext_resource type="Script" path="res://Scenes/ammo_display.gd" id="7_vm6nu"]
+[ext_resource type="Texture2D" uid="uid://dh5t5qhqrf01b" path="res://Assets/PickUp/health-red 32px.png" id="8_gi2ek"]
 [ext_resource type="Texture2D" uid="uid://dkgwf34yy41we" path="res://Assets/Survivor/handgun/idle/survivor-idle_handgun_6.png" id="8_iwcni"]
 [ext_resource type="Texture2D" uid="uid://b8q1ek23s8ovn" path="res://Assets/Survivor/rifle/idle/survivor-idle_rifle_6.png" id="8_ufkkf"]
 [ext_resource type="Texture2D" uid="uid://b514uwmvcobkj" path="res://Assets/Survivor/rifle/move/survivor-move_rifle_5.png" id="8_xsiw5"]
 [ext_resource type="Texture2D" uid="uid://caogrvxq28xwj" path="res://Assets/Survivor/rifle/idle/survivor-idle_rifle_7.png" id="9_7pnft"]
 [ext_resource type="Texture2D" uid="uid://bba1qh1au82ki" path="res://Assets/Survivor/rifle/move/survivor-move_rifle_10.png" id="9_8b3na"]
+[ext_resource type="Script" path="res://Scenes/medkit_display.gd" id="9_ahhr6"]
 [ext_resource type="Texture2D" uid="uid://0qxbw3ufjqqd" path="res://Assets/Survivor/handgun/idle/survivor-idle_handgun_7.png" id="9_sc1sb"]
 [ext_resource type="Texture2D" uid="uid://crqaktdk5r4xy" path="res://Assets/Survivor/rifle/idle/survivor-idle_rifle_8.png" id="10_6e627"]
 [ext_resource type="Texture2D" uid="uid://cllyhx5fakmfp" path="res://Assets/Survivor/handgun/idle/survivor-idle_handgun_8.png" id="10_sk084"]
@@ -1019,14 +1021,12 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -266.0
-offset_top = -206.0
-offset_right = -11.0
-offset_bottom = -12.0
+offset_left = -341.0
+offset_top = -127.0
 grow_horizontal = 0
 grow_vertical = 0
-texture = ExtResource("3_dvt11")
-expand_mode = 1
+texture = ExtResource("3_2sk8v")
+expand_mode = 3
 script = ExtResource("185_w6kj6")
 
 [node name="Weapon_display" type="TextureRect" parent="CanvasLayer/WhiteBg"]
@@ -1037,10 +1037,10 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 123.0
-offset_top = -201.0
-offset_right = 322.0
-offset_bottom = 3.0
+offset_left = 130.0
+offset_top = -150.0
+offset_right = 372.0
+offset_bottom = 111.0
 grow_vertical = 0
 rotation = 0.689405
 scale = Vector2(0.442274, 0.435031)
@@ -1050,13 +1050,40 @@ script = ExtResource("183_dnr2u")
 
 [node name="AmmoDisplay" type="Label" parent="CanvasLayer/WhiteBg"]
 layout_mode = 0
-offset_left = 99.0
-offset_top = 128.0
-offset_right = 154.0
-offset_bottom = 151.0
+offset_left = 167.0
+offset_top = 79.0
+offset_right = 222.0
+offset_bottom = 102.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "0"
 script = ExtResource("7_vm6nu")
+
+[node name="Medkit" type="TextureRect" parent="CanvasLayer/WhiteBg"]
+layout_mode = 0
+offset_left = 213.0
+offset_top = 41.0
+offset_right = 253.0
+offset_bottom = 81.0
+texture = ExtResource("8_gi2ek")
+
+[node name="Medkit_Display" type="Label" parent="CanvasLayer/WhiteBg"]
+layout_mode = 0
+offset_left = 258.0
+offset_top = 49.0
+offset_right = 298.0
+offset_bottom = 72.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "0"
+script = ExtResource("9_ahhr6")
+
+[node name="Label" type="Label" parent="CanvasLayer/WhiteBg"]
+layout_mode = 0
+offset_left = 248.0
+offset_top = 48.0
+offset_right = 288.0
+offset_bottom = 71.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "x"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_w1j3v")
@@ -1112,9 +1139,10 @@ position = Vector2(185, 45.0007)
 scale = Vector2(0.4, 0.4)
 
 [node name="light" type="PointLight2D" parent="."]
+visible = false
 z_index = 1
 z_as_relative = false
-position = Vector2(-32.5001, 17.4999)
+position = Vector2(24.9995, 142.5)
 energy = 1.5
 shadow_enabled = true
 shadow_filter = 1
@@ -1178,6 +1206,7 @@ debug_color = Color(0.266863, 0.707031, 0.0441895, 0.42)
 current = true
 
 [connection signal="current_health_changed" from="." to="TextureProgressBar" method="_on_survivor_current_health_changed"]
+[connection signal="medkit_change" from="." to="CanvasLayer/WhiteBg/Medkit_Display" method="_on_survivor_medkit_change"]
 [connection signal="weapon_changed" from="." to="CanvasLayer/WhiteBg/Weapon_display" method="_on_survivor_weapon_changed"]
 [connection signal="weapon_type1" from="CanvasLayer/WhiteBg/Weapon_display" to="CanvasLayer/WhiteBg/AmmoDisplay" method="_on_weapon_display_weapon_type_1"]
 [connection signal="weapon_type2" from="CanvasLayer/WhiteBg/Weapon_display" to="CanvasLayer/WhiteBg/AmmoDisplay" method="_on_weapon_display_weapon_type_2"]
