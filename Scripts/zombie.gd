@@ -26,6 +26,7 @@ var scream = false
 func _ready() -> void:
 	target = self.get_parent().get_parent().find_child("Survivor")
 	
+
 	$Sprite2D.play("idle")
 	
 
