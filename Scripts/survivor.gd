@@ -224,6 +224,10 @@ func shoot_rifle():
 	$MuzzleFlash/AnimatedSprite2D.visible = true
 	$MuzzleFlash/AnimatedSprite2D.play()
 	
+	var muzzle_flash_light = load("res://Scenes/MaxsLevel/muzzle_flash_light.tscn")
+	var muzzle_flash_light_scene = muzzle_flash_light.instantiate()
+	self.add_child(muzzle_flash_light_scene)
+	
 	# Load and play the rifle shooting sound
 	var rifle_sound_scene = load("res://Scenes/Sounds/rifle_shoot_sound.tscn")
 	var rifle_sound = rifle_sound_scene.instantiate()

@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bypivohlsit42"]
+
+[ext_resource type="Texture2D" uid="uid://b461at0y6uy3o" path="res://Assets/Lighting/light.png" id="1_cvrvx"]
+[ext_resource type="Script" path="res://Scripts/muzzle_flash_light.gd" id="2_6rd3h"]
+
+[node name="Muzzle Flash Light" type="PointLight2D"]
+z_index = 1
+z_as_relative = false
+position = Vector2(-27.5001, 22.4999)
+scale = Vector2(0.2, 0.2)
+color = Color(0.890196, 0.815686, 0.419608, 0.392157)
+energy = 1.5
+shadow_enabled = true
+shadow_filter = 1
+shadow_filter_smooth = 10.0
+texture = ExtResource("1_cvrvx")
+texture_scale = 50.0
+script = ExtResource("2_6rd3h")
