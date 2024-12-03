@@ -136,7 +136,9 @@ func use_medkit():
 
 func die():
 	is_alive = false
+	get_parent().get_node("Zombies").queue_free()
 	queue_free()
+	
 	
 
 
