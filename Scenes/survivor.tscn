@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bpir0oihg5kin" path="res://Assets/Survivor/handgun/idle/survivor-idle_handgun_0.png" id="2_44gyy"]
 [ext_resource type="Texture2D" uid="uid://bc3agmigrpvup" path="res://Assets/Survivor/rifle/idle/survivor-idle_rifle_0.png" id="2_spb2s"]
 [ext_resource type="Texture2D" uid="uid://b762q264gjfpk" path="res://Assets/Survivor/rifle/move/survivor-move_rifle_0.png" id="3_apyh1"]
+[ext_resource type="Texture2D" uid="uid://v73ke5514vm4" path="res://Assets/HudBG.png" id="3_dvt11"]
 [ext_resource type="Texture2D" uid="uid://dlmib3mcecsvd" path="res://Assets/Survivor/rifle/idle/survivor-idle_rifle_1.png" id="3_g0rdv"]
 [ext_resource type="Texture2D" uid="uid://b6bwvmlj7kxdx" path="res://Assets/Survivor/handgun/idle/survivor-idle_handgun_1.png" id="3_rprur"]
 [ext_resource type="Texture2D" uid="uid://b8k71yxck2eii" path="res://Assets/Survivor/rifle/move/survivor-move_rifle_1.png" id="4_aiihr"]
@@ -186,7 +187,6 @@
 [ext_resource type="Script" path="res://Scripts/HealthBar.gd" id="182_5jwvq"]
 [ext_resource type="Texture2D" uid="uid://dkesnr2dwm3y4" path="res://Assets/rifle.png" id="183_87knm"]
 [ext_resource type="Script" path="res://Scripts/texture_rect.gd" id="183_dnr2u"]
-[ext_resource type="Texture2D" uid="uid://dj684yd5g7o3b" path="res://Assets/white.jpg" id="185_6vh1u"]
 [ext_resource type="Script" path="res://Scripts/flashlight.gd" id="185_7ie11"]
 [ext_resource type="Script" path="res://Scenes/white_bg.gd" id="185_w6kj6"]
 
@@ -1019,11 +1019,13 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -274.0
-offset_top = -127.0
+offset_left = -266.0
+offset_top = -206.0
+offset_right = -11.0
+offset_bottom = -12.0
 grow_horizontal = 0
 grow_vertical = 0
-texture = ExtResource("185_6vh1u")
+texture = ExtResource("3_dvt11")
 expand_mode = 1
 script = ExtResource("185_w6kj6")
 
@@ -1035,10 +1037,10 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 73.0
-offset_top = -152.0
-offset_right = 375.0
-offset_bottom = 150.0
+offset_left = 123.0
+offset_top = -201.0
+offset_right = 322.0
+offset_bottom = 3.0
 grow_vertical = 0
 rotation = 0.689405
 scale = Vector2(0.442274, 0.435031)
@@ -1047,10 +1049,11 @@ expand_mode = 5
 script = ExtResource("183_dnr2u")
 
 [node name="AmmoDisplay" type="Label" parent="CanvasLayer/WhiteBg"]
-offset_left = 149.0
-offset_top = 84.9999
-offset_right = 204.0
-offset_bottom = 108.0
+layout_mode = 0
+offset_left = 99.0
+offset_top = 128.0
+offset_right = 154.0
+offset_bottom = 151.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "0"
 script = ExtResource("7_vm6nu")
@@ -1111,7 +1114,7 @@ scale = Vector2(0.4, 0.4)
 [node name="light" type="PointLight2D" parent="."]
 z_index = 1
 z_as_relative = false
-position = Vector2(25, 12.5001)
+position = Vector2(67.4998, 62.5002)
 energy = 1.5
 shadow_enabled = true
 shadow_filter = 1

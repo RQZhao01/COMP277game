@@ -46,7 +46,6 @@ func _process(_delta: float) -> void:
 		#if self.name == "Zombie2":
 			#print($RayCast2D.get_collider().name)
 	
-	
 	if dead == true:
 		z_index = 0
 		$CollisionShape2D.disabled = true
