@@ -263,6 +263,10 @@ func shoot_pistol():
 	$PistolMuzzleFlash/AnimatedSprite2D.visible = true
 	$PistolMuzzleFlash/AnimatedSprite2D.play()
 	
+	var muzzle_flash_light = load("res://Scenes/MaxsLevel/muzzle_flash_light.tscn")
+	var muzzle_flash_light_scene = muzzle_flash_light.instantiate()
+	self.add_child(muzzle_flash_light_scene)
+	
 	var pistol_shoot_sound_scene = load("res://Scenes/Sounds/pistol_shoot_sound.tscn")
 	var pistol_shoot_sound = pistol_shoot_sound_scene.instantiate()
 	add_child(pistol_shoot_sound)
@@ -294,6 +298,10 @@ func shoot_shotgun():
 	# play muzzle flash animation
 	$MuzzleFlash/AnimatedSprite2D.visible = true
 	$MuzzleFlash/AnimatedSprite2D.play()
+	
+	var muzzle_flash_light = load("res://Scenes/MaxsLevel/muzzle_flash_light.tscn")
+	var muzzle_flash_light_scene = muzzle_flash_light.instantiate()
+	self.add_child(muzzle_flash_light_scene)
 	
 	# this plays the sound for the shotgun
 	var shotgun_shoot_sound_scene = load("res://Scenes/Sounds/shotgun_shoot_sound.tscn")
