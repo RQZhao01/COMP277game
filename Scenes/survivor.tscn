@@ -1090,7 +1090,7 @@ sprite_frames = SubResource("SpriteFrames_w1j3v")
 animation = &"pistol_idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-25, 20)
+position = Vector2(-25.0001, 19.9999)
 rotation = -1.5708
 scale = Vector2(5, 5)
 shape = SubResource("CapsuleShape2D_1ywmy")
@@ -1139,10 +1139,9 @@ position = Vector2(185, 45.0007)
 scale = Vector2(0.4, 0.4)
 
 [node name="light" type="PointLight2D" parent="."]
-visible = false
 z_index = 1
 z_as_relative = false
-position = Vector2(24.9995, 142.5)
+position = Vector2(-27.5001, 22.4999)
 energy = 1.5
 shadow_enabled = true
 shadow_filter = 1
@@ -1151,6 +1150,7 @@ texture = ExtResource("67_jckur")
 texture_scale = 50.0
 
 [node name="hitbox" type="Area2D" parent="."]
+position = Vector2(12.5, 2.50005)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
 position = Vector2(-37.5001, 17.4999)
