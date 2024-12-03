@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1htjpnl527qr"]
+
+[ext_resource type="AudioStream" uid="uid://cddgpg2bu4bf5" path="res://Assets/Sounds/Gun Sounds/Reloads, Cycling & More/MP3/AR Charging Handle MP3.mp3" id="1_a3chg"]
+[ext_resource type="Script" path="res://Scripts/one_time_sound.gd" id="2_lf3f7"]
+
+[node name="ShotgunReloadSound" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_a3chg")
+script = ExtResource("2_lf3f7")
