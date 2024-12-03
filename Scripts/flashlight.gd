@@ -26,6 +26,11 @@ func _process(delta: float) -> void:
 	for area in overlapping_bodies:
 		print(area)
 		if area.name.substr(0,6) == "Zombie":
+			print("1")
+			print(area)
+			print(area.get_node("RayCast2D").is_colliding())
 			if area.get_node("RayCast2D").is_colliding():
+				print("2")
 				if area.get_node("RayCast2D").get_collider().name == "Survivor":
+					print("3")
 					area.blind = false

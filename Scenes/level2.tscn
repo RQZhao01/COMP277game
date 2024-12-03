@@ -619,7 +619,6 @@ position = Vector2(1861, -6482)
 position = Vector2(-1985, -191)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
 color = Color(0.847656, 0.847656, 0.847656, 1)
 
 [node name="Zombies" type="Node2D" parent="."]
