@@ -503,7 +503,7 @@ position = Vector2(-556, -307)
 [node name="AmmoPickups" type="Node2D" parent="."]
 
 [node name="AmmoPickup" parent="AmmoPickups" instance=ExtResource("5_1pmb6")]
-position = Vector2(-378, -470)
+position = Vector2(-2011, -1474)
 
 [node name="AmmoPickup2" parent="AmmoPickups" instance=ExtResource("5_1pmb6")]
 position = Vector2(-1000, -3842)
@@ -515,10 +515,10 @@ position = Vector2(-175, -3012)
 position = Vector2(345, -3469)
 
 [node name="AmmoPickup5" parent="AmmoPickups" instance=ExtResource("5_1pmb6")]
-position = Vector2(-2322, -3119)
+position = Vector2(-2408, -2832)
 
 [node name="AmmoPickup6" parent="AmmoPickups" instance=ExtResource("5_1pmb6")]
-position = Vector2(-2311, -1626)
+position = Vector2(-1337, -1766)
 
 [node name="AmmoPickup7" parent="AmmoPickups" instance=ExtResource("5_1pmb6")]
 position = Vector2(2331, -1948)
@@ -527,10 +527,10 @@ position = Vector2(2331, -1948)
 position = Vector2(-735, -454)
 
 [node name="AmmoPickup9" parent="AmmoPickups" instance=ExtResource("5_1pmb6")]
-position = Vector2(-729, -324)
+position = Vector2(-733, -406)
 
 [node name="AmmoPickup10" parent="AmmoPickups" instance=ExtResource("5_1pmb6")]
-position = Vector2(-365, -331)
+position = Vector2(-1343, -652)
 
 [node name="AmmoPickup11" parent="AmmoPickups" instance=ExtResource("5_1pmb6")]
 position = Vector2(-2047, -3502)
@@ -571,16 +571,16 @@ position = Vector2(-924, -3304)
 position = Vector2(-2095, -4113)
 
 [node name="Pickup8" parent="Medkits" instance=ExtResource("6_yigd1")]
-position = Vector2(-2179, -2933)
+position = Vector2(-2464, -2824)
 
 [node name="Pickup9" parent="Medkits" instance=ExtResource("6_yigd1")]
 position = Vector2(-1323, -2975)
 
 [node name="Pickup10" parent="Medkits" instance=ExtResource("6_yigd1")]
-position = Vector2(-2113, -2490)
+position = Vector2(-2018, -2507)
 
 [node name="Pickup11" parent="Medkits" instance=ExtResource("6_yigd1")]
-position = Vector2(-2431, -2023)
+position = Vector2(-2462, -2023)
 
 [node name="Pickup12" parent="Medkits" instance=ExtResource("6_yigd1")]
 position = Vector2(1712, -2802)
@@ -601,6 +601,7 @@ position = Vector2(-7, -4805)
 position = Vector2(2063, -4166)
 
 [node name="DarkRooms" type="Node2D" parent="."]
+visible = false
 
 [node name="darkroom" parent="DarkRooms" instance=ExtResource("7_cjvbf")]
 position = Vector2(-1312, -1189)
