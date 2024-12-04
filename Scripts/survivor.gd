@@ -101,6 +101,9 @@ func reload_shotgun():
 	if total_shotgun_ammo > 0 && ammo_in_shotgun < SHOTGUN_TUBE_CAPACITY:
 		# Play reload animation
 		$AnimatedSprite2D.play("reload_shotgun")
+		var reload_shotgun_sound_scene = load("res://Scenes/Sounds/shotgun_reload_sound.tscn")
+		var reload_shotgun_sound = reload_shotgun_sound_scene.instantiate()
+		self.add_child(reload_shotgun_sound)
 		reloading = true
 		var ammo_difference = SHOTGUN_TUBE_CAPACITY - ammo_in_shotgun
 		# Add ammo to tube while reducing total ammo
@@ -137,6 +140,7 @@ func use_medkit():
 
 func die():
 	is_alive = false
+	get_parent().get_node("Zombies").queue_free()
 	queue_free()
 	
 
@@ -279,14 +283,14 @@ func shoot_pistol():
 	projectile.rotation = rotation + PI / 2
 	
 	if self.player_speed > 250:
-		projectile.direction_shot = facing_direction.rotated(1.5 * random_number)
-		projectile.rotate(1.5 * random_number)
+		projectile.direction_shot = facing_direction.rotated(0.1 * random_number)
+		projectile.rotate(0.1 * random_number)
 	elif self.player_speed < 250:
-		projectile.direction_shot = facing_direction.rotated(0.15 * random_number)
-		projectile.rotate(0.15 * random_number)
+		projectile.direction_shot = facing_direction.rotated(0.1 * random_number)
+		projectile.rotate(0.1 * random_number)
 	else:
-		projectile.direction_shot = facing_direction.rotated(0.2 * random_number)
-		projectile.rotate(0.2 * random_number)
+		projectile.direction_shot = facing_direction.rotated(0.1 * random_number)
+		projectile.rotate(0.1 * random_number)
 	
 	get_parent().add_child(projectile)
 

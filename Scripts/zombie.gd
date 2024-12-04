@@ -26,15 +26,12 @@ var scream = false
 func _ready() -> void:
 	target = self.get_parent().get_parent().find_child("Survivor")
 	
+
 	$Sprite2D.play("idle")
 	
 
 
 func _process(_delta: float) -> void:
-	if name == "Zombie2":
-		if $RayCast2D.is_colliding():
-			print("colliding with")
-			print($RayCast2D.get_collider().name)
 	
 	if $Sprite2D.animation == "idle" and $AudioStreamPlayer2D.playing == false:
 		$AudioStreamPlayer2D.play()
