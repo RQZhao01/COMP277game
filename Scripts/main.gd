@@ -27,7 +27,7 @@ func _process(delta: float) -> void:
 		level = null
 		pass
 	
-	if level ==3:
+	if level == 3:
 		
 		var scene3_to_instance = preload("res://Scenes/RensLevel.tscn")
 		var instance3 = scene3_to_instance.instantiate()
