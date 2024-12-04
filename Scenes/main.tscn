@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://c1huct0tfppsu"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_1oce0"]
-[ext_resource type="PackedScene" uid="uid://dqysmi6dfsad1" path="res://main_menu.tscn" id="2_yfvsp"]
+[ext_resource type="PackedScene" uid="uid://dqysmi6dfsad1" path="res://Scenes/main_menu.tscn" id="2_yfvsp"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -16,7 +16,6 @@ script = ExtResource("1_1oce0")
 
 [node name="MainMenu" parent="." instance=ExtResource("2_yfvsp")]
 layout_mode = 1
-script = null
 
 [connection signal="pressed" from="MainMenu/PanelContainer/Panel/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="MainMenu/PanelContainer/Panel/LoadButton" to="." method="_on_load_button_pressed"]
