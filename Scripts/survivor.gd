@@ -11,6 +11,9 @@ var reloading: bool = false  # Whether the player is reloading
 var current_weapon: String = "rifle"  # Current weapon equipped
 var player_speed  # Current speed of the player
 
+var stamina = 120
+var stamina_state = "regenerating"
+
 # Constants for gameplay mechanics
 const RIFLE_FIRE_RATE: float = 5.0  # Rate of fire for the rifle
 const SHOTGUN_FIRE_RATE: float = 1.0  # Rate of fire for the shotgun
@@ -123,6 +126,8 @@ func add_medkit():
 		medkit_count += 1
 		print("Picked up 1 medkit")
 		emit_signal("medkit_change")
+		
+		
 # Use a medkit
 func use_medkit():
 		if medkit_count > 0 && is_alive && current_health < PLAYER_HP:
@@ -343,6 +348,7 @@ func update_player_movement():
 		# Adjust speed and animations based on movement inputs
 		#ctrl makes the player slow walk
 		if Input.is_action_pressed("ui_ctrl"):
+			stamina_state = "regenerating"
 			player_speed = SLOW_WALK_SPEED
 			$Noisecircle.scale= Vector2(20,20)
 			match current_weapon:
@@ -354,17 +360,30 @@ func update_player_movement():
 					$AnimatedSprite2D.play("shotgun_slow_walk")
 		#shift makes the player run
 		elif Input.is_action_pressed("ui_shift"):
-			player_speed = RUN_SPEED
-			$Noisecircle.scale= Vector2(100,100)
-			match current_weapon:
-				"rifle":
-					$AnimatedSprite2D.play("rifle_run")
-				"pistol":
-					$AnimatedSprite2D.play("pistol_run")
-				"shotgun":
-					$AnimatedSprite2D.play("shotgun_run")
+			stamina_state = "losing"
+			if stamina > 0:
+				player_speed = RUN_SPEED
+				$Noisecircle.scale= Vector2(100,100)
+				match current_weapon:
+					"rifle":
+						$AnimatedSprite2D.play("rifle_run")
+					"pistol":
+						$AnimatedSprite2D.play("pistol_run")
+					"shotgun":
+						$AnimatedSprite2D.play("shotgun_run")
+			else:
+				player_speed = WALK_SPEED
+				match current_weapon:
+					"rifle":
+						$AnimatedSprite2D.play("rifle_walk")
+					"pistol":
+						$AnimatedSprite2D.play("pistol_walk")
+					"shotgun":
+						$AnimatedSprite2D.play("shotgun_walk")
+			
 		#the default movement is walk
 		else:
+			stamina_state = "regenerating"
 			player_speed = WALK_SPEED
 			$Noisecircle.scale= Vector2(50,50)
 			match current_weapon:
@@ -389,7 +408,7 @@ func update_player_movement():
 	var input_direction = Vector2(
 		Input.get_action_strength("move_right") - Input.get_action_strength("move_left"),
 		Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
-		)
+		).normalized()
 	var vector = player_speed * input_direction
 	velocity = vector.rotated(self.rotation + PI / 2)
 	if velocity == Vector2(0,0):
@@ -422,6 +441,14 @@ func update_player_direction():
 # physics process is called with a set frequency, eg: every 0.01 seconds
 # use for stuff when timing matters
 func _physics_process(_delta: float) -> void:
+	if stamina_state == "regenerating":
+		stamina += 1
+		clamp(stamina, 0, 100)
+	elif stamina_state == "losing":
+		stamina -= 1
+		clamp(stamina, 0, 100)
+		
+		
 	# Update player direction, reloading, movement, and shooting
 	update_player_direction()
 	update_reloading()
