@@ -1,12 +1,13 @@
-[gd_scene load_steps=68 format=4 uid="uid://c08ovd8a3o7oa"]
+[gd_scene load_steps=70 format=4 uid="uid://c08ovd8a3o7oa"]
 
 [ext_resource type="Texture2D" uid="uid://bo4j2fdjupc6b" path="res://Assets/Tilemap/space-blks-1.034.png" id="1_722ra"]
 [ext_resource type="Script" path="res://Scripts/walls.gd" id="2_iv3x4"]
-[ext_resource type="PackedScene" uid="uid://c7ygnibm5wyfu" path="res://Scenes/survivor.tscn" id="3_vnyjc"]
 [ext_resource type="PackedScene" uid="uid://ctyparo8gfa03" path="res://Scenes/Pickup.tscn" id="4_3xp66"]
 [ext_resource type="PackedScene" uid="uid://bp46p2m5mdxki" path="res://Scenes/AmmoPickup.tscn" id="5_r20wo"]
 [ext_resource type="PackedScene" uid="uid://45tdwpffm1ms" path="res://Scenes/zombie.tscn" id="6_y6h6m"]
 [ext_resource type="PackedScene" uid="uid://baf1jf3e2ajmk" path="res://Scenes/darkroom_working.tscn" id="7_k4ux8"]
+[ext_resource type="PackedScene" uid="uid://c7ygnibm5wyfu" path="res://Scenes/survivor.tscn" id="7_yqms5"]
+[ext_resource type="Script" path="res://Scenes/exit_2.gd" id="8_7ix8n"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_wk7us"]
 vertices = PackedVector2Array(32, 32, -32, 32, -32, -32, 32, -32)
@@ -524,7 +525,9 @@ sources/0 = SubResource("TileSetAtlasSource_qg7tv")
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_7jaty"]
 light_mode = 2
 
-[node name="Level 2" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s5ew4"]
+
+[node name="level2" type="Node2D"]
 position = Vector2(550, 430)
 
 [node name="TileMap" type="TileMap" parent="." groups=["Walls"]]
@@ -547,9 +550,6 @@ z_as_relative = false
 use_parent_material = true
 tile_set = SubResource("TileSet_biqnq")
 script = ExtResource("2_iv3x4")
-
-[node name="Survivor" parent="." instance=ExtResource("3_vnyjc")]
-position = Vector2(1.00002, -5.00003)
 
 [node name="health" type="Node2D" parent="."]
 
@@ -626,13 +626,11 @@ light_mask = 2
 visibility_layer = 2
 material = SubResource("CanvasItemMaterial_7jaty")
 
-[node name="Zombie2" parent="Zombies" node_paths=PackedStringArray("target") instance=ExtResource("6_y6h6m")]
+[node name="Zombie2" parent="Zombies" instance=ExtResource("6_y6h6m")]
 position = Vector2(-524, -684)
-target = NodePath("../../Survivor")
 
-[node name="Zombie" parent="Zombies" node_paths=PackedStringArray("target") instance=ExtResource("6_y6h6m")]
+[node name="Zombie" parent="Zombies" instance=ExtResource("6_y6h6m")]
 position = Vector2(233, -1876)
-target = NodePath("../../Survivor")
 metadata/_edit_group_ = true
 
 [node name="Zombie3" parent="Zombies" instance=ExtResource("6_y6h6m")]
@@ -801,3 +799,15 @@ scale = Vector2(19.6738, 13.7906)
 [node name="darkroom15" parent="dark_rooms" instance=ExtResource("7_k4ux8")]
 position = Vector2(1916, -4813)
 scale = Vector2(16.6872, 15.3473)
+
+[node name="Survivor" parent="." instance=ExtResource("7_yqms5")]
+
+[node name="exit2" type="Area2D" parent="."]
+position = Vector2(-2529, -6624)
+scale = Vector2(5, 5)
+script = ExtResource("8_7ix8n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="exit2"]
+shape = SubResource("RectangleShape2D_s5ew4")
+
+[connection signal="area_entered" from="exit2" to="exit2" method="_on_area_entered"]

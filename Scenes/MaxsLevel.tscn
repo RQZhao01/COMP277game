@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=4 uid="uid://dkd40iw0p2pjk"]
+[gd_scene load_steps=58 format=4 uid="uid://dkd40iw0p2pjk"]
 
 [ext_resource type="Texture2D" uid="uid://bo4j2fdjupc6b" path="res://Assets/Tilemap/space-blks-1.034.png" id="1_ggyk1"]
 [ext_resource type="Script" path="res://Scripts/walls.gd" id="2_golsy"]
@@ -11,6 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://cu6tclx5japa4" path="res://Assets/Sounds/Ambient/big-room-ambience-1-77517.mp3" id="10_v300k"]
 [ext_resource type="PackedScene" uid="uid://c1kskhn6qnc20" path="res://Scenes/MaxsLevel/zombies.tscn" id="11_07fa7"]
 [ext_resource type="AudioStream" uid="uid://xpojpnhw7nmm" path="res://Assets/Sounds/Ambient/room-with-buzz-incandescent-light-bulb-23892.mp3" id="11_87oac"]
+[ext_resource type="Script" path="res://Scenes/exit.gd" id="12_xkvkm"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_5vlcd"]
 vertices = PackedVector2Array(32, 32, -32, 32, -32, -32, 32, -32)
@@ -469,6 +470,8 @@ physics_layer_0/collision_layer = 1
 navigation_layer_0/layers = 1
 sources/0 = SubResource("TileSetAtlasSource_qg7tv")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fugh4"]
+
 [node name="MaxsLevel" type="Node2D"]
 position = Vector2(550, 430)
 
@@ -601,7 +604,6 @@ position = Vector2(-7, -4805)
 position = Vector2(2063, -4166)
 
 [node name="DarkRooms" type="Node2D" parent="."]
-visible = false
 
 [node name="darkroom" parent="DarkRooms" instance=ExtResource("7_cjvbf")]
 position = Vector2(-1312, -1189)
@@ -657,3 +659,13 @@ max_distance = 1000.0
 parameters/looping = true
 
 [node name="Zombies" parent="." instance=ExtResource("11_07fa7")]
+
+[node name="exit" type="Area2D" parent="."]
+script = ExtResource("12_xkvkm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="exit"]
+position = Vector2(-192, -5928)
+scale = Vector2(10, 10)
+shape = SubResource("RectangleShape2D_fugh4")
+
+[connection signal="area_entered" from="exit" to="exit" method="_on_area_entered"]
