@@ -32,14 +32,14 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
-	
+	var pos = self.position
 	if $Sprite2D.animation == "idle" and $AudioStreamPlayer2D.playing == false:
 		$AudioStreamPlayer2D.play()
 	
 	if $Sprite2D.animation != "idle" and $AudioStreamPlayer2D.playing == true:
 		$AudioStreamPlayer2D.stop()
-	
-	var pos = self.get_parent().get_parent().find_child("Survivor").find_child("light").global_position - self.global_position
+	if self.get_parent().get_parent().get_node_or_null("Survivor") != null:
+		pos = self.get_parent().get_parent().find_child("Survivor").find_child("light").global_position - self.global_position
 	$RayCast2D.target_position = pos
 	$RayCast2D.rotation = -self.rotation
 	
