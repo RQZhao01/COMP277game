@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://45tdwpffm1ms" path="res://Scenes/zombie.tscn" id="6_y6h6m"]
 [ext_resource type="PackedScene" uid="uid://baf1jf3e2ajmk" path="res://Scenes/darkroom_working.tscn" id="7_k4ux8"]
 [ext_resource type="PackedScene" uid="uid://c7ygnibm5wyfu" path="res://Scenes/survivor.tscn" id="7_yqms5"]
-[ext_resource type="Script" path="res://Scenes/exit_2.gd" id="8_7ix8n"]
+[ext_resource type="Script" path="res://Scripts/exit_2.gd" id="8_1qppq"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_wk7us"]
 vertices = PackedVector2Array(32, 32, -32, 32, -32, -32, 32, -32)
@@ -805,7 +805,7 @@ scale = Vector2(16.6872, 15.3473)
 [node name="exit2" type="Area2D" parent="."]
 position = Vector2(-2529, -6624)
 scale = Vector2(5, 5)
-script = ExtResource("8_7ix8n")
+script = ExtResource("8_1qppq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="exit2"]
 shape = SubResource("RectangleShape2D_s5ew4")
