@@ -62,5 +62,31 @@ func _on_load_button_pressed() -> void:
 
 
 func _on_death() -> void:
+	var death_screen = preload("res://Scenes/death_screen.tscn").instantiate()
+	add_child(death_screen)
+	
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	find_child("MainMenu").visible = true
+	if find_child("MainMenu"):
+		find_child("MainMenu").visible = false
+	else:
+		print("Error: MainMenu node not found!")
+
+	death_screen.connect("gui_input", Callable(self, "_on_death_screen_clicked"))
+
+
+func _on_death_screen_clicked(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.pressed:
+		_go_to_main_menu()
+
+
+func _go_to_main_menu() -> void:
+	for child in get_children():
+		if child.name != "MainMenu":
+			child.queue_free()
+	
+	if find_child("MainMenu"):
+		find_child("MainMenu").visible = true
+	else:
+		print("Error: MainMenu node not found!")
+
+	print("Returned to Main Menu.")
