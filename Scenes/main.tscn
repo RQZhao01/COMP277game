@@ -17,6 +17,7 @@ script = ExtResource("1_1oce0")
 [node name="MainMenu" parent="." instance=ExtResource("2_yfvsp")]
 layout_mode = 1
 
+[connection signal="death" from="." to="." method="_on_death"]
 [connection signal="pressed" from="MainMenu/PanelContainer/Panel/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="MainMenu/PanelContainer/Panel/LoadButton" to="." method="_on_load_button_pressed"]
 [connection signal="pressed" from="MainMenu/PanelContainer/Panel/QuitButton" to="." method="_on_quit_button_pressed"]

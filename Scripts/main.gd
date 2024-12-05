@@ -2,11 +2,11 @@ extends Control
 
 
 var level = 1
+signal death
 
 
 func _ready() -> void:
-	pass
-
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 func _process(delta: float) -> void:
 	if level == 2:
@@ -52,10 +52,15 @@ func _on_quit_button_pressed() -> void:
 func _on_play_button_pressed() -> void:
 	var scene1_to_instance = preload("res://Scenes/MaxsLevel.tscn")
 	var instance1 = scene1_to_instance.instantiate()
-	remove_child(find_child("MainMenu"))
+	find_child("MainMenu").visible = false
 	add_child(instance1)
 	print("play button pressed")
 	
 
 func _on_load_button_pressed() -> void:
 	pass
+
+
+func _on_death() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	find_child("MainMenu").visible = true
