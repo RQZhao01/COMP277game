@@ -1,7 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://dqysmi6dfsad1"]
+[gd_scene load_steps=8 format=3 uid="uid://4o7dbmrl0q3"]
 
 [ext_resource type="Texture2D" uid="uid://dcxjardgnxyfx" path="res://Assets/main_menu_background.jpg" id="1_30e5l"]
-[ext_resource type="Script" path="res://Scenes/main_menu.gd" id="1_njhmb"]
+[ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_njhmb"]
 [ext_resource type="Texture2D" uid="uid://bwa0qvon5xxrb" path="res://Assets/Menu Buttons/Large Buttons/Colored Large Buttons/Load  col_Button.png" id="2_1p840"]
 [ext_resource type="Texture2D" uid="uid://bywfc46u4doti" path="res://Assets/Menu Buttons/Large Buttons/Colored Large Buttons/Quit  col_Button.png" id="3_s05lx"]
 [ext_resource type="Texture2D" uid="uid://d0eh1edjdtg1u" path="res://Assets/Menu Buttons/Large Buttons/Colored Large Buttons/Play col_Button.png" id="4_hilba"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=59 format=4 uid="uid://dkd40iw0p2pjk"]
 
 [ext_resource type="Texture2D" uid="uid://bo4j2fdjupc6b" path="res://Assets/Tilemap/space-blks-1.034.png" id="1_ggyk1"]
-[ext_resource type="Script" path="res://Scenes/maxs_level.gd" id="1_t1r2f"]
+[ext_resource type="Script" path="res://Scripts/maxs_level.gd" id="1_t1r2f"]
 [ext_resource type="Script" path="res://Scripts/walls.gd" id="2_golsy"]
 [ext_resource type="PackedScene" uid="uid://c7ygnibm5wyfu" path="res://Scenes/survivor.tscn" id="3_0x5ts"]
 [ext_resource type="PackedScene" uid="uid://bp46p2m5mdxki" path="res://Scenes/AmmoPickup.tscn" id="5_1pmb6"]
