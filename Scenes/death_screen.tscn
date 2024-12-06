@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://jjbjwu7c1tlv"]
+[gd_scene load_steps=4 format=3 uid="uid://jjbjwu7c1tlv"]
 
 [ext_resource type="Texture2D" uid="uid://cg3ysr5ows0ok" path="res://Assets/DeathScreen.png" id="1_kec7n"]
+[ext_resource type="Script" path="res://Scenes/respawn.gd" id="2_hemn4"]
+[ext_resource type="Script" path="res://Scenes/return_to_main_menu.gd" id="3_hp06n"]
 
 [node name="DeathScreen" type="Control"]
 layout_mode = 3
@@ -37,18 +39,40 @@ theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_font_sizes/font_size = 109
 text = "You Died!"
 
-[node name="Label2" type="Label" parent="."]
+[node name="Respawn" type="Button" parent="."]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -209.0
-offset_top = -42.0
-offset_right = 209.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_colors/font_color = Color(1, 0, 0, 1)
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -50.0
+offset_right = 300.0
+offset_bottom = 50.0
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_constants/outline_size = 5
 theme_override_font_sizes/font_size = 30
-text = "Click to return to main menu"
+text = "Respawn"
+expand_icon = true
+script = ExtResource("2_hemn4")
+
+[node name="Return to Main Menu" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -50.0
+offset_bottom = 50.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 30
+text = "Quit"
+expand_icon = true
+script = ExtResource("3_hp06n")
+
+[connection signal="pressed" from="Respawn" to="Respawn" method="_on_pressed"]
+[connection signal="pressed" from="Return to Main Menu" to="Return to Main Menu" method="_on_pressed"]

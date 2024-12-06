@@ -6,12 +6,13 @@ signal death
 signal current_health_changed
 signal weapon_changed(weapon:String)
 signal medkit_change
+
+var level = 1
 # State variables to manage player's actionss
 var reloading: bool = false  # Whether the player is reloading
 var current_weapon: String = "rifle"  # Current weapon equipped
 var player_speed  # Current speed of the players
 
-var stamina = 50
 var stamina_state
 var displace = 0
 
@@ -22,7 +23,6 @@ const MOUSE_SENSITIVITY = -0.005  # Sensitivity of mouse for aiming
 
 # Player movement speed settings
 const WALK_SPEED: float = 250
-const RUN_SPEED: float = 500
 const SLOW_WALK_SPEED: float = 125
 
 # Maximum ammo capacities for each weapon
@@ -143,8 +143,8 @@ func use_medkit():
 
 func die():
 	is_alive = false
+	get_parent().get_parent().pop = level
 	get_parent().get_node("Zombies").queue_free()
-	queue_free()
 	get_parent().queue_free()
 	get_parent().get_parent().death.emit()
 	
@@ -434,6 +434,7 @@ func update_player_direction():
 	
 	# Update the player's rotation angle based on mouse movement
 	if InputEventMouseMotion:
+<<<<<<< HEAD
 		#print(mouse_position)
 		#print(" ")
 		#print(mouse_position_global)
@@ -450,8 +451,16 @@ func update_player_direction():
 			else:
 				Input.warp_mouse(Vector2(get_viewport().size.x/2 + 50,DisplayServer.mouse_get_position().y))
 		
+=======
+		if mouse_position.y >= 2397 or mouse_position.y <= -2397:
+			if mouse_position.y >= 0:
+				Input.warp_mouse(Vector2(get_viewport().size.x/2 - 50 ,DisplayServer.mouse_get_position().y))
+			else:
+				Input.warp_mouse(Vector2(get_viewport().size.x/2 + 50,DisplayServer.mouse_get_position().y))
+>>>>>>> 08a4a9d9215e0b3c50f4012a4cb4f8f5da79e7d6
 		var angle = (previous_position.y - mouse_position.y) * MOUSE_SENSITIVITY
 		self.rotation = angle
+		
 
 # Function to handle physics-based updates 
 # physics process is called with a set frequency, eg: every 0.01 seconds
@@ -516,4 +525,8 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 
 
 func _on_darkrooms_area_entered(area: Area2D) -> void:
+	pass # Replace with function body.
+
+
+func _on_exit_3_game_won() -> void:
 	pass # Replace with function body.
