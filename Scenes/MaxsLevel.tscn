@@ -501,7 +501,7 @@ tile_set = SubResource("TileSet_biqnq")
 script = ExtResource("2_golsy")
 
 [node name="Survivor" parent="." instance=ExtResource("3_0x5ts")]
-position = Vector2(-556, -307)
+position = Vector2(40.9999, -5672)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 

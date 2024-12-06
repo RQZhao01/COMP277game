@@ -571,6 +571,7 @@ position = Vector2(1334, -3620)
 position = Vector2(160, -161)
 
 [node name="AmmoPickup2" parent="ammo" instance=ExtResource("5_r20wo")]
+visible = false
 position = Vector2(221, -161)
 
 [node name="AmmoPickup3" parent="ammo" instance=ExtResource("5_r20wo")]
@@ -801,6 +802,7 @@ position = Vector2(1916, -4813)
 scale = Vector2(16.6872, 15.3473)
 
 [node name="Survivor" parent="." instance=ExtResource("7_yqms5")]
+position = Vector2(-2275, -6607)
 
 [node name="exit2" type="Area2D" parent="."]
 position = Vector2(-2529, -6624)
