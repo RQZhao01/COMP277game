@@ -13,7 +13,7 @@ var reloading: bool = false  # Whether the player is reloading
 var current_weapon: String = "rifle"  # Current weapon equipped
 var player_speed  # Current speed of the players
 
-var stamina = 500
+var stamina = 150
 var stamina_state
 
 # Constants for gameplay mechanics
@@ -468,10 +468,10 @@ func _physics_process(_delta: float) -> void:
 	
 	if stamina_state == "regenerating":
 		stamina += 1
-		clamp(stamina, 0, 100)
+		clamp(stamina, 0, 150)
 	elif stamina_state == "losing":
 		stamina -= 1
-		clamp(stamina, 0, 100)
+		clamp(stamina, 0, 150)
 		
 		
 	# Update player direction, reloading, movement, and shooting

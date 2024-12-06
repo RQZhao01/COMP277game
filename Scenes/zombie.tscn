@@ -1107,7 +1107,6 @@ shape = SubResource("CircleShape2D_hpc4i")
 debug_color = Color(0.96902, 0, 0.464089, 0.42)
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
-visible = false
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("248_ry7cw")

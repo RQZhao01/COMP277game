@@ -1,4 +1,4 @@
-[gd_scene load_steps=201 format=3 uid="uid://c7ygnibm5wyfu"]
+[gd_scene load_steps=203 format=3 uid="uid://c7ygnibm5wyfu"]
 
 [ext_resource type="Script" path="res://Scripts/survivor.gd" id="1_tamox"]
 [ext_resource type="Texture2D" uid="uid://bpir0oihg5kin" path="res://Assets/Survivor/handgun/idle/survivor-idle_handgun_0.png" id="2_44gyy"]
@@ -29,6 +29,7 @@
 [ext_resource type="Script" path="res://Scripts/medkit_display.gd" id="9_ahhr6"]
 [ext_resource type="Texture2D" uid="uid://0qxbw3ufjqqd" path="res://Assets/Survivor/handgun/idle/survivor-idle_handgun_7.png" id="9_sc1sb"]
 [ext_resource type="Texture2D" uid="uid://crqaktdk5r4xy" path="res://Assets/Survivor/rifle/idle/survivor-idle_rifle_8.png" id="10_6e627"]
+[ext_resource type="Script" path="res://Scenes/leveldisplay.gd" id="10_m06uc"]
 [ext_resource type="Texture2D" uid="uid://cllyhx5fakmfp" path="res://Assets/Survivor/handgun/idle/survivor-idle_handgun_8.png" id="10_sk084"]
 [ext_resource type="Texture2D" uid="uid://dmyi6px6b4524" path="res://Assets/Survivor/rifle/move/survivor-move_rifle_14.png" id="10_wjuoj"]
 [ext_resource type="Texture2D" uid="uid://dc6do0dbyajtp" path="res://Assets/Survivor/rifle/idle/survivor-idle_rifle_9.png" id="11_c3mae"]
@@ -192,6 +193,11 @@
 [ext_resource type="Script" path="res://Scripts/flashlight.gd" id="185_7ie11"]
 [ext_resource type="Script" path="res://Scripts/white_bg.gd" id="185_w6kj6"]
 [ext_resource type="PackedScene" uid="uid://ble6rdysrai2" path="res://Scenes/PistolMuzzleFlash.tscn" id="192_e1ixc"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_weotu"]
+font_color = Color(0, 0, 0, 1)
+outline_size = 2
+outline_color = Color(1, 0, 0, 1)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_w1j3v"]
 animations = [{
@@ -1086,6 +1092,36 @@ offset_bottom = 71.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "x"
 
+[node name="WhiteBg2" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -110.0
+offset_right = 231.0
+offset_bottom = 127.0
+grow_horizontal = 0
+scale = Vector2(0.387964, 0.461902)
+size_flags_horizontal = 8
+size_flags_vertical = 0
+texture = ExtResource("3_2sk8v")
+expand_mode = 1
+script = ExtResource("185_w6kj6")
+metadata/_edit_group_ = true
+
+[node name="leveldisplay" type="Label" parent="CanvasLayer/WhiteBg2"]
+layout_mode = 0
+offset_left = 85.0594
+offset_top = 25.9795
+offset_right = 144.059
+offset_bottom = 48.9795
+scale = Vector2(2.95985, 3.15966)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Level 1"
+label_settings = SubResource("LabelSettings_weotu")
+horizontal_alignment = 1
+uppercase = true
+script = ExtResource("10_m06uc")
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_w1j3v")
 animation = &"pistol_idle"
@@ -1142,7 +1178,7 @@ scale = Vector2(0.4, 0.4)
 [node name="light" type="PointLight2D" parent="."]
 z_index = 1
 z_as_relative = false
-position = Vector2(-27.5001, 22.4999)
+position = Vector2(-25.0001, 22.4999)
 energy = 1.5
 shadow_enabled = true
 shadow_filter = 1
