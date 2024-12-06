@@ -13,6 +13,7 @@ var reloading: bool = false  # Whether the player is reloading
 var current_weapon: String = "rifle"  # Current weapon equipped
 var player_speed  # Current speed of the players
 
+var stamina = 50000
 var stamina_state
 var displace = 0
 
@@ -23,6 +24,7 @@ const MOUSE_SENSITIVITY = -0.005  # Sensitivity of mouse for aiming
 
 # Player movement speed settings
 const WALK_SPEED: float = 250
+const RUN_SPEED: float = 1000
 const SLOW_WALK_SPEED: float = 125
 
 # Maximum ammo capacities for each weapon
@@ -145,6 +147,7 @@ func die():
 	is_alive = false
 	get_parent().get_parent().pop = level
 	get_parent().get_node("Zombies").queue_free()
+	#queue_free()
 	get_parent().queue_free()
 	get_parent().get_parent().death.emit()
 	
