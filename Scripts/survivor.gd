@@ -13,6 +13,7 @@ var player_speed  # Current speed of the players
 
 var stamina = 50
 var stamina_state
+var displace = 0
 
 # Constants for gameplay mechanics
 const RIFLE_FIRE_RATE: float = 5.0  # Rate of fire for the rifle
@@ -429,9 +430,26 @@ func update_reloading():
 func update_player_direction():
 	# Get the mouse position relative to the player
 	mouse_position = get_local_mouse_position()
+	var mouse_position_global = get_global_mouse_position()
 	
 	# Update the player's rotation angle based on mouse movement
 	if InputEventMouseMotion:
+		#print(mouse_position)
+		#print(" ")
+		#print(mouse_position_global)
+		#print(" ")
+		#print(DisplayServer.mouse_get_position())
+		#print("")
+		#print("")
+		#print("")
+		#print("////////////////////////////")
+		print(DisplayServer.mouse_get_position())
+		if mouse_position.y >= 2397 or mouse_position.y <= -2397:
+			if mouse_position.y >= 0:
+				Input.warp_mouse(Vector2(get_viewport().size.x/2 - 50,DisplayServer.mouse_get_position().y))
+			else:
+				Input.warp_mouse(Vector2(get_viewport().size.x/2 + 50,DisplayServer.mouse_get_position().y))
+		
 		var angle = (previous_position.y - mouse_position.y) * MOUSE_SENSITIVITY
 		self.rotation = angle
 
