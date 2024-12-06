@@ -802,7 +802,7 @@ position = Vector2(1916, -4813)
 scale = Vector2(16.6872, 15.3473)
 
 [node name="Survivor" parent="." instance=ExtResource("7_yqms5")]
-position = Vector2(-2275, -6607)
+position = Vector2(1.99951, -7.00049)
 
 [node name="exit2" type="Area2D" parent="."]
 position = Vector2(-2529, -6624)
