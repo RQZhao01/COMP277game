@@ -14,7 +14,7 @@ func _process(delta: float) -> void:
 func _on_area_entered(area: Area2D) -> void:
 	
 	if area.name == "hitbox" :
-		area.get_parent().get_node("light").texture_scale = 3
+		area.get_parent().get_node("light").texture_scale = 4
 		self.get_parent().get_parent().get_node("CanvasModulate").color = Color(0, 0, 0, 1)
 		self.get_node("CollisionShape2D").get_node("PointLight2D").visible = false
 		
