@@ -512,7 +512,7 @@ func _ready() -> void:
 	# Initialize variables and set default values
 	previous_position = Vector2(0, -1)
 	$AnimatedSprite2D.play("rifle_idle")  # Set the initial animation to rifle idle
-	#Input.mouse_mode = Input.MOUSE_MODE_CONFINED_HIDDEN  # Hide the mouse cursor
+	Input.mouse_mode = Input.MOUSE_MODE_CONFINED_HIDDEN  # Hide the mouse cursor
 	$MuzzleFlash/AnimatedSprite2D.visible = false  # Hide the muzzle flash initially
 	$PistolMuzzleFlash/AnimatedSprite2D.visible = false  # Hide the muzzle flash initially
 	current_weapon = "rifle"  # Default to rifle as the starting weapon
