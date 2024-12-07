@@ -1,10 +1,11 @@
-[gd_scene load_steps=63 format=3 uid="uid://bnhcm4tp54phh"]
+[gd_scene load_steps=64 format=3 uid="uid://bnhcm4tp54phh"]
 
 [ext_resource type="Texture2D" uid="uid://bo4j2fdjupc6b" path="res://Assets/Tilemap/space-blks-1.034.png" id="1_yk50f"]
 [ext_resource type="PackedScene" uid="uid://45tdwpffm1ms" path="res://Scenes/zombie.tscn" id="3_ggtey"]
 [ext_resource type="PackedScene" uid="uid://c7ygnibm5wyfu" path="res://Scenes/survivor.tscn" id="3_i3wyj"]
 [ext_resource type="PackedScene" uid="uid://bp46p2m5mdxki" path="res://Scenes/AmmoPickup.tscn" id="4_j15p6"]
 [ext_resource type="PackedScene" uid="uid://ctyparo8gfa03" path="res://Scenes/Pickup.tscn" id="5_xa3e6"]
+[ext_resource type="PackedScene" uid="uid://baf1jf3e2ajmk" path="res://Scenes/darkroom_working.tscn" id="6_c33b5"]
 [ext_resource type="Script" path="res://Scripts/exit_3.gd" id="6_ohfmy"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_5vlcd"]
@@ -987,6 +988,10 @@ position = Vector2(-1532, -10320)
 position = Vector2(-1482, -10320)
 
 [node name="DarkRooms" type="Node2D" parent="."]
+
+[node name="darkroom" parent="DarkRooms" instance=ExtResource("6_c33b5")]
+position = Vector2(-1691, -4634)
+scale = Vector2(120, 200)
 
 [node name="Exit3" type="Area2D" parent="."]
 script = ExtResource("6_ohfmy")
